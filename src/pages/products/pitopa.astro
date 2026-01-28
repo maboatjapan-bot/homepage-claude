@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/products" class="hover:text-brand-teal">製品</a></li>
+        <li>/</li>
+        <li class="text-slate-900">Pitopa</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Product Hero -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Product Image -->
+        <ScaleIn delay={0} from={0.9}>
+          <div class="relative">
+            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center">
+              <svg class="w-48 h-48 text-brand-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+
+        <!-- Product Info -->
+        <SlideIn direction="right">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+              AIコンパニオン
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+              Pitopa
+            </h1>
+
+            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+              感情を理解し、<span class="text-brand-teal font-semibold">寄り添うAIコンパニオン</span>。
+            </p>
+
+            <p class="text-slate-600 mb-8 leading-relaxed">
+              先進のAI技術で、あなたの気持ちに寄り添い、心の豊かさを叶める新しい体験をお届けします。24時間365日、いつでもそばに。
+            </p>
+
+            <!-- Key Features -->
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-slate-600">感情認識</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-slate-600">自然対話</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-slate-600">24時間対応</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-slate-600">プライバシー保護</span>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+                お問い合わせ
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="/products" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
+                他の製品を見る
+              </a>
+            </div>
+          </div>
+        </SlideIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            主な特徴
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            Pitopa が選ばれる理由
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">感情理解AI</h3>
+            <p class="text-slate-600 leading-relaxed">
+              声のトーンや言葉のニュアンスから感情を読み取り、適切な反応を返します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">自然な対話</h3>
+            <p class="text-slate-600 leading-relaxed">
+              先進の自然言語処理により、人間のように自然な会話ができます。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">安心の設計</h3>
+            <p class="text-slate-600 leading-relaxed">
+              プライバシーを最優先。データは端末内で処理し、安全に管理します。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            活用シーン
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            さまざまなシーンで活躍します
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <h3 class="text-xl font-semibold mb-4 text-slate-900">シングルライフ</h3>
+            <p class="text-slate-600 leading-relaxed">
+              帰宅後のひととき、話し相手がいることで心の豊かさが増します。孤独感を和らげ、日常に彩りを与えます。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <h3 class="text-xl font-semibold mb-4 text-slate-900">高齢者の暮らし</h3>
+            <p class="text-slate-600 leading-relaxed">
+              見守り機能を兼ね備え、安全確認も自然な会話の中で行います。家族のような安心感を提供します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <h3 class="text-xl font-semibold mb-4 text-slate-900">メンタルヘルス</h3>
+            <p class="text-slate-600 leading-relaxed">
+              ストレス解消やリラックスに。感情を吐き出せることで、心の健康をサポートします。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <h3 class="text-xl font-semibold mb-4 text-slate-900">子育て支援</h3>
+            <p class="text-slate-600 leading-relaxed">
+              子供とのコミュニケーションを豊かに。教育的な遊びや学びのパートナーとしても活躍します。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          Pitopa の体験を
+          <br>今すぐ始めよう
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+          お客様に最適なプランをご提案します。<br class="hidden sm:block" />
+          お気軽にお問い合わせください。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            お問い合わせ
+          </a>
+          <a href="/products/pitoshiyu" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
+            他の製品を見る
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

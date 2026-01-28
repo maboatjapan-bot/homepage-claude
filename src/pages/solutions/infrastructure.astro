@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/solutions" class="hover:text-brand-teal">エンタープライズ</a></li>
+        <li>/</li>
+        <li class="text-slate-900">インフラ構築・運用</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <SlideIn direction="left">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              Infrastructure
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+              インフラ構築・運用
+            </h1>
+
+            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+              安定したインフラ環境の構築から、<br class="hidden sm:block" />
+              <span class="text-brand-teal font-semibold">24時間365日の監視・運用</span>まで。
+            </p>
+
+            <p class="text-slate-600 mb-8 leading-relaxed">
+              AWS、GCP、Azure などのクラウドプラットフォームに対応。オンプレミス環境とのハイブリッド構築も可能です。セキュリティ、可用性、スケーラビリティを考慮したインフラ設計を行います。
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+                お問い合わせ
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="/solutions" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
+                他のサービスを見る
+              </a>
+            </div>
+          </div>
+        </SlideIn>
+
+        <ScaleIn delay={0} from={0.9}>
+          <div class="relative">
+            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center">
+              <svg class="w-48 h-48 text-brand-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            サービス内容
+          </h2>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1 0H7a5 5 0 00-.1 0H3a4 4 0 00-4 4zm14 7v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2h10a2 2 0 002-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">クラウド構築</h3>
+            <p class="text-slate-600 leading-relaxed">
+              AWS、GCP、Azure など、主要クラウドプラットフォームに対応。お客様の要件に合わせた最適な環境を提案します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">24時間監視</h3>
+            <p class="text-slate-600 leading-relaxed">
+              監視ツールを導入し、システム異常を即時検知。障害発生時にも迅速な対応が可能です。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">バックアップ・復旧</h3>
+            <p class="text-slate-600 leading-relaxed">
+              定期的なバックアップと、迅速な復旧手順の確立。データ保護と事業継続を実現します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">セキュリティ対策</h3>
+            <p class="text-slate-600 leading-relaxed">
+              ファイアウォール、WAF、アクセス制御など、多層的なセキュリティ対策を施します。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cloud Platforms -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            対応プラットフォーム
+          </h2>
+        </div>
+      </FadeIn>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200 hover:shadow-lg transition-shadow">
+            <p class="text-2xl font-bold text-orange-500 mb-2">AWS</p>
+            <p class="text-sm text-slate-600">Amazon Web Services</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200 hover:shadow-lg transition-shadow">
+            <p class="text-2xl font-bold text-blue-500 mb-2">GCP</p>
+            <p class="text-sm text-slate-600">Google Cloud Platform</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200 hover:shadow-lg transition-shadow">
+            <p class="text-2xl font-bold text-sky-500 mb-2">Azure</p>
+            <p class="text-sm text-slate-600">Microsoft Azure</p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          インフラ構築・運用について
+          <br>ご相談ください
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            お問い合わせ
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

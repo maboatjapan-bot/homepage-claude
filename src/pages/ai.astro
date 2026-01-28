@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FadeIn from '../components/FadeIn.astro';
+import ScaleIn from '../components/ScaleIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- AI Hero -->
+  <section class="pt-32 pb-24 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <FadeIn>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full mb-8">
+              <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+              <span class="text-sm font-medium">Core Technology</span>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+              AI ソリューション
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={200}>
+            <p class="text-xl text-white/80 mb-8 leading-relaxed">
+              当社の主力サービス。最先端の AI 技術で、お客様のビジネス課題を解決します。<br class="hidden sm:block" />
+              業務自動化からデータ分析まで、幅広い領域で AI を活用したソリューションを提供します。
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={300}>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 text-base font-semibold rounded-full transition-all shadow-xl">
+                無料相談を予約
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="#services" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-base font-medium rounded-full transition-all border border-white/20">
+                サービスを見る
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+
+        <ScaleIn delay={200} from={0.8}>
+          <div class="relative">
+            <div class="w-80 h-80 mx-auto bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 flex items-center justify-center">
+              <svg class="w-40 h-40 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is AI -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            AI とは
+          </h2>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Artificial Intelligence（人工知能）は、大量のデータから学習し、<br class="hidden sm:block" />
+            人間のように思考し、判断する技術です。
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">機械学習</h3>
+            <p class="text-slate-600 leading-relaxed">
+              データからパターンを学習し、予測や分類を行う技術
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">自然言語処理</h3>
+            <p class="text-slate-600 leading-relaxed">
+              テキストや音声を理解し、人間のように対話する技術
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">画像認識</h3>
+            <p class="text-slate-600 leading-relaxed">
+              画像や動画を解析し、物体や顔を識別する技術
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Services -->
+  <section id="services" class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            AI サービス
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            お客様の課題に合わせた最適な AI ソリューションを提供します
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold text-slate-900">AI コンサルティング</h3>
+            </div>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              AI 導入の検討から戦略立案まで、お客様のビジネス目標に合わせた最適なソリューションを提案します。
+            </p>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                ビジネス課題のヒアリング
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                AI 活用可能性の評価
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                導入ロードマップの作成
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.95}>
+          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold text-slate-900">AI システム開発</h3>
+            </div>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              業務プロセスの自動化、データ分析、予測モデルなど、お客様のニーズに合わせた AI システムを開発します。
+            </p>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                機械学習モデルの開発
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                チャットボットの構築
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                データ分析ダッシュボード
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.95}>
+          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold text-slate-900">データ活用支援</h3>
+            </div>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              お客様が保有するデータの分析から、ビジネスインサイトの発見、データドリブンな意思決定を支援します。
+            </p>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                データ分析・可視化
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                予測モデルの構築
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                データ基盤の構築
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={450} from={0.95}>
+          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold text-slate-900">AI 教育トレーニング</h3>
+            </div>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+              AI の基礎から実践まで、お客様のチームに合わせた教育プログラムを提供します。
+            </p>
+            <ul class="space-y-3 text-slate-600">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                AI 基礎研修
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                ツール活用トレーニング
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                社内 PoC サポート
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          AI でビジネスを変革しませんか？
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+          お客様の課題を一緒に解決しましょう。<br class="hidden sm:block" />
+          無料相談を実施しています。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            無料相談を予約
+          </a>
+          <a href="/solutions" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
+            他のサービスを見る
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

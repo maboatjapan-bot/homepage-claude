@@ -1,0 +1,62 @@
+---
+// OptimizedImage.astro - 响应式优化图片组件
+// 使用 Astro 的 Image 组件进行自动优化
+
+import { Image } from 'astro:assets';
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  priority?: boolean;
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const {
+  src,
+  alt,
+  width = 800,
+  height = 600,
+  class: className = '',
+  priority = false,
+  sizes = '(max-width: 768px) 100vw, 50vw',
+  loading = 'lazy',
+} = Astro.props;
+
+// Try to import the image if it exists
+let image: any = null;
+try {
+  // Try to resolve the image from public or assets
+  const imagePath = `../../assets/images/${src}`;
+  // Using dynamic import for images
+  image = (await import(imagePath)).default;
+} catch (e) {
+  // If image doesn't exist, we'll fall back to regular img tag
+}
+---
+
+{image ? (
+  <Image
+    src={image}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={priority ? 'eager' : loading}
+    sizes={sizes}
+    format="webp"
+    quality={85}
+  />
+) : (
+  <img
+    src={`/${src}`}
+    alt={alt}
+    width={width}
+    height={height}
+    class={className}
+    loading={loading}
+  />
+)}

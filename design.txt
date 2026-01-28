@@ -1,0 +1,139 @@
+项目设计文档：Swiftechie 官网 2026 重构计划
+1. 角色与目标
+角色：你是一位精通 Astro、Tailwind CSS 和现代前端架构的高级全栈工程师。 目标：基于提供的旧网站文件（位于 legacy_data/ 目录中），将 Swiftechie 公司官网重构为一个高性能、结构清晰、设计现代的静态网站。 当前痛点：旧网站是 WordPress 实现的，代码臃肿、结构混乱、B端与C端业务混杂、性能低下。 核心任务：清洗旧数据，提取核心文案与图片资产，使用新技术栈重新实现。
+
+2. 技术栈规范 (Tech Stack 2026)
+请严格遵守以下技术选型，不得使用 jQuery 或旧式 CSS：
+
+核心框架：Astro 5.0+ (以静态生成 SSG 为主，追求极致性能)。
+
+样式库：Tailwind CSS v4 (使用 Utility-first 编写样式，不写传统 CSS 文件)。
+
+UI 组件：对于静态展示使用 Astro 组件；对于复杂交互（如筛选、动态表单）使用 React 或 SolidJS。
+
+内容管理：使用 Astro Content Collections (Markdown/MDX) 管理产品、新闻和案例数据，替代数据库。
+
+动画：Framer Motion (React) 或原生 CSS View Transitions。
+
+图片：自动转换为 WebP/AVIF，使用 Astro <Image /> 组件优化。
+
+3. 网站架构重组 (Information Architecture)
+旧网站结构混乱，请按照以下新架构重新组织页面和路由：
+
+3.1 首页 (Root)
+路径：/
+
+功能：作为流量分发入口，不堆砌细节。
+
+包含板块：
+
+Hero Section：公司愿景“技术连接未来”。
+
+三大入口卡片：To C 产品、To B 解决方案、AI 创新。
+
+最新动态（News）。
+
+3.2 消费者产品 (To C - Lifestyle)
+风格：现代电商风，高视觉冲击力，亮色调。
+
+数据源映射（参考 legacy_data）：
+
+Popohu 系列：对应旧文件 popohu_mini, popohu_minilite5。
+
+Pitopa：对应旧文件 product_pitopa。
+
+Nubia 3D Pad：对应旧文件 nubia-3d-pad。
+
+3.3 企业解决方案 (To B - Enterprise)
+风格：稳重科技风，强调信任感，深色调或企业蓝。
+
+数据源映射：
+
+系统开发：对应 system_development。
+
+系统集成：对应 system_integration。
+
+基础设施/运维：对应 infrastructure, system_operation。
+
+RPA 业务：对应 rpa。
+
+3.4 AI 创新实验室 (Core Tech)
+路径：/ai
+
+内容：对应旧文件 ai 目录。展示公司核心 AI 能力，作为连接 B/C 端的底层技术展示。
+
+3.5 公司信息
+页面：关于我们 (company), 招聘 (recruit), 联系 (contact), 隐私政策 (privacy_policy)。
+
+4. 数据清洗与迁移策略 (Migration Strategy)
+请按照以下逻辑处理 legacy_data/ 中的文件：
+
+忽略样式：完全忽略旧 HTML 中的 wp-block-library、elementor 等 CSS 类名和内联样式。
+
+提取内容：仅提取 <p>, <h1>-<h6>, <ul>, <img> 等语义化内容。
+
+资产处理：
+
+旧图片路径通常在 wp-content/uploads/...。
+
+请编写脚本或手动指引，将用到的图片移动到 Astro 的 public/assets/images/ 目录，并重命名为语义化名称（如 popohu-hero.jpg）。
+
+结构化数据：
+
+将产品详情（价格、规格、特性）提取为 Frontmatter (YAML) 数据，存放在 src/content/products/。
+
+5. UI/UX 设计系统 (Design System)
+根据旧网站留存的资产（如 wp-content/themes/.../fonts/inter），定义以下设计规范：
+
+字体：使用 Inter (无衬线) 作为主字体，Cardo (衬线) 用于引用或强调。
+
+色彩体系：
+
+Primary: Swiftechie 品牌蓝（从 Logo 提取）。
+
+Dark: Slate-900 (用于 B 端背景)。
+
+Light: Slate-50 (用于 C 端背景)。
+
+Accent: Amber-500 (用于 CTA 按钮)。
+
+组件规范：
+
+Navbar：响应式，移动端为汉堡菜单。根据当前处于 B端 或 C端 页面，Header 样式可能有微调。
+
+Footer：包含 Sitemap 链接、版权信息、社交媒体图标。
+
+Section：统一的 py-16 px-4 max-w-7xl mx-auto 容器。
+
+6. 执行步骤 (Step-by-Step Instructions)
+请作为开发助手，按照以下步骤逐步输出代码或指导我操作：
+
+阶段一：项目初始化
+给出 npm create astro@latest 的配置建议。
+
+提供 tailwind.config.mjs 的配置文件，预设好字体和颜色变量。
+
+创建基础 Layout (BaseLayout.astro)，包含 SEO Meta 标签（由 astro-seo 处理）。
+
+阶段二：组件开发
+设计并编码通用的 Header.astro 和 Footer.astro。
+
+创建一个通用的 HeroSection.astro 组件，支持传入标题、副标题、背景图。
+
+创建一个 ProductCard.astro 组件，用于列表页展示。
+
+阶段三：页面迁移 (核心工作)
+请每次专注于一个板块，例如先做“Popohu 产品页”：
+
+分析 legacy_data/popohu_mini/index.html。
+
+提取文本和关键图片路径。
+
+生成一个新的 src/content/products/popohu-mini.md 文件。
+
+编写 src/pages/products/[slug].astro 动态路由模板来渲染它。
+
+阶段四：功能增强
+实现“联系我们”表单（建议对接 API 路由或第三方服务如 Web3Forms）。
+
+添加全局搜索功能（使用 Pagefind）。

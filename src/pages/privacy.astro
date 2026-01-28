@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FadeIn from '../components/FadeIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li class="text-slate-900">プライバシーポリシー</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-8 text-center">
+          Privacy Policy
+        </h1>
+        <p class="text-xl text-brand-teal font-semibold text-center mb-4">
+          プライバシーポリシー（個人情報保護方針）
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-slate-700 leading-relaxed mb-8">
+            シーテック株式会社（以下、「当社」といいます。）は、ユーザーの個人情報について以下のとおり<br class="hidden sm:block" />
+            プライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。<br class="hidden sm:block" />
+            本ポリシーは、当社がどのような個人情報を取得し、どのように利用・共有するか、ユーザーが<br class="hidden sm:block" />
+            どのようにご自身の個人情報を管理できるかをご説明するものです。
+          </p>
+
+          <div class="space-y-8">
+            <!-- Section 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【1.個人情報】</h2>
+              <p class="text-slate-700 leading-relaxed">
+                「個人情報」とは、個人情報保護法にいう「個人情報」を指すものとし、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日、住所、電話番号、連絡先その他の記述等により特定の個人を識別できる情報及び容貌、指紋、声紋にかかるデータ、及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【２．個人情報の取得方法】</h2>
+              <p class="text-slate-700 leading-relaxed">
+                当社はユーザーが利用登録をするとき、氏名・生年月日・住所・電話番号・メールアドレスなど個人を特定できる情報を取得させていただきます。お問い合わせフォーム送信時には、氏名・電話番号・メールアドレスを取得させていただきます。サポートセンターに問い合わせの際には、お問い合わせの内容によって、氏名・電話番号・メールアドレスを取得させていただく場合があります。
+              </p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【3．個人情報の収集・利用目的】</h2>
+              <p class="text-slate-700 leading-relaxed mb-4">
+                当社が個人情報を収集・利用する目的は、以下のとおりです。
+              </p>
+              <ol class="list-decimal list-inside space-y-2 text-slate-700">
+                <li>当社サービスの提供・運営のため</li>
+                <li>ユーザーからのお問い合わせへの受付と回答および管理のため（本人確認を行うことを含む）</li>
+                <li>ユーザーが利用中のサービスの新機能、更新情報、キャンペーン等及び当社が提供する他のサービスの案内のメールを送付するため</li>
+                <li>メンテナンス，重要なお知らせなど必要に応じたご連絡のため</li>
+                <li>利用規約に違反したユーザーや、不正・不当な目的でサービスを利用しようとするユーザーの特定をし、ご利用をお断りするため</li>
+                <li>ユーザーにご自身の登録情報の閲覧や変更、削除、ご利用状況の閲覧を行っていただくため</li>
+                <li>有料サービスにおいて、ユーザーに利用料金を請求するため</li>
+                <li>上記の利用目的に付随する目的（代替え品の送付、コールセンター業務遂行上の管理と連絡）</li>
+              </ol>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【4．個人情報の第三者提供】</h2>
+              <p class="text-slate-700 leading-relaxed">
+                当社は法令及びガイドラインに別段の定めがある場合を除き、同意を得ないで第三者に個人情報を提供することは致しません。
+              </p>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【5．個人情報の開示】</h2>
+              <p class="text-slate-700 leading-relaxed mb-4">
+                当社は、本人から個人情報の開示を求められときは、遅滞なく本人にこれを開示します。ただし、開示することにより次のいずれかに該当する場合は、その全部または一部を開示しないこともあり、開示しない決定をした場合には、その旨を遅滞なく通知します。
+              </p>
+              <ol class="list-decimal list-inside space-y-2 text-slate-700">
+                <li>本人または第三者の生命，身体，財産その他の権利利益を害するおそれがある場合</li>
+                <li>当社の業務の適正な実施に著しい支障を及ぼすおそれがある場合</li>
+                <li>その他法令に違反することとなる場合</li>
+              </ol>
+              <p class="text-slate-700 leading-relaxed mt-4 text-sm">
+                ※前項の定めにかかわらず、履歴情報および特性情報などの個人情報以外の情報については，原則として開示いたしません。
+              </p>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【6．個人情報の訂正および削除】</h2>
+              <p class="text-slate-700 leading-relaxed">
+                ユーザーは、当社の保有する自己の個人情報が誤った情報である場合には、当社が定める手続きにより、当社に対して個人情報の訂正、追加または削除（以下、「訂正等」といいます。）を請求することができ、当社が必要があると判断した場合には、遅滞なく当該個人情報の訂正等を行うものとします。規定に基づき訂正等を行った場合、または訂正等を行わない旨の決定をしたときは遅滞なく、これをユーザーに通知します。
+              </p>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【7．プライバシーポリシーの変更】</h2>
+              <p class="text-slate-700 leading-relaxed">
+                本ポリシーの内容は、法令その他本ポリシーに別段の定めのある事項を除いて、ユーザーに通知することなく、変更することができるものとします。また、当社が別途定める場合を除いて、変更後のプライバシーポリシーは、本ウェブサイトに掲載したときから効力を生じるものとします。
+              </p>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-slate-900 mb-4">【8．事業者情報】</h2>
+              <dl class="space-y-2 text-slate-700">
+                <div class="flex">
+                  <dt class="font-semibold min-w-[120px]">法人名：</dt>
+                  <dd>シーテック株式会社</dd>
+                </div>
+                <div class="flex">
+                  <dt class="font-semibold min-w-[120px]">住所：</dt>
+                  <dd>〒104-0033東京都中央区新川1-14-5金盃第3ビル7F</dd>
+                </div>
+                <div class="flex">
+                  <dt class="font-semibold min-w-[120px]">代表者：</dt>
+                  <dd>松江　芳夫</dd>
+                </div>
+                <div class="flex">
+                  <dt class="font-semibold min-w-[120px]">個人情報に関するお問い合わせ：</dt>
+                  <dd>03-6222-8452（代表）</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <FadeIn>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
+          ご不明な点がございましたら、
+          <br class="hidden sm:block" />
+          お気軽にお問い合わせください
+        </h2>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+          お問い合わせ
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

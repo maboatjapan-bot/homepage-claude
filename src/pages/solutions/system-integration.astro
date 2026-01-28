@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/solutions" class="hover:text-brand-teal">エンタープライズ</a></li>
+        <li>/</li>
+        <li class="text-slate-900">システム集成</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <SlideIn direction="left">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1v3a1 1 0 11-2 0V6a1 1 0 00-1-1V4z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+              </svg>
+              System Integration
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+              システム集成
+            </h1>
+
+            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+              既存システムとの連携から、<br class="hidden sm:block" />
+              <span class="text-brand-teal font-semibold">全体最適化</span>まで統合的なソリューションを提供します。
+            </p>
+
+            <p class="text-slate-600 mb-8 leading-relaxed">
+              複数のシステムやデータを連携させ、業務プロセス全体を最適化します。API連携、データ連携、システム間統合など、お客様のDX推進を強力にサポートします。
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+                お問い合わせ
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="/solutions" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
+                他のサービスを見る
+              </a>
+            </div>
+          </div>
+        </SlideIn>
+
+        <ScaleIn delay={0} from={0.9}>
+          <div class="relative">
+            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center">
+              <svg class="w-48 h-48 text-brand-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1v3a1 1 0 11-2 0V6a1 1 0 00-1-1V4z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            集成サービス
+          </h2>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3 5-5 5 5 5-5-5 5 5v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">API連携</h3>
+            <p class="text-slate-600 leading-relaxed">
+              外部サービスとのAPI連携により、システム間のデータ連携を実現します。REST API、GraphQLなど、最新技術に対応します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">データ統合</h3>
+            <p class="text-slate-600 leading-relaxed">
+              複数のデータソースを統合し、一元管理されたデータ基盤を構築します。データ分析やBIツールとの連携も可能です。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l4 4m-4-11v6a2 2 0 11-4 0v-6a2 2 0 012-2h4a2 2 0 012 2v6z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">既存システム統合</h3>
+            <p class="text-slate-600 leading-relaxed">
+              レガシーシステムを残しつつ、クラウドネイティブとの統合を実現します。段階的なマイグレーションもサポートします。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">業務プロセス最適化</h3>
+            <p class="text-slate-600 leading-relaxed">
+              システム間の連携により、手作業や重複作業を削減し、業務プロセス全体を最適化します。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          システム集成について
+          <br>ご相談ください
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            お問い合わせ
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

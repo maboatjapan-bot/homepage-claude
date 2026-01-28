@@ -1,0 +1,68 @@
+---
+/**
+ * ScaleIn Component - 缩放淡入动画组件
+ * 用于卡片、图标等需要缩放效果的元素
+ *
+ * @param delay - 延迟时间（毫秒）
+ * @param duration - 动画持续时间（毫秒）
+ * @param from - 起始缩放值，默认 0.9
+ */
+interface Props {
+  delay?: number;
+  duration?: number;
+  from?: number;
+}
+
+const { delay = 0, duration = 600, from = 0.9 } = Astro.props;
+---
+
+<div
+  class="scale-in"
+  style={`--scale-from: ${from}; animation-delay: ${delay}ms; animation-duration: ${duration}ms;`}
+>
+  <slot />
+</div>
+
+<style>
+  .scale-in {
+    opacity: 0;
+    transform: scale(var(--scale-from, 0.9));
+    transition: opacity var(--scale-duration, 0.6s) ease, transform var(--scale-duration, 0.6s) cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: opacity, transform;
+  }
+
+  .scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* 移动端优化 */
+  @media (max-width: 768px) {
+    .scale-in {
+      transition-duration: 0.4s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scale-in {
+      transition: none;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const duration = entry.target.style.getPropertyValue('animation-duration') || '0.6s';
+        entry.target.style.setProperty('--scale-duration', duration);
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.scale-in').forEach(el => observer.observe(el));
+</script>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import { getCollection } from 'astro:content';
+
+// Get all news articles sorted by date (newest first)
+const allNews = await getCollection('news');
+const sortedNews = allNews.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout title="ニュース | Swiftechie">
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-6">
+        <FadeIn>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            ニュース
+          </h1>
+          <p class="text-lg text-slate-600">
+            Swiftechieの最新情報をお届けします
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+
+    <!-- News List -->
+    <section class="py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-6">
+        {sortedNews.length > 0 ? (
+          <div class="space-y-8">
+            {sortedNews.map((article, index) => (
+              <FadeIn delay={index * 100}>
+                <article class="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 overflow-hidden">
+                  <a href={`/news/${article.slug}`} class="block">
+                    <div class="p-6 md:p-8">
+                      <div class="flex items-center gap-3 text-sm text-slate-500 mb-3">
+                        <time datetime={article.data.date}>
+                          {new Date(article.data.date).toLocaleDateString('ja-JP', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })}
+                        </time>
+                      </div>
+                      <h2 class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-brand-teal transition-colors mb-3">
+                        {article.data.title}
+                      </h2>
+                      {article.data.description && (
+                        <p class="text-slate-600 line-clamp-2">
+                          {article.data.description}
+                        </p>
+                      )}
+                      <div class="mt-4 flex items-center text-brand-teal font-medium">
+                        続きを読む
+                        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-16">
+            <p class="text-slate-500 text-lg">
+              現在、ニュースはありません。
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

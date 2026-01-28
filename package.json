@@ -1,0 +1,29 @@
+{
+  "name": "homepage-claude",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "build:search": "astro build && npx pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [
+    "swiftechie",
+    "astro",
+    "company-website"
+  ],
+  "author": "Swiftechie Co., Ltd.",
+  "license": "MIT",
+  "description": "Swiftechie Corporate Website - 技術で未来をつなぐ",
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.16.15",
+    "tailwindcss": "^3.4.19"
+  },
+  "devDependencies": {
+    "pagefind": "^1.4.0"
+  }
+}

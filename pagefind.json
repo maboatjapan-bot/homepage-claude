@@ -1,0 +1,17 @@
+{
+  "rootSelector": "main",
+  "excludeSelectors": [
+    "[data-pagefind-ignore]",
+    ".search-modal",
+    "#search-modal",
+    "script",
+    "style",
+    "nav",
+    "footer"
+  ],
+  "ranking": {
+    "pageLength": 10
+  },
+  "mergeIndex": true,
+  "verbose": true
+}

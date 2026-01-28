@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg3)"/>
+
+  <!-- Creative tools - Pencil and Brush -->
+  <g transform="translate(300, 150)">
+    <!-- Pencil -->
+    <rect x="50" y="50" width="30" height="200" rx="5" fill="white" stroke="url(#accent3)" stroke-width="3" transform="rotate(-15 65 150)"/>
+    <polygon points="40,235 90,235 65,270" fill="#00BFA5" transform="rotate(-15 65 150)"/>
+
+    <!-- Paint brush -->
+    <rect x="150" y="50" width="30" height="180" rx="5" fill="white" stroke="url(#accent3)" stroke-width="3" transform="rotate(15 165 140)"/>
+    <ellipse cx="165" cy="240" rx="20" ry="30" fill="#3b82f6" transform="rotate(15 165 240)"/>
+
+    <!-- Sparkles -->
+    <circle cx="100" cy="100" r="8" fill="#00BFA5" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="80" r="6" fill="#3b82f6" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="150" r="10" fill="#00BFA5" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <text x="400" y="420" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold" fill="#1e293b">Pitoshiyu</text>
+  <text x="400" y="455" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#64748b">创意支持工具</text>
+</svg>

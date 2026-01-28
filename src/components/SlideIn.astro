@@ -1,0 +1,73 @@
+---
+/**
+ * SlideIn Component - 滑入动画组件
+ * 用于水平方向的滑入效果（适合左右分栏布局）
+ *
+ * @param direction - 'left' | 'right'，默认 'left'
+ * @param delay - 延迟时间（毫秒）
+ * @param duration - 动画持续时间（毫秒）
+ */
+interface Props {
+  direction?: 'left' | 'right';
+  delay?: number;
+  duration?: number;
+}
+
+const { direction = 'left', delay = 0, duration = 800 } = Astro.props;
+
+const translateX = direction === 'left' ? '-50px' : '50px';
+---
+
+<div
+  class={`slide-in slide-in-${direction}`}
+  style={`--slide-x: ${translateX}; animation-delay: ${delay}ms; animation-duration: ${duration}ms;`}
+>
+  <slot />
+</div>
+
+<style>
+  .slide-in {
+    opacity: 0;
+    transform: translateX(var(--slide-x, -50px));
+    transition: opacity var(--slide-duration, 0.8s) ease, transform var(--slide-duration, 0.8s) ease;
+    will-change: opacity, transform;
+  }
+
+  .slide-in.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* 移动端减少移动距离 */
+  @media (max-width: 768px) {
+    .slide-in {
+      --slide-x: -30px !important;
+    }
+    .slide-in-right {
+      --slide-x: 30px !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide-in {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const duration = entry.target.style.getPropertyValue('animation-duration') || '0.8s';
+        entry.target.style.setProperty('--slide-duration', duration);
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.slide-in').forEach(el => observer.observe(el));
+</script>

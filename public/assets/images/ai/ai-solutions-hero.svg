@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <defs>
+    <linearGradient id="ai-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="ai-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#ai-bg)"/>
+
+  <!-- Neural network visualization -->
+  <g transform="translate(200, 100)">
+    <!-- Nodes -->
+    <circle cx="100" cy="100" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+    <circle cx="100" cy="250" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+    <circle cx="100" cy="400" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+
+    <circle cx="350" cy="150" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+    <circle cx="350" cy="300" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+    <circle cx="350" cy="450" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+
+    <circle cx="600" cy="100" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+    <circle cx="600" cy="250" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+    <circle cx="600" cy="400" r="20" fill="white" stroke="url(#ai-accent)" stroke-width="3"/>
+
+    <!-- Connections -->
+    <line x1="120" y1="100" x2="330" y2="150" stroke="url(#ai-accent)" stroke-width="2" opacity="0.5"/>
+    <line x1="120" y1="250" x2="330" y2="300" stroke="url(#ai-accent)" stroke-width="2" opacity="0.5"/>
+    <line x1="120" y1="400" x2="330" y2="450" stroke="url(#ai-accent)" stroke-width="2" opacity="0.5"/>
+
+    <line x1="370" y1="150" x2="580" y2="100" stroke="url(#ai-accent)" stroke-width="2" opacity="0.5"/>
+    <line x1="370" y1="300" x2="580" y2="250" stroke="url(#ai-accent)" stroke-width="2" opacity="0.5"/>
+    <line x1="370" y1="450" x2="580" y2="400" stroke="url(#ai-accent)" stroke-width="2" opacity="0.5"/>
+
+    <!-- Animated data flow -->
+    <circle r="8" fill="#00BFA5">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M120,100 L330,150 L580,100"/>
+    </circle>
+    <circle r="8" fill="#3b82f6">
+      <animateMotion dur="3.5s" repeatCount="indefinite" path="M120,250 L330,300 L580,250"/>
+    </circle>
+    <circle r="8" fill="#00BFA5">
+      <animateMotion dur="4s" repeatCount="indefinite" path="M120,400 L330,450 L580,400"/>
+    </circle>
+  </g>
+
+  <!-- AI Label -->
+  <text x="950" y="280" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="bold" fill="#1e293b">AI</text>
+  <text x="950" y="320" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#64748b">ソリューション</text>
+
+  <!-- Feature icons -->
+  <g transform="translate(900, 400)">
+    <circle cx="0" cy="0" r="30" fill="white" stroke="url(#ai-accent)" stroke-width="2"/>
+    <text x="0" y="8" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#00BFA5">📊</text>
+  </g>
+  <g transform="translate(975, 400)">
+    <circle cx="0" cy="0" r="30" fill="white" stroke="url(#ai-accent)" stroke-width="2"/>
+    <text x="0" y="8" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#3b82f6">🤖</text>
+  </g>
+  <g transform="translate(1050, 400)">
+    <circle cx="0" cy="0" r="30" fill="white" stroke="url(#ai-accent)" stroke-width="2"/>
+    <text x="0" y="8" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#00BFA5">🎯</text>
+  </g>
+</svg>

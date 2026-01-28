@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="office-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="office-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#office-bg)"/>
+
+  <!-- Office building representation -->
+  <g transform="translate(150, 100)">
+    <!-- Main building -->
+    <rect x="100" y="50" width="300" height="300" fill="white" stroke="url(#office-accent)" stroke-width="3"/>
+
+    <!-- Windows -->
+    <g fill="#e0f2fe" stroke="url(#office-accent)" stroke-width="2">
+      <rect x="130" y="80" width="50" height="50"/>
+      <rect x="200" y="80" width="50" height="50"/>
+      <rect x="270" y="80" width="50" height="50"/>
+      <rect x="340" y="80" width="50" height="50"/>
+
+      <rect x="130" y="150" width="50" height="50"/>
+      <rect x="200" y="150" width="50" height="50"/>
+      <rect x="270" y="150" width="50" height="50"/>
+      <rect x="340" y="150" width="50" height="50"/>
+
+      <rect x="130" y="220" width="50" height="50"/>
+      <rect x="200" y="220" width="50" height="50"/>
+      <rect x="270" y="220" width="50" height="50"/>
+      <rect x="340" y="220" width="50" height="50"/>
+    </g>
+
+    <!-- Door -->
+    <rect x="220" y="290" width="60" height="60" fill="url(#office-accent)"/>
+
+    <!-- Company logo placeholder -->
+    <circle cx="250" cy="200" r="40" fill="white" stroke="url(#office-accent)" stroke-width="3"/>
+    <text x="250" y="215" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="bold" fill="#00BFA5">S</text>
+  </g>
+
+  <!-- People silhouettes -->
+  <g transform="translate(600, 350)">
+    <circle cx="0" cy="0" r="15" fill="#1e293b"/>
+    <ellipse cx="0" cy="40" rx="20" ry="25" fill="#1e293b"/>
+  </g>
+  <g transform="translate(650, 360)">
+    <circle cx="0" cy="0" r="12" fill="#64748b"/>
+    <ellipse cx="0" cy="35" rx="15" ry="20" fill="#64748b"/>
+  </g>
+
+  <!-- Label -->
+  <text x="400" y="450" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="bold" fill="#1e293b">Swiftechie Office</text>
+  <text x="400" y="480" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#64748b">技術で未来をつなぐ</text>
+</svg>

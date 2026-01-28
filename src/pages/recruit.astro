@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FadeIn from '../components/FadeIn.astro';
+import ScaleIn from '../components/ScaleIn.astro';
+import SlideIn from '../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li class="text-slate-900">採用情報</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-16 px-6 bg-gradient-to-br from-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <SlideIn direction="left">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 rounded-full text-white text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              Recruitment
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              採用情報
+            </h1>
+
+            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+              私たちは、常に新しい挑戦を求めるチームです。<br />
+              お客様に寄り添い、企業様のバージョンアップを目指して<br />
+              <span class="font-semibold">常に革新を求める姿勢</span>で望みます。
+            </p>
+
+            <p class="text-white/80 mb-8 leading-relaxed">
+              そのためには様々なアイディア、視点、考えを必要としています。<br />
+              あなたのアイデアとエネルギーを活かし、共に革新を追求しましょう。<br />
+              私たちと一緒に、未来を切り拓きませんか？
+            </p>
+
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 text-brand-teal text-base font-medium rounded-full transition-all shadow-xl">
+              応募する
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </SlideIn>
+
+        <ScaleIn delay={0} from={0.9}>
+          <div class="relative">
+            <div class="aspect-square bg-white/10 rounded-3xl flex items-center justify-center backdrop-blur-sm">
+              <svg class="w-48 h-48 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Atmosphere -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            Our Company Atmosphere
+          </h2>
+          <p class="text-xl text-slate-600">我が社はこんな感じです♪</p>
+        </div>
+      </FadeIn>
+
+      <!-- Year-end Party -->
+      <ScaleIn delay={0} from={0.95}>
+        <div class="mb-20">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.5458C20.2661 15.8483 19.4693 16 18.6364 16C15.3554 16 12.6364 13.3556 12.6364 10.1818C12.6364 9.24115 12.8326 8.34382 13.1893 7.52511C11.4774 8.59013 10.3636 10.3569 10.3636 12.3636C10.3636 15.5374 13.0827 18.1818 16.3636 18.1818C18.6723 18.1818 20.6891 16.9405 21.8667 15.0878L21 15.5458Z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3L12 5M12 19L12 21M5.63605 5.63605L7.05027 7.05027M16.9497 16.9497L18.364 18.364M3 12L5 12M19 12L21 12M5.63605 18.364L7.05027 16.9497M16.9497 7.05027L18.364 5.63605"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-semibold text-slate-900">忘年会@上野</h3>
+              <p class="text-slate-600">2023</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-teal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-teal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-teal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScaleIn>
+
+      <!-- Company Trip -->
+      <ScaleIn delay={100} from={0.95}>
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-2xl flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-semibold text-slate-900">社員旅行@伊豆</h3>
+              <p class="text-slate-600">2024</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
+              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
+                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScaleIn>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          私たちと一緒に
+          <br>未来を切り拓きませんか？
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+          あなたのアイデアとエネルギーを活かせる環境で、<br />
+          共に革新を追求しましょう。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            応募する
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

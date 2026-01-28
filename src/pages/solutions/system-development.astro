@@ -1,0 +1,304 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/solutions" class="hover:text-brand-teal">エンタープライズ</a></li>
+        <li>/</li>
+        <li class="text-slate-900">システム開発</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <SlideIn direction="left">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+              System Development
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+              システム開発
+            </h1>
+
+            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+              お客様のビジネス課題を解決する<br class="hidden sm:block" />
+              <span class="text-brand-teal font-semibold">最適なシステム</span>を企画・開発・運用します。
+            </p>
+
+            <p class="text-slate-600 mb-8 leading-relaxed">
+              戦略立案から要件定義、設計、開発、テスト、運用開始まで、一貫したサポートを提供します。最新技術を活用し、スピーディーかつ高品質なシステム構築を実現します。
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+                お問い合わせ
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="/solutions" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
+                他のサービスを見る
+              </a>
+            </div>
+          </div>
+        </SlideIn>
+
+        <ScaleIn delay={0} from={0.9}>
+          <div class="relative">
+            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center">
+              <svg class="w-48 h-48 text-brand-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            開発サービス
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            お客様のニーズに合わせた柔軟な開発体制
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">Webアプリケーション開発</h3>
+            <p class="text-slate-600 leading-relaxed">
+              最新のフロントエンド技術とバックエンド構築で、高性能なWebアプリケーションを開発します。SPA、PWAなど、要件に合わせた最適なソリューションを提案します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">モバイルアプリ開発</h3>
+            <p class="text-slate-600 leading-relaxed">
+              iOS/Android対応のネイティブアプリ、またはクロスプラットフォーム開発。ユーザー体験に配慮した直感的な操作設計を実現します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">業務システム開発</h3>
+            <p class="text-slate-600 leading-relaxed">
+              販販売管理、在庫管理、人事管理など、業務効率化を実現する各種システムを構築します。既存フローを尊重しつつ、最適化を提案します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">AI 組み込み開発</h3>
+            <p class="text-slate-600 leading-relaxed">
+              機械学習、自然言語処理などのAI技術を活用したシステムを開発します。業務自動化からデータ分析まで、AIの可能性を広げます。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            対応技術
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            最新技術に対応した開発実績
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <p class="text-lg font-semibold text-slate-900 mb-2">Frontend</p>
+            <p class="text-sm text-slate-600">React, Vue, Next.js</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <p class="text-lg font-semibold text-slate-900 mb-2">Backend</p>
+            <p class="text-sm text-slate-600">Node.js, Python, Go</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <p class="text-lg font-semibold text-slate-900 mb-2">Database</p>
+            <p class="text-sm text-slate-600">PostgreSQL, MongoDB</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.95}>
+          <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+            <p class="text-lg font-semibold text-slate-900 mb-2">Cloud</p>
+            <p class="text-sm text-slate-600">AWS, GCP, Azure</p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            開発プロセス
+          </h2>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-5 gap-6">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-xl font-bold text-brand-teal">1</span>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-slate-900 text-center">要件定義</h3>
+            <p class="text-slate-600 text-sm text-center leading-relaxed">
+              ヒアリングを通じて、お客様の要件を明確化します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-xl font-bold text-brand-teal">2</span>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-slate-900 text-center">設計</h3>
+            <p class="text-slate-600 text-sm text-center leading-relaxed">
+              UI/UX設計、データベース設計、アーキテクチャ設計。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-xl font-bold text-brand-teal">3</span>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-slate-900 text-center">開発</h3>
+            <p class="text-slate-600 text-sm text-center leading-relaxed">
+              アジャイル開発で、迅速にプロトタイプを作成。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-xl font-bold text-brand-teal">4</span>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-slate-900 text-center">テスト</h3>
+            <p class="text-slate-600 text-sm text-center leading-relaxed">
+              自動テスト、手動テストで品質を保証します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={400} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <span class="text-xl font-bold text-brand-teal">5</span>
+            </div>
+            <h3 class="text-lg font-semibold mb-2 text-slate-900 text-center">リリース</h3>
+            <p class="text-slate-600 text-sm text-center leading-relaxed">
+              本番環境へのデプロイと監視体制の構築。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          システム開発について
+          <br>ご相談ください
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+          お客様のニーズにお合わせた最適なソリューションをご提案します。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            お問い合わせ
+          </a>
+          <a href="/solutions/system-integration" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
+            システム集成を見る
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

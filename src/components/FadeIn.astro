@@ -1,0 +1,117 @@
+---
+/**
+ * FadeIn Component - 渐进增强滚动动画组件
+ * 使用 Intersection Observer API 实现轻量级滚动淡入效果
+ *
+ * @param delay - 可选的延迟时间（毫秒）
+ * @param duration - 动画持续时间（毫秒）
+ * @param threshold - 触发阈值（0-1），默认 0.1
+ */
+interface Props {
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  once?: boolean;
+}
+
+const { delay = 0, duration = 800, threshold = 0.1, once = true } = Astro.props;
+---
+
+<div
+  class="fade-in"
+  style={`animation-delay: ${delay}ms; animation-duration: ${duration}ms;`}
+  data-threshold={threshold}
+  data-once={once}
+>
+  <slot />
+</div>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--fade-duration, 0.8s) ease, transform var(--fade-duration, 0.8s) ease;
+    will-change: opacity, transform;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 移动端性能优化 */
+  @media (max-width: 768px) {
+    .fade-in {
+      transform: translateY(20px);
+      transition-duration: 0.6s;
+    }
+  }
+
+  /* 减少动画偏好 */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script define:vars={{ threshold, once }}>
+  // 使用 Intersection Observer API（原生，零依赖）
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px', // 提前触发
+    threshold: parseFloat(threshold)
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 添加 CSS 变量以支持自定义持续时间
+        const duration = entry.target.style.getPropertyValue('animation-duration') || '0.8s';
+        entry.target.style.setProperty('--fade-duration', duration);
+
+        entry.target.classList.add('visible');
+
+        // 只触发一次
+        if (once) {
+          observer.unobserve(entry.target);
+        }
+      } else if (!once) {
+        // 如果 not once，移出视口时重置
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, observerOptions);
+
+  // 观察所有 .fade-in 元素
+  document.querySelectorAll('.fade-in').forEach(el => {
+    const elThreshold = el.dataset.threshold || threshold;
+    const elOnce = el.dataset.once !== 'false';
+
+    // 为不同元素创建不同的 observer（如果阈值不同）
+    if (parseFloat(elThreshold) !== parseFloat(threshold)) {
+      const customObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const duration = entry.target.style.getPropertyValue('animation-duration') || '0.8s';
+            entry.target.style.setProperty('--fade-duration', duration);
+            entry.target.classList.add('visible');
+            if (elOnce) {
+              customObserver.unobserve(entry.target);
+            }
+          } else if (!elOnce) {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, {
+        ...observerOptions,
+        threshold: parseFloat(elThreshold)
+      });
+      customObserver.observe(el);
+    } else {
+      observer.observe(el);
+    }
+  });
+</script>

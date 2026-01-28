@@ -1,0 +1,14 @@
+# robots.txt for swiftechie.com
+
+User-agent: *
+Allow: /
+
+# Disallow specific paths if needed
+# Disallow: /private/
+# Disallow: /admin/
+
+# Sitemap
+Sitemap: https://www.swiftechie.com/sitemap.xml
+
+# Crawl-delay (optional, respectful crawling)
+# Crawl-delay: 1

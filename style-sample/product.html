@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popohu Mini - Swiftechie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00BFA5 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .premium-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-14">
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-[#00BFA5] to-blue-500 rounded-lg flex items-center justify-center shadow-lg shadow-[#00BFA5]/20">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-lg font-semibold text-slate-900">Swiftechie</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#" class="text-sm text-[#00BFA5] font-medium">製品</a>
+                    <a href="#" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">ソリューション</a>
+                    <a href="#" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">AI Lab</a>
+                    <a href="#" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">会社情報</a>
+                </div>
+                <a href="#" class="hidden md:inline-flex px-5 py-2 bg-[#00BFA5] hover:bg-[#00A890] text-white text-sm font-medium rounded-full transition-all shadow-lg shadow-[#00BFA5]/20">
+                    お問い合わせ
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="pt-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex text-sm text-slate-400">
+                <a href="#" class="hover:text-slate-600">ホーム</a>
+                <span class="mx-2">/</span>
+                <a href="#" class="hover:text-slate-600">製品</a>
+                <span class="mx-2">/</span>
+                <span class="text-slate-900">Popohu Mini</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Hero - Apple style: Dramatic, product-focused -->
+    <section class="py-20 px-6 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Content -->
+                <div>
+                    <span class="inline-block px-4 py-2 bg-[#00BFA5]/5 border border-[#00BFA5]/10 rounded-full text-sm text-slate-600 mb-8">新製品</span>
+                    <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.05]">
+                        Popohu<br>Mini
+                    </h1>
+                    <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-md">
+                        ポケットサイズのスマートデバイスで、日常をもっと便利に、もっと楽しく。
+                    </p>
+                    <div class="flex items-baseline gap-3 mb-10">
+                        <span class="text-5xl font-bold text-slate-900">¥12,800</span>
+                        <span class="text-slate-400">（税込）</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#" class="inline-flex items-center justify-center px-10 py-5 bg-[#00BFA5] hover:bg-[#00A890] text-white text-lg font-medium rounded-full transition-all shadow-xl shadow-[#00BFA5]/25">
+                            今すぐ購入
+                        </a>
+                        <a href="#" class="inline-flex items-center justify-center px-10 py-5 bg-slate-100 hover:bg-slate-200 text-slate-900 text-lg font-medium rounded-full transition-all">
+                            詳しく見る
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Product Image - Apple style: Large, centered -->
+                <div class="relative">
+                    <div class="aspect-square bg-gradient-to-br from-[#00BFA5]/5 to-blue-500/5 rounded-3xl flex items-center justify-center">
+                        <div class="w-80 h-80 bg-gradient-to-br from-[#00BFA5] to-blue-600 rounded-[2.5rem] shadow-2xl shadow-[#00BFA5]/20 flex items-center justify-center">
+                            <svg class="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features - Grid layout -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-bold text-center mb-16 tracking-tight">特徴</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="premium-card text-center p-8">
+                    <div class="w-20 h-20 bg-[#00BFA5]/5 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-[#00BFA5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900">超高速処理</h3>
+                    <p class="text-slate-500">最新プロセッサを搭載、サクサク動作</p>
+                </div>
+                <div class="premium-card text-center p-8">
+                    <div class="w-20 h-20 bg-[#00BFA5]/5 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-[#00BFA5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900">長時間バッテリー</h3>
+                    <p class="text-slate-500">連続72時間駆動、急速充電対応</p>
+                </div>
+                <div class="premium-card text-center p-8">
+                    <div class="w-20 h-20 bg-[#00BFA5]/5 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-[#00BFA5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-slate-900">安心のセキュリティ</h3>
+                    <p class="text-slate-500">最新暗号化技術でデータ保護</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications - Clean table -->
+    <section class="py-24 px-6 bg-slate-50">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-bold text-center mb-16 tracking-tight">仕様</h2>
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
+                <div class="divide-y divide-slate-100">
+                    <div class="flex items-center justify-between px-10 py-6">
+                        <span class="font-semibold text-slate-900">サイズ</span>
+                        <span class="text-slate-500">58mm × 58mm × 12mm</span>
+                    </div>
+                    <div class="flex items-center justify-between px-10 py-6">
+                        <span class="font-semibold text-slate-900">重量</span>
+                        <span class="text-slate-500">約 35g</span>
+                    </div>
+                    <div class="flex items-center justify-between px-10 py-6">
+                        <span class="font-semibold text-slate-900">バッテリー</span>
+                        <span class="text-slate-500">500mAh / USB-C 充電</span>
+                    </div>
+                    <div class="flex items-center justify-between px-10 py-6">
+                        <span class="font-semibold text-slate-900">接続</span>
+                        <span class="text-slate-500">Bluetooth 5.3 / Wi-Fi 6</span>
+                    </div>
+                    <div class="flex items-center justify-between px-10 py-6">
+                        <span class="font-semibold text-slate-900">対応 OS</span>
+                        <span class="text-slate-500">iOS 15+, Android 10+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-32 px-6 bg-gradient-to-br from-[#00BFA5] via-[#00BFA5] to-blue-600 text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+                Popohu Mini を<br>体験しよう
+            </h2>
+            <p class="text-xl text-white/80 mb-10">
+                30日間の返品保証付きで、安心してお試しいただけます。
+            </p>
+            <a href="#" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+                今すぐ購入する
+            </a>
+        </div>
+    </section>
+</body>
+</html>

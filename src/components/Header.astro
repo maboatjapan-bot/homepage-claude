@@ -1,0 +1,181 @@
+---
+import SearchModal from './SearchModal.astro';
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-14">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-gradient-to-br from-brand-teal to-brand-blue rounded-lg flex items-center justify-center shadow-lg shadow-brand-teal/20">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <span class="text-lg font-semibold text-slate-900">Swiftechie</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/ai" class="text-sm font-semibold text-brand-teal hover:text-brand-teal-dark transition-colors">AIソリューション</a>
+        <a href="/products" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">製品</a>
+        <a href="/solutions" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">エンタープライズ</a>
+        <a href="/company" class="text-sm text-slate-600 hover:text-slate-900 transition-colors">会社情報</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <button
+          id="search-trigger"
+          class="p-2 text-slate-600 hover:text-brand-teal hover:bg-slate-100 rounded-lg transition-colors"
+          aria-label="検索">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+        <a href="/contact" class="inline-flex px-5 py-2 bg-brand-teal hover:bg-brand-teal-dark text-white text-sm font-medium rounded-full transition-all shadow-lg shadow-brand-teal/20">
+          お問い合わせ
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="md:hidden p-2 text-slate-600 hover:text-slate-900"
+        id="mobile-menu-button"
+        aria-label="メニューを開く"
+        aria-expanded="false">
+        <svg class="w-6 h-6 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="w-6 h-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-slate-200/50 overflow-hidden transition-all duration-300 ease-in-out"
+    style="max-height: 0;">
+    <nav class="px-6 py-4 space-y-4">
+      <a href="/ai" class="block py-2 text-base font-semibold text-brand-teal hover:text-brand-teal-dark">
+        AIソリューション
+      </a>
+      <a href="/products" class="block py-2 text-base text-slate-600 hover:text-slate-900">
+        製品
+      </a>
+      <a href="/solutions" class="block py-2 text-base text-slate-600 hover:text-slate-900">
+        エンタープライズ
+      </a>
+      <a href="/company" class="block py-2 text-base text-slate-600 hover:text-slate-900">
+        会社情報
+      </a>
+      <div class="pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-3">
+          <button
+            id="search-trigger-mobile"
+            class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-full transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            検索
+          </button>
+          <a href="/contact" class="flex-1 block text-center px-6 py-3 bg-brand-teal hover:bg-brand-teal-dark text-white font-medium rounded-full transition-all">
+            お問い合わせ
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Search Modal -->
+  <SearchModal />
+</header>
+
+<script>
+  // Search trigger
+  const searchTrigger = document.getElementById('search-trigger');
+  const searchTriggerMobile = document.getElementById('search-trigger-mobile');
+
+  searchTrigger?.addEventListener('click', () => {
+    if (window.openSearch) {
+      window.openSearch();
+    }
+  });
+
+  searchTriggerMobile?.addEventListener('click', () => {
+    if (window.openSearch) {
+      window.openSearch();
+    }
+  });
+
+  // Mobile menu
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = menuButton?.querySelector('.menu-icon');
+  const closeIcon = menuButton?.querySelector('.close-icon');
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      // Open menu
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+      menuButton?.setAttribute('aria-expanded', 'true');
+      menuButton?.setAttribute('aria-label', 'メニューを閉じる');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    } else {
+      // Close menu
+      mobileMenu.style.maxHeight = '0';
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.setAttribute('aria-label', 'メニューを開く');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+  }
+
+  function closeMenu() {
+    if (isMenuOpen) {
+      isMenuOpen = false;
+      mobileMenu.style.maxHeight = '0';
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.setAttribute('aria-label', 'メニューを開く');
+      document.body.style.overflow = '';
+    }
+  }
+
+  menuButton?.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking on links
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (isMenuOpen && !menuButton?.contains(e.target) && !mobileMenu?.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      closeMenu();
+    }
+  });
+
+  // Handle resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && isMenuOpen) {
+      closeMenu();
+    }
+  });
+</script>

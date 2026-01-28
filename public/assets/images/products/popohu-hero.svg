@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BFA5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+
+  <!-- Popohu Mini device shape -->
+  <rect x="250" y="150" width="300" height="200" rx="20" fill="white" stroke="url(#accent)" stroke-width="3"/>
+  <circle cx="400" cy="250" r="40" fill="url(#accent)" opacity="0.3"/>
+  <path d="M350 250 L450 250" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="400" cy="220" r="10" fill="url(#accent)"/>
+
+  <!-- Power indicator -->
+  <circle cx="420" cy="180" r="8" fill="#00BFA5">
+    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Label -->
+  <text x="400" y="420" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold" fill="#1e293b">Popohu Mini</text>
+  <text x="400" y="455" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#64748b">ABW 便携电源</text>
+</svg>
