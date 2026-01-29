@@ -200,16 +200,26 @@
   async function initSearch() {
     pagefindLoading = true;
     try {
-      // Wait for pagefind to load
-      while (typeof window.pagefind === 'undefined') {
+      // Wait for pagefind to load (with timeout)
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds max
+
+      while (typeof window.pagefind === 'undefined' && attempts < maxAttempts) {
         await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
       }
+
+      if (typeof window.pagefind === 'undefined') {
+        throw new Error('Pagefind failed to load');
+      }
+
       searchIndex = window.pagefind;
     } catch (e) {
       console.error('Failed to initialize Pagefind:', e);
       initialEl.innerHTML = `
         <p class="text-red-500 mb-2">検索機能を読み込めませんでした</p>
-        <p class="text-sm text-slate-500">ページがビルドされていることを確認してください</p>
+        <p class="text-sm text-slate-500">本番環境または「npm run preview」で動作します</p>
+        <p class="text-xs text-slate-400 mt-2">検索には「npm run build:search」後のビルド済みファイルが必要です</p>
       `;
     }
     pagefindLoading = false;
