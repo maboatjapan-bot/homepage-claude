@@ -75,11 +75,14 @@ import 'swiper/css/effect-coverflow';
 <style>
   .photo-carousel-wrapper {
     position: relative;
+    width: 100%;
+    max-width: 100%;
     padding: 1rem 0;
   }
 
   .swiper {
-    overflow: visible;
+    overflow: hidden;
+    width: 100%;
     padding: 1rem 0 2rem;
   }
 
@@ -187,6 +190,22 @@ import 'swiper/css/effect-coverflow';
     .swiper-button-next {
       right: 0.5rem;
     }
+
+    /* Mobile: Ensure consistent width during animations */
+    .photo-carousel-wrapper {
+      min-width: 100%;
+      width: 100%;
+    }
+
+    .swiper-wrapper {
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .swiper-slide {
+      width: 100% !important;
+      max-width: 100%;
+    }
   }
 
   /* Pagination */
@@ -222,15 +241,17 @@ import 'swiper/css/effect-coverflow';
 
   // This runs on the client after component loads
   const initCarousel = (config: CarouselConfig) => {
+    const isMobile = window.innerWidth < 768;
+
     const swiper = new Swiper(`#${config.id}-swiper`, {
       modules: [Navigation, Pagination, EffectCoverflow, Autoplay, Parallax],
-      slidesPerView: config.slidesPerView,
-      spaceBetween: config.spaceBetween,
-      centeredSlides: config.centeredSlides ?? true,
+      slidesPerView: isMobile ? 1 : config.slidesPerView,
+      spaceBetween: isMobile ? 16 : config.spaceBetween,
+      centeredSlides: isMobile ? false : (config.centeredSlides ?? true),
       loop: true,
       parallax: true,
       speed: 600,
-      effect: 'coverflow',
+      effect: isMobile ? 'slide' : 'coverflow',
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
@@ -256,18 +277,35 @@ import 'swiper/css/effect-coverflow';
         320: {
           slidesPerView: 1,
           spaceBetween: 16,
+          centeredSlides: false,
+          effect: 'slide',
         },
         640: {
-          slidesPerView: 1.5,
+          slidesPerView: 1.2,
           spaceBetween: 20,
+          centeredSlides: false,
+          effect: 'slide',
         },
         768: {
           slidesPerView: 2,
           spaceBetween: 24,
+          centeredSlides: true,
+          effect: 'coverflow',
         },
         1024: {
           slidesPerView: config.slidesPerView,
           spaceBetween: config.spaceBetween,
+          centeredSlides: config.centeredSlides ?? true,
+          effect: 'coverflow',
+        },
+      },
+      on: {
+        init: function() {
+          // Force width recalculation after init
+          setTimeout(() => {
+            this.update();
+            this.updateSize();
+          }, 100);
         },
       },
     });
