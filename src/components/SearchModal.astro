@@ -40,7 +40,7 @@ import "@pagefind/default-ui/css/ui.css";
   </div>
 </div>
 
-<style>
+<style is:global>
   #search-modal:not(.hidden) {
     display: block;
   }
@@ -55,52 +55,50 @@ import "@pagefind/default-ui/css/ui.css";
   }
 
   /* Override Pagefind default styles to match our design */
-  #search :global(.pagefind-ui__search-input) {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    border: none;
-    background: transparent;
-    padding-left: 1rem;
-    padding-right: 3rem;
+  #search .pagefind-ui__search-input {
+    width: 100% !important;
+    padding: 0.75rem 3rem 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    border: none !important;
+    background: transparent !important;
   }
 
-  #search :global(.pagefind-ui__search-bar) {
-    border: none;
-    background: rgb(241 245 244 / 1);
-    border-radius: 0.75rem;
-    padding: 0.5rem;
+  #search .pagefind-ui__search-bar {
+    border: none !important;
+    background: rgb(241 245 244 / 1) !important;
+    border-radius: 0.75rem !important;
+    padding: 0.5rem !important;
   }
 
   /* Hide the default magnifying glass icon (implemented as ::before pseudo-element) */
-  #search :global(.pagefind-ui__form:before) {
-    display: none;
+  #search .pagefind-ui__form:before {
+    display: none !important;
   }
 
-  #search :global(.pagefind-ui__drawer) {
-    border: none;
-    box-shadow: none;
-    max-height: 60vh;
+  #search .pagefind-ui__drawer {
+    border: none !important;
+    box-shadow: none !important;
+    max-height: 60vh !important;
   }
 
-  #search :global(.pagefind-ui__result-title) {
-    color: rgb(15 23 42 / 1);
-    font-weight: 600;
+  #search .pagefind-ui__result-title {
+    color: rgb(15 23 42 / 1) !important;
+    font-weight: 600 !important;
   }
 
-  #search :global(.pagefind-ui__result:hover .pagefind-ui__result-title) {
-    color: rgb(13 148 136 / 1);
+  #search .pagefind-ui__result:hover .pagefind-ui__result-title {
+    color: rgb(13 148 136 / 1) !important;
   }
 
-  #search :global(.pagefind-ui__result-excerpt) {
-    color: rgb(100 116 139 / 1);
+  #search .pagefind-ui__result-excerpt {
+    color: rgb(100 116 139 / 1) !important;
   }
 
-  #search :global(mark) {
-    background-color: rgb(251 191 36 / 0.3);
-    color: inherit;
-    padding: 0 0.125rem;
-    border-radius: 0.125rem;
+  #search mark {
+    background-color: rgb(251 191 36 / 0.3) !important;
+    color: inherit !important;
+    padding: 0 0.125rem !important;
+    border-radius: 0.125rem !important;
   }
 </style>
 
