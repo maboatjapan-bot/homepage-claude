@@ -146,9 +146,6 @@
   }
 </style>
 
-<!-- Pagefind script - will be loaded at runtime -->
-<script src="/pagefind/pagefind.js" async></script>
-
 <script>
   // Search functionality with Pagefind
   let searchIndex = null;
@@ -200,20 +197,9 @@
   async function initSearch() {
     pagefindLoading = true;
     try {
-      // Wait for pagefind to load (with timeout)
-      let attempts = 0;
-      const maxAttempts = 50; // 5 seconds max
-
-      while (typeof window.pagefind === 'undefined' && attempts < maxAttempts) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-        attempts++;
-      }
-
-      if (typeof window.pagefind === 'undefined') {
-        throw new Error('Pagefind failed to load');
-      }
-
-      searchIndex = window.pagefind;
+      // Dynamically import Pagefind
+      const pagefindModule = await import('/pagefind/pagefind.js');
+      searchIndex = new pagefindModule.Pagefind();
     } catch (e) {
       console.error('Failed to initialize Pagefind:', e);
       initialEl.innerHTML = `
@@ -262,7 +248,7 @@
       }
 
       results = searchResults.results;
-      displayResults(results);
+      await displayResults(results);
     } catch (e) {
       console.error('Search error:', e);
       loadingEl.classList.add('hidden');
@@ -270,24 +256,28 @@
   }
 
   // Display results
-  function displayResults(resultsData) {
+  async function displayResults(resultsData) {
     resultsContainer.innerHTML = '';
     resultsContainer.classList.remove('hidden');
 
-    resultsData.slice(0, 8).forEach((result, index) => {
+    // Load data for each result and display
+    for (let index = 0; index < Math.min(resultsData.length, 8); index++) {
+      const result = resultsData[index];
+      const data = await result.data();
+
       const link = document.createElement('a');
       link.className = 'result-item';
       link.href = result.url;
       link.dataset.index = index;
 
       link.innerHTML = `
-        <div class="result-title">${result.meta?.title || result.url}</div>
-        ${result.excerpt ? `<div class="result-excerpt">${result.excerpt}</div>` : ''}
+        <div class="result-title">${data.meta?.title || result.url}</div>
+        ${data.excerpt ? `<div class="result-excerpt">${data.excerpt}</div>` : ''}
       `;
 
       link.addEventListener('click', () => closeSearch());
       resultsContainer.appendChild(link);
-    });
+    }
   }
 
   // Update selected result
