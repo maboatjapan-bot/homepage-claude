@@ -53,6 +53,24 @@ frontend:
       headers:
         - key: 'Cache-Control'
           value: 'public, max-age=86400'
+        - key: 'Content-Type'
+          value: 'application/json'
+        - key: 'Access-Control-Allow-Origin'
+          value: '*'
+    - pattern: '/pagefind/*.json'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public, max-age=60'  # Short cache for entry file to ensure updates
+        - key: 'Content-Type'
+          value: 'application/json'
+        - key: 'Access-Control-Allow-Origin'
+          value: '*'
+    - pattern: '/pagefind/*.pf_meta'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public, max-age=86400'
+        - key: 'Content-Type'
+          value: 'application/json'
   redirects:
     - from: /http(s)?:\/\/www\.swiftechie\.com(\/.*)?$/
       to: https://www.swiftechie.com$2
