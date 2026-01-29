@@ -1,5 +1,6 @@
 ---
 // SearchModal.astro - Full-screen search modal with Pagefind integration
+import "@pagefind/default-ui/css/ui.css";
 ---
 
 <div id="search-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="search-title">
@@ -11,17 +12,8 @@
     <div id="search-panel" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl transform transition-all scale-95 opacity-0" role="search">
       <!-- Search Header -->
       <div class="flex items-center gap-4 p-6 border-b border-slate-200">
-        <div class="flex-1 relative">
-          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-          <input
-            id="search-input"
-            type="text"
-            placeholder="サイト内検索..."
-            class="w-full pl-12 pr-4 py-3 bg-slate-100 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
-            autocomplete="off"
-          />
+        <div class="flex-1">
+          <div id="search"></div>
         </div>
         <button
           id="search-close"
@@ -33,37 +25,6 @@
         </button>
       </div>
 
-      <!-- Search Results -->
-      <div class="max-h-[60vh] overflow-y-auto">
-        <div id="search-loading" class="hidden p-8 text-center text-slate-500">
-          <svg class="animate-spin w-8 h-8 mx-auto mb-4 text-brand-teal" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          <p>検索中...</p>
-        </div>
-
-        <div id="search-results" class="hidden">
-          <!-- Results will be injected here -->
-        </div>
-
-        <div id="search-empty" class="hidden p-8 text-center text-slate-500">
-          <svg class="w-16 h-16 mx-auto mb-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-          <p class="text-lg mb-2">結果が見つかりませんでした</p>
-          <p class="text-sm">別のキーワードで検索してください</p>
-        </div>
-
-        <div id="search-initial" class="p-8 text-center text-slate-500">
-          <svg class="w-16 h-16 mx-auto mb-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-          <p class="text-lg mb-2">キーワードを入力して検索</p>
-          <p class="text-sm">ページタイトルや本文から検索できます</p>
-        </div>
-      </div>
-
       <!-- Search Footer -->
       <div class="p-4 border-t border-slate-200 flex items-center justify-between text-sm text-slate-500">
         <div class="flex items-center gap-2">
@@ -71,10 +32,8 @@
           <span>で閉じる</span>
         </div>
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">↑↓</kbd>
-          <span>で移動</span>
-          <kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">Enter</kbd>
-          <span>で選択</span>
+          <kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">Cmd+K</kbd>
+          <span>で検索</span>
         </div>
       </div>
     </div>
@@ -95,50 +54,42 @@
     opacity: 1;
   }
 
-  .result-item {
-    display: block;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgb(226 232 240 / 1);
-    text-decoration: none;
-    color: rgb(15 23 42 / 1);
-    transition: all 0.2s;
-  }
-
-  .result-item:first-child {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-
-  .result-item:last-child {
-    border-bottom: none;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-  }
-
-  .result-item:hover,
-  .result-item.selected {
-    background-color: rgb(236 253 245 / 1);
-  }
-
-  .result-title {
-    font-weight: 600;
+  /* Override Pagefind default styles to match our design */
+  #search :global(.pagefind-ui__search-input) {
+    width: 100%;
+    padding: 0.75rem 1rem;
     font-size: 1rem;
-    margin-bottom: 0.25rem;
+    border: none;
+    background: transparent;
+  }
+
+  #search :global(.pagefind-ui__search-bar) {
+    border: none;
+    background: rgb(241 245 244 / 1);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  #search :global(.pagefind-ui__drawer) {
+    border: none;
+    box-shadow: none;
+    max-height: 60vh;
+  }
+
+  #search :global(.pagefind-ui__result-title) {
     color: rgb(15 23 42 / 1);
+    font-weight: 600;
   }
 
-  .result-excerpt {
-    font-size: 0.875rem;
+  #search :global(.pagefind-ui__result:hover .pagefind-ui__result-title) {
+    color: rgb(13 148 136 / 1);
+  }
+
+  #search :global(.pagefind-ui__result-excerpt) {
     color: rgb(100 116 139 / 1);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
 
-  /* Highlight matching text */
-  mark {
+  #search :global(mark) {
     background-color: rgb(251 191 36 / 0.3);
     color: inherit;
     padding: 0 0.125rem;
@@ -147,224 +98,91 @@
 </style>
 
 <script>
-  // Search functionality with Pagefind
-  let searchIndex = null;
-  let selectedIndex = -1;
-  let results = [];
-  let pagefindLoading = false;
+  // @ts-ignore - PagefindUI doesn't have TypeScript definitions
+  import { PagefindUI } from "@pagefind/default-ui";
 
   const modal = document.getElementById('search-modal');
   const backdrop = document.getElementById('search-backdrop');
   const panel = document.getElementById('search-panel');
-  const input = document.getElementById('search-input');
   const closeBtn = document.getElementById('search-close');
-  const resultsContainer = document.getElementById('search-results');
-  const loadingEl = document.getElementById('search-loading');
-  const emptyEl = document.getElementById('search-empty');
-  const initialEl = document.getElementById('search-initial');
+
+  // Initialize PagefindUI
+  let pagefindUI: PagefindUI | null = null;
+
+  function initPagefind() {
+    if (pagefindUI) return;
+
+    try {
+      pagefindUI = new PagefindUI({
+        element: "#search",
+        showSubResults: true,
+        excerptLength: 30,
+        translations: {
+          placeholder: "サイト内検索...",
+        }
+      });
+    } catch (e) {
+      console.error('Failed to initialize PagefindUI:', e);
+    }
+  }
 
   // Open search modal
   function openSearch() {
-    modal.classList.remove('hidden');
+    modal?.classList.remove('hidden');
     // Trigger animation
     setTimeout(() => {
-      panel.classList.add('open');
-      backdrop.classList.add('open');
+      panel?.classList.add('open');
+      backdrop?.classList.add('open');
     }, 10);
-    input.focus();
     document.body.style.overflow = 'hidden';
 
-    // Initialize Pagefind search
-    if (!searchIndex && !pagefindLoading) {
-      initSearch();
-    }
+    // Initialize PagefindUI on first open
+    initPagefind();
+
+    // Focus the search input
+    setTimeout(() => {
+      const input = modal?.querySelector('input[type="text"]');
+      input?.focus();
+    }, 100);
   }
 
   // Close search modal
   function closeSearch() {
-    panel.classList.remove('open');
-    backdrop.classList.remove('open');
+    panel?.classList.remove('open');
+    backdrop?.classList.remove('open');
     setTimeout(() => {
-      modal.classList.add('hidden');
-      input.value = '';
-      clearResults();
-      selectedIndex = -1;
+      modal?.classList.add('hidden');
+      // Clear search
+      const input = modal?.querySelector('input[type="text"]') as HTMLInputElement;
+      if (input) {
+        input.value = '';
+        input.dispatchEvent(new Event('input'));
+      }
     }, 300);
     document.body.style.overflow = '';
-  }
-
-  // Initialize Pagefind search
-  async function initSearch() {
-    pagefindLoading = true;
-    try {
-      // Dynamically load Pagefind at runtime
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.text = `
-        import { Pagefind } from '/pagefind/pagefind.js';
-        window.pagefindInstance = new Pagefind();
-        window.pagefindReady = true;
-      `;
-      document.head.appendChild(script);
-
-      // Wait for Pagefind to be ready
-      let attempts = 0;
-      const maxAttempts = 50;
-      while (!window.pagefindReady && attempts < maxAttempts) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-        attempts++;
-      }
-
-      if (!window.pagefindReady || !window.pagefindInstance) {
-        throw new Error('Pagefind failed to load');
-      }
-
-      searchIndex = window.pagefindInstance;
-    } catch (e) {
-      console.error('Failed to initialize Pagefind:', e);
-      initialEl.innerHTML = `
-        <p class="text-red-500 mb-2">検索機能を読み込めませんでした</p>
-        <p class="text-sm text-slate-500">本番環境または「npm run preview」で動作します</p>
-        <p class="text-xs text-slate-400 mt-2">検索には「npm run build:search」後のビルド済みファイルが必要です</p>
-      `;
-    }
-    pagefindLoading = false;
-  }
-
-  // Clear results
-  function clearResults() {
-    resultsContainer.innerHTML = '';
-    resultsContainer.classList.add('hidden');
-    loadingEl.classList.add('hidden');
-    emptyEl.classList.add('hidden');
-    initialEl.classList.remove('hidden');
-  }
-
-  // Perform search
-  async function performSearch(query) {
-    if (!query || query.trim() === '') {
-      clearResults();
-      return;
-    }
-
-    initialEl.classList.add('hidden');
-    loadingEl.classList.remove('hidden');
-    emptyEl.classList.add('hidden');
-    resultsContainer.classList.add('hidden');
-
-    if (!searchIndex) {
-      // Wait for pagefind to load
-      setTimeout(() => performSearch(query), 100);
-      return;
-    }
-
-    try {
-      const searchResults = await searchIndex.search(query);
-      loadingEl.classList.add('hidden');
-
-      if (!searchResults || searchResults.results.length === 0) {
-        emptyEl.classList.remove('hidden');
-        return;
-      }
-
-      results = searchResults.results;
-      await displayResults(results);
-    } catch (e) {
-      console.error('Search error:', e);
-      loadingEl.classList.add('hidden');
-    }
-  }
-
-  // Display results
-  async function displayResults(resultsData) {
-    resultsContainer.innerHTML = '';
-    resultsContainer.classList.remove('hidden');
-
-    // Load data for each result and display
-    for (let index = 0; index < Math.min(resultsData.length, 8); index++) {
-      const result = resultsData[index];
-      const data = await result.data();
-
-      const link = document.createElement('a');
-      link.className = 'result-item';
-      link.href = result.url;
-      link.dataset.index = index;
-
-      link.innerHTML = `
-        <div class="result-title">${data.meta?.title || result.url}</div>
-        ${data.excerpt ? `<div class="result-excerpt">${data.excerpt}</div>` : ''}
-      `;
-
-      link.addEventListener('click', () => closeSearch());
-      resultsContainer.appendChild(link);
-    }
-  }
-
-  // Update selected result
-  function updateSelection() {
-    const items = resultsContainer.querySelectorAll('.result-item');
-    items.forEach((item, index) => {
-      if (index === selectedIndex) {
-        item.classList.add('selected');
-        item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      } else {
-        item.classList.remove('selected');
-      }
-    });
   }
 
   // Event listeners
   closeBtn?.addEventListener('click', closeSearch);
   backdrop?.addEventListener('click', closeSearch);
 
-  input?.addEventListener('input', (e) => {
-    selectedIndex = -1;
-    performSearch(e.target.value);
-  });
-
-  // Keyboard navigation
-  input?.addEventListener('keydown', (e) => {
-    const items = resultsContainer.querySelectorAll('.result-item');
-
-    switch (e.key) {
-      case 'Escape':
-        e.preventDefault();
-        closeSearch();
-        break;
-      case 'ArrowDown':
-        e.preventDefault();
-        if (items.length > 0 && selectedIndex < items.length - 1) {
-          selectedIndex++;
-          updateSelection();
-        }
-        break;
-      case 'ArrowUp':
-        e.preventDefault();
-        if (selectedIndex > 0) {
-          selectedIndex--;
-          updateSelection();
-        }
-        break;
-      case 'Enter':
-        if (selectedIndex >= 0 && items[selectedIndex]) {
-          items[selectedIndex].click();
-        }
-        break;
-    }
-  });
-
   // Global keyboard shortcut (Cmd/Ctrl + K)
   document.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
-      if (modal.classList.contains('hidden')) {
+      if (modal?.classList.contains('hidden')) {
         openSearch();
       } else {
         closeSearch();
       }
     }
+
+    // Close on Escape
+    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+      closeSearch();
+    }
   });
 
   // Expose openSearch function globally for search button
-  window.openSearch = openSearch;
+  (window as any).openSearch = openSearch;
 </script>
