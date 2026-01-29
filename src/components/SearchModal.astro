@@ -62,6 +62,7 @@ import "@pagefind/default-ui/css/ui.css";
     border: none;
     background: transparent;
     padding-left: 1rem;
+    padding-right: 3rem;
   }
 
   #search :global(.pagefind-ui__search-bar) {
@@ -71,8 +72,8 @@ import "@pagefind/default-ui/css/ui.css";
     padding: 0.5rem;
   }
 
-  /* Hide the default magnifying glass icon in the search bar */
-  #search :global(.pagefind-ui__search-icon) {
+  /* Hide the default magnifying glass icon (implemented as ::before pseudo-element) */
+  #search :global(.pagefind-ui__form:before) {
     display: none;
   }
 
