@@ -1,0 +1,303 @@
+---
+/**
+ * PhotoCarousel - Design-focused photo carousel using Swiper.js
+ *
+ * Features:
+ * - Modern card design with shadows and rounded corners
+ * - Smooth transitions and touch/swipe support
+ * - Parallax effect for depth perception
+ * - Lazy loading for performance
+ * - Responsive breakpoints
+ * - Autoplay with pause on hover
+ * - Navigation arrows and pagination dots
+ */
+
+interface Photo {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  photos: Photo[];
+  title: string;
+  subtitle?: string;
+  id: string;
+}
+
+const { photos, title, subtitle, id } = Astro.props;
+
+// Import Swiper CSS
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
+---
+
+<div class={`photo-carousel-wrapper ${id}-wrapper`} id={`${id}-wrapper`}>
+  <div class="swiper" id={`${id}-swiper`}>
+    <div class="swiper-wrapper">
+      {photos.map((photo, index) => (
+        <div class="swiper-slide">
+          <div class="photo-card">
+            <div class="photo-inner">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                class="photo-image"
+                data-swiper-parallax-scale="1.1"
+                data-swiper-parallax-opacity="0.5"
+              />
+              <div class="photo-overlay"></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class={`swiper-button-prev ${id}-prev`}>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </div>
+    <div class={`swiper-button-next ${id}-next`}>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </div>
+
+    <!-- Pagination -->
+    <div class={`swiper-pagination ${id}-pagination`}></div>
+  </div>
+</div>
+
+<style>
+  .photo-carousel-wrapper {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .swiper {
+    overflow: visible;
+    padding: 1rem 0 2rem;
+  }
+
+  .swiper-slide {
+    transition: transform 0.3s ease;
+  }
+
+  .photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1),
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    aspect-ratio: 16 / 9;
+  }
+
+  .photo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .photo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .swiper-slide-active .photo-image {
+    transform: scale(1.05);
+  }
+
+  .swiper-slide-active .photo-overlay {
+    opacity: 1;
+  }
+
+  .photo-card:hover .photo-image {
+    transform: scale(1.1);
+  }
+
+  /* Navigation Buttons */
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none;
+  }
+
+  .swiper-button-prev svg,
+  .swiper-button-next svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #0f766e;
+    stroke-width: 2.5;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background: white;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .swiper-button-prev {
+    left: -1.75rem;
+  }
+
+  .swiper-button-next {
+    right: -1.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .swiper-button-prev {
+      left: 0.5rem;
+    }
+    .swiper-button-next {
+      right: 0.5rem;
+    }
+  }
+
+  /* Pagination */
+  .swiper-pagination {
+    bottom: 0 !important;
+  }
+
+  .swiper-pagination-bullet {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: rgba(15, 118, 110, 0.3);
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 2rem;
+    border-radius: 0.375rem;
+    background: linear-gradient(135deg, #0d9488 0%, #3b82f6 100%);
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, EffectCoverflow, Autoplay, Parallax } from 'swiper/modules';
+
+  interface CarouselConfig {
+    id: string;
+    slidesPerView: number;
+    spaceBetween: number;
+    centeredSlides?: boolean;
+  }
+
+  // This runs on the client after component loads
+  const initCarousel = (config: CarouselConfig) => {
+    const swiper = new Swiper(`#${config.id}-swiper`, {
+      modules: [Navigation, Pagination, EffectCoverflow, Autoplay, Parallax],
+      slidesPerView: config.slidesPerView,
+      spaceBetween: config.spaceBetween,
+      centeredSlides: config.centeredSlides ?? true,
+      loop: true,
+      parallax: true,
+      speed: 600,
+      effect: 'coverflow',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        nextEl: `.${config.id}-next`,
+        prevEl: `.${config.id}-prev`,
+      },
+      pagination: {
+        el: `.${config.id}-pagination`,
+        clickable: true,
+        dynamicBullets: true,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 16,
+        },
+        640: {
+          slidesPerView: 1.5,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1024: {
+          slidesPerView: config.slidesPerView,
+          spaceBetween: config.spaceBetween,
+        },
+      },
+    });
+
+    return swiper;
+  };
+
+  // Auto-initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Find all carousel wrappers
+    const carousels = document.querySelectorAll('.photo-carousel-wrapper');
+
+    carousels.forEach((wrapper) => {
+      const id = wrapper.id.replace('-wrapper', '');
+      const slidesCount = wrapper.querySelectorAll('.swiper-slide').length;
+
+      // Determine slides per view based on slide count
+      let slidesPerView = 2.5;
+      if (slidesCount <= 3) {
+        slidesPerView = 1.5;
+      } else if (slidesCount >= 5) {
+        slidesPerView = 3;
+      }
+
+      initCarousel({
+        id,
+        slidesPerView,
+        spaceBetween: 24,
+        centeredSlides: true,
+      });
+    });
+  });
+</script>

@@ -5,6 +5,24 @@ import Footer from '../components/Footer.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ScaleIn from '../components/ScaleIn.astro';
 import SlideIn from '../components/SlideIn.astro';
+import PhotoCarousel from '../components/PhotoCarousel.astro';
+
+// Photo data
+const yearEndPartyPhotos = [
+  { src: '/assets/images/company/year-end-party/01-550x300.jpg', alt: '忘年会@上野 2023 - 照片1' },
+  { src: '/assets/images/company/year-end-party/02-550x300.jpg', alt: '忘年会@上野 2023 - 照片2' },
+  { src: '/assets/images/company/year-end-party/01-2-768x396.jpg', alt: '忘年会@上野 2023 - 照片3' },
+  { src: '/assets/images/company/year-end-party/02-1-1-768x396.jpg', alt: '忘年会@上野 2023 - 照片4' },
+  { src: '/assets/images/company/year-end-party/02-1.jpg', alt: '忘年会@上野 2023 - 照片5' },
+  { src: '/assets/images/company/year-end-party/02-1-2.jpg', alt: '忘年会@上野 2023 - 照片6' },
+];
+
+const companyTripPhotos = [
+  { src: '/assets/images/company/company-trip/03-01.jpg', alt: '社員旅行@伊豆 2024 - 照片1' },
+  { src: '/assets/images/company/company-trip/03.jpg', alt: '社員旅行@伊豆 2024 - 照片2' },
+  { src: '/assets/images/company/company-trip/05-550x300.jpg', alt: '社員旅行@伊豆 2024 - 照片3' },
+  { src: '/assets/images/company/company-trip/03-1-1024x721.jpg', alt: '社員旅行@伊豆 2024 - 照片4' },
+];
 ---
 
 <BaseLayout>
@@ -103,29 +121,12 @@ import SlideIn from '../components/SlideIn.astro';
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-teal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-teal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-teal/20 to-brand-blue/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-teal/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-          </div>
+          <PhotoCarousel
+            photos={yearEndPartyPhotos}
+            title="忘年会@上野"
+            subtitle="2023"
+            id="year-end-party"
+          />
         </div>
       </ScaleIn>
 
@@ -144,36 +145,12 @@ import SlideIn from '../components/SlideIn.astro';
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="aspect-[4/3] bg-slate-100 rounded-2xl overflow-hidden">
-              <div class="w-full h-full bg-gradient-to-br from-brand-blue/20 to-brand-teal/20 flex items-center justify-center">
-                <svg class="w-16 h-16 text-brand-blue/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
-          </div>
+          <PhotoCarousel
+            photos={companyTripPhotos}
+            title="社員旅行@伊豆"
+            subtitle="2024"
+            id="company-trip"
+          />
         </div>
       </ScaleIn>
     </div>
