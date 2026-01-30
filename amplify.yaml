@@ -14,6 +14,7 @@ frontend:
         - npm ci
     build:
       commands:
+        - export PUBLIC_WEB3FORMS_ACCESS_KEY=$PUBLIC_WEB3FORMS_ACCESS_KEY
         - npm run build:search
   artifacts:
     baseDirectory: dist
