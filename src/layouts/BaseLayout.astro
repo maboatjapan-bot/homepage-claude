@@ -19,6 +19,68 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
     <!-- Google Analytics 4 -->
     <GoogleAnalytics />
 
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.swiftechie.com/#organization",
+          "name": "株式会社シーテック",
+          "alternateName": "Swiftechie",
+          "url": "https://www.swiftechie.com",
+          "logo": "https://www.swiftechie.com/logo.png",
+          "description": "技術で未来をつなぐ。最先端の AI 技術とプロフェッショナルなシステム開発で、ビジネスの可能性を広げます。",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "新川1-14-5 金盃第3ビル7F",
+            "addressLocality": "中央区",
+            "addressRegion": "東京都",
+            "postalCode": "104-0033",
+            "addressCountry": "JP"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+81-3-6222-8452",
+            "contactType": "sales",
+            "availableLanguage": "Japanese",
+            "email": "info@swiftechie.com"
+          },
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.swiftechie.com/#website",
+          "url": "https://www.swiftechie.com",
+          "name": "Swiftechie",
+          "description": "株式会社シーテッチ（Swiftechie）- 技術で未来をつなぐ。最先端の AI 技術とプロフェッショナルなシステム開発で、ビジネスの可能性を広げます。",
+          "publisher": {
+            "@id": "https://www.swiftechie.com/#organization"
+          },
+          "inLanguage": "ja"
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.swiftechie.com/#localbusiness",
+          "name": "株式会社シーテック",
+          "image": "https://www.swiftechie.com/logo.png",
+          "telephone": "+81-3-6222-8452",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "新川1-14-5 金盃第3ビル7F",
+            "addressLocality": "中央区",
+            "addressRegion": "東京都",
+            "postalCode": "104-0033",
+            "addressCountry": "JP"
+          },
+          "openingHours": "Mo-Fr 09:00-18:00",
+          "priceRange": "$$"
+        }
+      ]
+    }
+    </script>
+
     <title>Swiftechie - 技術で未来をつなぐ</title>
   </head>
   <body class="bg-white text-slate-900 antialiased">

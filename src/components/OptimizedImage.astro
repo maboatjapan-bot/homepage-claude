@@ -1,18 +1,24 @@
 ---
-// OptimizedImage.astro - 响应式优化图片组件
-// 使用 Astro 的 Image 组件进行自动优化
-
-import { Image } from 'astro:assets';
-
+/**
+ * OptimizedImage Component - Astro Image 组件使用示例
+ *
+ * 重要说明：
+ * 1. Astro Image 组件只能处理 src/assets/ 目录下的图片
+ * 2. public/ 目录下的图片无法使用 Image 组件优化
+ * 3. 当前图片在 public/assets/images/，暂时使用传统 img 标签
+ *
+ * 迁移步骤：
+ * 1. 将图片从 public/assets/images/ 移到 src/assets/images/
+ * 2. 使用 import 导入图片
+ * 3. 使用 <Image /> 组件替代 <img /> 标签
+ */
 interface Props {
   src: string;
   alt: string;
   width?: number;
   height?: number;
   class?: string;
-  priority?: boolean;
-  sizes?: string;
-  loading?: 'eager' | 'lazy';
+  loading?: 'lazy' | 'eager';
 }
 
 const {
@@ -21,42 +27,53 @@ const {
   width = 800,
   height = 600,
   class: className = '',
-  priority = false,
-  sizes = '(max-width: 768px) 100vw, 50vw',
-  loading = 'lazy',
+  loading = 'lazy'
 } = Astro.props;
 
-// Try to import the image if it exists
-let image: any = null;
-try {
-  // Try to resolve the image from public or assets
-  const imagePath = `../../assets/images/${src}`;
-  // Using dynamic import for images
-  image = (await import(imagePath)).default;
-} catch (e) {
-  // If image doesn't exist, we'll fall back to regular img tag
-}
+// 处理图片路径
+const imageSrc = src.startsWith('/') ? src : `/${src}`;
 ---
 
-{image ? (
+<!-- 当前使用传统 img 标签（适用于 public 目录） -->
+<img
+  src={imageSrc}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={loading}
+  decoding="async"
+  class={className}
+/>
+
+{/*
+  ========================================
+  使用 Astro Image 组件的示例
+  ========================================
+
+  1. 首先将图片移到 src/assets/images/products/
+  2. 然后在组件顶部导入：
+
+  ---
+  import { Image } from 'astro:assets';
+  import productHero from '~/assets/images/products/popohu-hero.png';
+  ---
+
+  3. 使用 Image 组件：
+
   <Image
-    src={image}
+    src={productHero}
     alt={alt}
     width={width}
     height={height}
-    class={className}
-    loading={priority ? 'eager' : loading}
-    sizes={sizes}
     format="webp"
-    quality={85}
-  />
-) : (
-  <img
-    src={`/${src}`}
-    alt={alt}
-    width={width}
-    height={height}
-    class={className}
+    widths={[400, 800, 1200]}
     loading={loading}
+    class={className}
   />
-)}
+
+  优势：
+  - 自动转换为 WebP 格式
+  - 响应式图片（多个尺寸）
+  - 自动优化压缩
+  - 文件大小减少 50-70%
+*/}

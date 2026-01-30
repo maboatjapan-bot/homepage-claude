@@ -1,0 +1,100 @@
+---
+/**
+ * StructuredData Component - Schema.org JSON-LD
+ *
+ * Usage:
+ * <StructuredData type="Product" data={productData} />
+ * <StructuredData type="Article" data={articleData} />
+ * <StructuredData type="Breadcrumb" data={breadcrumbData} />
+ */
+
+interface Props {
+  type: 'Product' | 'Article' | 'Breadcrumb' | 'Service' | 'Organization';
+  data: Record<string, any>;
+}
+
+const { type, data } = Astro.props;
+
+// Generate schema based on type
+const getSchema = () => {
+  switch (type) {
+    case 'Product':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: data.name,
+        description: data.description,
+        image: data.image,
+        brand: {
+          '@type': 'Brand',
+          name: 'Swiftechie'
+        },
+        offers: data.offers ? {
+          '@type': 'Offer',
+          availability: 'https://schema.org/InStock',
+          price: data.offers.price,
+          priceCurrency: 'JPY'
+        } : undefined
+      };
+
+    case 'Article':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: data.headline,
+        description: data.description,
+        image: data.image,
+        datePublished: data.datePublished,
+        dateModified: data.dateModified,
+        author: {
+          '@type': 'Organization',
+          name: '株式会社シーテック'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: '株式会社シーテック',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://www.swiftechie.com/logo.png'
+          }
+        }
+      };
+
+    case 'Breadcrumb':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: data.items.map((item: any, index: number) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: 'https://www.swiftechie.com' + item.url
+        }))
+      };
+
+    case 'Service':
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: data.name,
+        description: data.description,
+        provider: {
+          '@type': 'Organization',
+          name: '株式会社シーテック',
+          url: 'https://www.swiftechie.com'
+        },
+        areaServed: {
+          '@type': 'Country',
+          name: 'JP'
+        }
+      };
+
+    default:
+      return data;
+  }
+};
+
+const schema = getSchema();
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
