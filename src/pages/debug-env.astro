@@ -1,0 +1,115 @@
+---
+// 环境变量测试页面
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>环境变量测试</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    .card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .status {
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+    .warning { background: #fff3cd; color: #856404; }
+    pre {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    code {
+      background: #f5f5f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🔍 环境变量测试</h1>
+    
+    <div class="status">
+      <h3>Access Key 状态:</h3>
+      <pre id="result">检测中...</pre>
+    </div>
+
+    <div class="status">
+      <h3>表单测试:</h3>
+      <p>测试发送到 Web3Forms</p>
+      <button onclick="testForm()" style="padding: 10px 20px; background: #00BFA5; color: white; border: none; border-radius: 4px; cursor: pointer;">
+        测试表单提交
+      </button>
+      <pre id="form-result"></pre>
+    </div>
+  </div>
+
+  <script>
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+    const resultDiv = document.getElementById('result');
+    
+    if (accessKey) {
+      if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
+        resultDiv.innerHTML = '<span class="error">❌ 环境变量未配置！仍在使用占位符。</span>';
+        resultDiv.className = 'status error';
+      } else {
+        resultDiv.innerHTML = `<span class="success">✅ 环境变量已配置</span>\n\nAccess Key: ${accessKey.substring(0, 8)}...${accessKey.substring(accessKey.length - 4)}`;
+        resultDiv.className = 'status success';
+      }
+    } else {
+      resultDiv.innerHTML = '<span class="error">❌ 环境变量不存在</span>';
+      resultDiv.className = 'status error';
+    }
+
+    async function testForm() {
+      const formResult = document.getElementById('form-result');
+      formResult.textContent = '发送中...';
+      
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: 'テストメール',
+            from_name: '環境変数テスト',
+            name: 'テストユーザー',
+            email: 'test@example.com',
+            message: 'これは環境変数のテストです。'
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          formResult.innerHTML = `<span class="success">✅ 表单提交成功！</span>\n\n${JSON.stringify(result, null, 2)}`;
+        } else {
+          formResult.innerHTML = `<span class="error">❌ 表单提交失败</span>\n\n${JSON.stringify(result, null, 2)}`;
+        }
+      } catch (error) {
+        formResult.innerHTML = `<span class="error">❌ 请求失败</span>\n\n${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
