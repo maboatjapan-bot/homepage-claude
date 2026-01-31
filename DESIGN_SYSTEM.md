@@ -40,6 +40,24 @@
 
 ---
 
+## 页面布局配色 (Plan 3 - 深浅对比)
+
+| 区域 | 背景色 | Logo | 文字颜色 |
+|------|--------|------|----------|
+| **Header** | `slate-900` (深色) | 白色 `logo.png` | `slate-300` / `white` |
+| **Content** | `white` | - | `slate-900` |
+| **Footer** | `slate-50` (浅色) | 深色 `logo.png` (invert) | `slate-900` |
+
+### Logo 规范
+
+- **文件**: `/assets/images/logo.png`
+- **原始**: 白色图标 + 白色文字
+- **Header**: 直接使用 (白色在深色背景)
+- **Footer**: CSS `filter: invert(1)` (深色在浅色背景)
+- **尺寸**: `h-16` (64px) Header, `h-12` (48px) Footer
+
+---
+
 ## 字体系统
 
 | 用途 | 字体 | 大小 | 字重 | 行高 |
@@ -60,15 +78,18 @@
 
 ## 组件规范
 
-### 导航栏（毛玻璃效果）
+### 导航栏（深色主题 + 毛玻璃效果）
 
 ```html
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-slate-200/50">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="flex items-center justify-between h-14">
-      <!-- Logo -->
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo (白色) -->
+      <img src="/assets/images/logo.png" alt="swiftechie" class="h-16" />
       <!-- 菜单 -->
+      <a href="/products" class="text-slate-300 hover:text-white">製品</a>
       <!-- Pill shape CTA -->
+      <a class="bg-brand-teal text-white px-6 py-2 rounded-full">お問い合わせ</a>
     </div>
   </div>
 </nav>
