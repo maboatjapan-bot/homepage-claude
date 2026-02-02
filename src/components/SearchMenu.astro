@@ -2,25 +2,12 @@
 // SearchMenu.astro - Dual search dropdown menu (PageFind + Google AI)
 ---
 
-<!-- Google AI Search Widget (always rendered, initially hidden off-screen) -->
-<div id="google-ai-widget-container" class="google-ai-widget">
-  <gen-search-widget
-    configId="bdff1d11-8603-47e8-851d-747312e6e3f5"
-    triggerId="google-ai-search-trigger"
-    anchorsTarget="_blank">
-  </gen-search-widget>
-
-  <!-- Trigger input for Google Widget -->
-  <input
-    id="google-ai-search-trigger"
-    type="text"
-    placeholder="何でもお尋ねください..."
-    class="google-ai-input"
-  />
-</div>
-
-<!-- Google Widget Script (loaded dynamically when needed) -->
+<!-- Google AI Search Widget (loaded dynamically) -->
+<!-- Widget will be injected here when user clicks AI search -->
 <div id="google-widget-script-container"></div>
+
+<!-- Widget container (Google Widget renders its own UI) -->
+<div id="google-ai-widget-container" class="google-ai-widget"></div>
 
 <!-- Search Dropdown Menu -->
 <div
@@ -62,7 +49,7 @@
 </div>
 
 <style>
-  /* Widget container - always rendered but positioned off-screen initially */
+  /* Widget container - hidden by default */
   .google-ai-widget {
     position: fixed;
     top: 0;
@@ -72,47 +59,53 @@
     z-index: -1;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    display: none;
   }
 
-  /* When active */
+  /* When active - show as overlay */
   .google-ai-widget.active {
     z-index: 9999;
     opacity: 1;
     pointer-events: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 15vh;
+    justify-content: flex-start;
+    padding-top: 10vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
   }
 
-  /* Trigger input */
-  .google-ai-input {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    width: 500px;
-    max-width: 90vw;
-    padding: 1rem;
-    font-size: 1rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 0.75rem;
+  /* Style the content wrapper */
+  .google-ai-widget-content {
     background: white;
-    transition: all 0.2s ease;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 600px;
+    max-height: 70vh;
+    overflow: auto;
   }
 
-  .google-ai-widget.active .google-ai-input {
-    position: relative;
-    top: auto;
-    left: auto;
+  /* Close button */
+  .google-ai-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
   }
 
-  .google-ai-input:focus {
-    outline: none;
-    border-color: rgb(13 148 136 / 0.5);
-    box-shadow: 0 0 0 3px rgb(13 148 136 / 0.1);
+  .google-ai-close:hover {
+    transform: scale(1.1);
   }
 </style>
 
@@ -122,53 +115,81 @@
   const pagefindBtn = document.getElementById('pagefind-search-btn');
   const googleAiBtn = document.getElementById('google-ai-search-btn');
   const googleAiContainer = document.getElementById('google-ai-widget-container');
-  const googleAiInput = document.getElementById('google-ai-search-trigger');
 
   let isMenuOpen = false;
   let googleScriptLoaded = false;
   let googleScriptLoading = false;
+  let widgetInitialized = false;
 
-  // Dynamically load Google Widget script
-  function loadGoogleWidgetScript(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      if (googleScriptLoaded) {
-        resolve();
-        return;
+  // Dynamically load Google Widget script and create widget
+  async function initGoogleWidget() {
+    if (widgetInitialized) {
+      googleAiContainer?.classList.add('active');
+      return;
+    }
+
+    try {
+      // Load script if not already loaded
+      if (!googleScriptLoaded && !googleScriptLoading) {
+        googleScriptLoading = true;
+        await new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cloud.google.com/ai/gen-app-builder/client?hl=ja';
+          script.async = true;
+          script.onload = () => {
+            googleScriptLoaded = true;
+            googleScriptLoading = false;
+            resolve(undefined);
+          };
+          script.onerror = () => {
+            googleScriptLoading = false;
+            reject(new Error('Failed to load Google Widget'));
+          };
+          document.head.appendChild(script);
+        });
       }
 
-      if (googleScriptLoading) {
-        // Wait for existing load to complete
-        const checkInterval = setInterval(() => {
-          if (googleScriptLoaded) {
-            clearInterval(checkInterval);
-            resolve();
-          }
-        }, 100);
-        return;
+      // Wait a bit for the custom element to be registered
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+      // Create the widget element
+      const widget = document.createElement('gen-search-widget');
+      widget.setAttribute('configId', 'bdff1d11-8603-47e8-851d-747312e6e3f5');
+      widget.setAttribute('placeholder', '何でもお尋ねください...');
+      widget.setAttribute('anchorsTarget', '_blank');
+      widget.setAttribute('alwaysOpened', '');
+
+      // Create content wrapper
+      const contentWrapper = document.createElement('div');
+      contentWrapper.className = 'google-ai-widget-content';
+
+      // Clear container and add widget
+      if (googleAiContainer) {
+        googleAiContainer.innerHTML = '';
+        contentWrapper.appendChild(widget);
+        googleAiContainer.appendChild(contentWrapper);
+
+        // Add close button
+        const closeBtn = document.createElement('div');
+        closeBtn.className = 'google-ai-close';
+        closeBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+        closeBtn.addEventListener('click', () => {
+          googleAiContainer?.classList.remove('active');
+        });
+        googleAiContainer.appendChild(closeBtn);
+
+        // Show the container
+        googleAiContainer.classList.add('active');
+        widgetInitialized = true;
       }
-
-      googleScriptLoading = true;
-
-      const script = document.createElement('script');
-      script.src = 'https://cloud.google.com/ai/gen-app-builder/client?hl=ja';
-      script.async = true;
-      script.onload = () => {
-        googleScriptLoaded = true;
-        googleScriptLoading = false;
-        resolve();
-      };
-      script.onerror = () => {
-        googleScriptLoading = false;
-        reject(new Error('Failed to load Google Widget script'));
-      };
-
-      document.head.appendChild(script);
-    });
+    } catch (error) {
+      console.error('Failed to initialize Google Widget:', error);
+      alert('AI検索の読み込みに失敗しました。もう一度お試しください。');
+    }
   }
 
   function toggleMenu(e?: Event) {
     if (e) e.stopPropagation();
-
     isMenuOpen = !isMenuOpen;
 
     if (isMenuOpen) {
@@ -203,29 +224,14 @@
     }
   });
 
-  // Google AI search - load script and activate widget
-  googleAiBtn?.addEventListener('click', async (e) => {
+  // Google AI search - initialize and show widget
+  googleAiBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     closeMenu();
-
-    try {
-      // Load Google Widget script first (only on first click)
-      await loadGoogleWidgetScript();
-
-      // Activate Google's widget
-      googleAiContainer?.classList.add('active');
-
-      // Focus the input after a short delay
-      setTimeout(() => {
-        googleAiInput?.focus();
-      }, 200);
-    } catch (error) {
-      console.error('Failed to load Google Widget:', error);
-      alert('AI検索の読み込みに失敗しました。もう一度お試しください。');
-    }
+    initGoogleWidget();
   });
 
-  // Close Google AI widget when clicking outside
+  // Close Google AI widget when clicking background
   googleAiContainer?.addEventListener('click', (e) => {
     if (e.target === googleAiContainer) {
       googleAiContainer?.classList.remove('active');
@@ -242,11 +248,9 @@
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (isMenuOpen) {
-        closeMenu();
-      }
+      if (isMenuOpen) closeMenu();
       if (googleAiContainer?.classList.contains('active')) {
-        googleAiContainer.classList.remove('active');
+        googleAiContainer?.classList.remove('active');
       }
     }
   });
