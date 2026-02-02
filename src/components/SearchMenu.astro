@@ -3,7 +3,10 @@
 ---
 
 <!-- Widget container - will be moved to body when initialized -->
-<div id="google-ai-widget-container" class="google-ai-widget"></div>
+<div id="google-ai-widget-container" class="google-ai-widget">
+  <!-- Clickable backdrop for closing -->
+  <div class="google-ai-backdrop"></div>
+</div>
 
 <!-- Search Dropdown Menu -->
 <div
@@ -45,18 +48,21 @@
 </div>
 
 <style>
-  /* Widget container - hidden by default */
+  /* Widget container - like PageFind modal */
   .google-ai-widget {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 99999;
     opacity: 0;
     pointer-events: none;
     display: none;
-    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Backdrop */
+  .google-ai-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
   }
 
@@ -64,10 +70,17 @@
   .google-ai-widget.active {
     opacity: 1;
     pointer-events: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: block;
+  }
+
+  /* Content wrapper - center the widget */
+  .google-ai-widget > gen-search-widget {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 20vh auto 0;
+    max-width: 700px;
+    width: 90%;
   }
 
   /* Close button */
@@ -75,6 +88,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
+    z-index: 100000;
     width: 3rem;
     height: 3rem;
     background: white;
@@ -84,7 +98,6 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 100000;
   }
 
   .google-ai-close:hover {
@@ -150,12 +163,19 @@
         googleAiContainer.className = 'google-ai-widget';
         document.body.appendChild(googleAiContainer);
       } else if (googleAiContainer.parentElement !== document.body) {
-        // Move to body if it's not already there
         document.body.appendChild(googleAiContainer);
       }
 
-      // Clear and add widget
+      // Preserve backdrop and add widget
+      const backdrop = googleAiContainer.querySelector('.google-ai-backdrop');
       googleAiContainer.innerHTML = '';
+      if (backdrop) googleAiContainer.appendChild(backdrop);
+      else {
+        const newBackdrop = document.createElement('div');
+        newBackdrop.className = 'google-ai-backdrop';
+        googleAiContainer.appendChild(newBackdrop);
+      }
+
       googleAiContainer.appendChild(widget);
 
       // Add close button
@@ -225,12 +245,17 @@
     initGoogleWidget();
   });
 
-  // Close Google AI widget when clicking background
+  // Close handlers
   document.addEventListener('click', (e) => {
     const container = document.getElementById('google-ai-widget-container');
-    if (container?.classList.contains('active') && e.target === container) {
+    const backdrop = container?.querySelector('.google-ai-backdrop');
+
+    // Close Google widget when clicking backdrop
+    if (container?.classList.contains('active') && (e.target === backdrop || e.target === container)) {
       container.classList.remove('active');
     }
+
+    // Close dropdown menu
     if (isMenuOpen && !searchMenu?.contains(e.target as Node) && e.target !== searchTrigger) {
       closeMenu();
     }
