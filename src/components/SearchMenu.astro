@@ -62,36 +62,22 @@
     display: none;
   }
 
-  /* When active - show as overlay */
+  /* When active - show as full-screen overlay */
   .google-ai-widget.active {
     z-index: 9999;
     opacity: 1;
     pointer-events: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 10vh;
+    display: block;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
   }
 
-  /* Style the content wrapper */
-  .google-ai-widget-content {
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    width: 90%;
-    max-width: 600px;
-    max-height: 70vh;
-    overflow: auto;
-  }
-
   /* Close button */
   .google-ai-close {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10000;
     width: 3rem;
     height: 3rem;
     background: white;
@@ -106,6 +92,13 @@
 
   .google-ai-close:hover {
     transform: scale(1.1);
+  }
+
+  /* Center the widget - Google renders its own UI */
+  .google-ai-widget gen-search-widget {
+    display: block;
+    margin: 10vh auto 0;
+    max-width: 700px;
   }
 </style>
 
@@ -149,25 +142,20 @@
         });
       }
 
-      // Wait a bit for the custom element to be registered
-      await new Promise(resolve => setTimeout(resolve, 300));
+      // Wait for custom element to be registered
+      await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Create the widget element
+      // Create the widget element (let Google render everything)
       const widget = document.createElement('gen-search-widget');
       widget.setAttribute('configId', 'bdff1d11-8603-47e8-851d-747312e6e3f5');
       widget.setAttribute('placeholder', '何でもお尋ねください...');
       widget.setAttribute('anchorsTarget', '_blank');
       widget.setAttribute('alwaysOpened', '');
 
-      // Create content wrapper
-      const contentWrapper = document.createElement('div');
-      contentWrapper.className = 'google-ai-widget-content';
-
-      // Clear container and add widget
+      // Clear container and add widget directly
       if (googleAiContainer) {
         googleAiContainer.innerHTML = '';
-        contentWrapper.appendChild(widget);
-        googleAiContainer.appendChild(contentWrapper);
+        googleAiContainer.appendChild(widget);
 
         // Add close button
         const closeBtn = document.createElement('div');
@@ -181,6 +169,12 @@
         // Show the container
         googleAiContainer.classList.add('active');
         widgetInitialized = true;
+
+        // Focus the widget input after it renders
+        setTimeout(() => {
+          const input = widget?.querySelector('input[type="text"]');
+          input?.focus();
+        }, 500);
       }
     } catch (error) {
       console.error('Failed to initialize Google Widget:', error);
@@ -250,7 +244,7 @@
     if (e.key === 'Escape') {
       if (isMenuOpen) closeMenu();
       if (googleAiContainer?.classList.contains('active')) {
-        googleAiContainer?.classList.remove('active');
+        googleAiContainer.classList.remove('active');
       }
     }
   });
