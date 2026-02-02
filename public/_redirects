@@ -1,4 +1,12 @@
 # 404页面重定向规则
 # 所有不存在的路径显示自定义404页面
 
+# Product page redirects (old WordPress URLs to new Astro URLs)
+/popohu_mini /products/popohu-mini 301
+/popohu_minilite5 /products/popohu-minilite5 301
+/product/popohu.html /products/popohu 301
+/product_pitopa /products/pitopa 301
+/product_pitoshixyu /products/pitoshiyu 301
+
+# Catch-all for 404
 /*  /404.html  404

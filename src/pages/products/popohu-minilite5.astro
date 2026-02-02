@@ -1,0 +1,750 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/products" class="hover:text-brand-teal">製品</a></li>
+        <li>/</li>
+        <li class="text-slate-900">Popohu Mini Lite 5</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <!-- Left Content -->
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <FadeIn>
+            <span class="inline-block px-4 py-1.5 bg-amber-500 text-white text-sm font-semibold rounded-full mb-6">
+              学校・病院・職場向け
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
+              Popohu Mini Lite 5
+            </h1>
+            <p class="text-xl text-slate-700 mb-6 leading-relaxed">
+              学校や病院、職場など、<br class="hidden sm:block" />
+              <span class="text-brand-teal font-semibold">電源増設が容易でない場所</span>で、<br />
+              スマートに給電できる
+            </p>
+            <p class="text-lg text-slate-600 mb-8">
+              ノートPCやタブレットの充電に特化した、教育・医療・業務現場に最適なシンプルな電源ステーション。
+              ナースステーションや職場のフリーアドレスでも柔軟に対応。
+            </p>
+            <p class="text-base text-slate-600 mb-8">
+              <span class="font-semibold">本体はチャージステーションに戻さないと充電できない仕様</span>で、
+              不用意な持ち出しや盗難を抑止できます。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="/wp-content/uploads/2025/08/ポポフミニLite5チラシ2.1.2.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition-all shadow-lg"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                製品資料をダウンロード
+              </a>
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-300 hover:border-brand-teal hover:text-brand-teal text-slate-700 font-medium rounded-full transition-all"
+              >
+                お問合せ・導入相談
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+        <!-- Right Image -->
+        <div class="lg:w-1/2">
+          <ScaleIn delay={200} from={0.95}>
+            <img
+              src="/wp-content/uploads/2025/07/top_school.jpg"
+              alt="Popohu Mini Lite 5 充電ステーション"
+              class="w-full h-auto rounded-2xl shadow-2xl"
+              loading="eager"
+            />
+          </ScaleIn>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section class="py-24 px-6 bg-slate-100">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-12 text-center">
+          現場の「困った」を、スマートに解決。
+        </h2>
+      </FadeIn>
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Card 1 -->
+        <ScaleIn delay={0} from={0.95}>
+          <div class="relative bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition-all">
+            <span class="absolute -top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md">
+              教育現場で
+            </span>
+            <h3 class="font-semibold text-brand-teal text-lg mb-3 mt-6">
+              授業中にバッテリーが切れる
+            </h3>
+            <p class="text-slate-700 leading-relaxed">
+              タブレットの電源切れで、学校の授業が中断されてしまう…
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Card 2 -->
+        <ScaleIn delay={100} from={0.95}>
+          <div class="relative bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition-all">
+            <span class="absolute -top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md">
+              医療現場で
+            </span>
+            <h3 class="font-semibold text-brand-teal text-lg mb-3 mt-6">
+              医療DXの影で、電源が足りない
+            </h3>
+            <p class="text-slate-700 leading-relaxed">
+              回診や看護記録に欠かせないタブレットやモバイル機器。
+              電源設備の拡張も難しく不足し、機器充電のため業務が中断されてしまう…
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Card 3 -->
+        <ScaleIn delay={200} from={0.95}>
+          <div class="relative bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition-all">
+            <span class="absolute -top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md">
+              オフィスで
+            </span>
+            <h3 class="font-semibold text-brand-teal text-lg mb-3 mt-6">
+              自由な働き方が、電源に縛られている
+            </h3>
+            <p class="text-slate-700 leading-relaxed">
+              コンセントの位置で席が決まり、PCの配置も妥協せざるを得ない会議室や執務スペース…
+              アイデアも働き方も、電源に制限されていて…
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+      <FadeIn delay={300}>
+        <p class="text-center text-lg text-slate-800 mt-12 font-semibold">
+          教育・医療・業務現場の「あるある」課題を、<br class="sm:hidden" />
+          Popohu Mini Lite 5がスマートに解決します。
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+            使い方いろいろ、活用シーン例
+          </h2>
+          <p class="text-slate-600 text-lg max-w-2xl mx-auto">
+            教育・医療・オフィス、それぞれの現場で活躍するPopohu Mini Lite 5のユースケースをご紹介します。
+          </p>
+        </div>
+      </FadeIn>
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- 教育 -->
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+            <div class="relative">
+              <span class="absolute top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
+                教育現場で
+              </span>
+              <img
+                src="/wp-content/uploads/2025/07/top_school.jpg"
+                alt="学校利用"
+                class="w-full aspect-[4/3] object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">教室</h3>
+              <p class="text-slate-600 leading-relaxed">
+                授業中にタブレットの充電が切れてしまうトラブルを、Popohu Mini Lite 5がその場での給電で解決。
+                学びを止めず、ICT教育の質を下げることなく授業を継続できます。
+              </p>
+            </div>
+          </div>
+        </ScaleIn>
+        <!-- 医療 -->
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+            <div class="relative">
+              <span class="absolute top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
+                医療現場で
+              </span>
+              <img
+                src="/wp-content/uploads/2025/07/nurs.jpg"
+                alt="ナースステーション"
+                class="w-full aspect-[4/3] object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">ナースステーション・カート</h3>
+              <p class="text-slate-600 leading-relaxed">
+                診療や回診に活用されるタブレットが、肝心なときに充電切れ…
+                そんな現場の不安を、軽量で持ち運びやすいPopohu Mini Lite 5がその場での給電で解決。
+                医療DXを支える安心のサポート役として活躍します。
+              </p>
+            </div>
+          </div>
+        </ScaleIn>
+        <!-- オフィス -->
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+            <div class="relative">
+              <span class="absolute top-4 left-4 bg-orange-500 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-md z-10">
+                オフィスで
+              </span>
+              <img
+                src="/wp-content/uploads/2025/07/WeChatd0568d46034ba0ac2482d08e02fdc7b3.jpg"
+                alt="オフィス利用"
+                class="w-full aspect-[4/3] object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">業務現場・オフィス</h3>
+              <p class="text-slate-600 leading-relaxed">
+                電源工事ができない場所でも、Popohu Mini Lite 5があれば即解決。
+                会議中の充電切れや席の制限もなくなり、働く人それぞれのリズムで業務を進められる快適な環境が手に入ります。
+              </p>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Concept Section -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <FadeIn>
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-teal mb-6">
+          学校・病院・職場の頼れる充電ステーション
+        </h2>
+        <div class="text-slate-800 text-lg leading-loose space-y-6">
+          <p>
+            Popohu Mini Lite 5は、<strong class="text-brand-teal">教室、ナースステーション・カート、オフィスなど</strong>、
+            電源が不足しがちな現場の声から生まれました。
+          </p>
+          <p>
+            ノートPCやタブレットを同時に複数台充電でき、必要な機能に特化することで、
+            <strong class="text-brand-teal">コストと運用効率のバランス</strong>を実現。
+            日々の業務を支える現場目線の電源ソリューションです。
+          </p>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            Popohu Mini Lite 5の特長
+          </h2>
+          <p class="text-slate-600">現場のニーズに応える、シンプルで安心な機能設計。</p>
+        </div>
+      </FadeIn>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6 h-full">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">5色バンド＋回転式ハンドル</h3>
+            <p class="text-slate-700 text-sm leading-relaxed">
+              持ち運びやすさと識別のしやすさを両立。学校や病院など、複数人で使う現場にも便利です。
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Feature 2 -->
+        <ScaleIn delay={50} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6 h-full">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">持ち出し抑止設計</h3>
+            <p class="text-slate-700 text-sm leading-relaxed">
+              本体はチャージステーションでのみ充電可能な仕様。外部での利用を制限し、
+              持ち出し・盗難の抑止につながります。
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Feature 3 -->
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6 h-full">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">最大出力110W（PD対応）</h3>
+            <p class="text-slate-700 text-sm leading-relaxed">
+              USB-C×2（65W＋45W）とUSB-A×1（18W）を搭載。
+              ノートPCやタブレットの同時充電にも十分対応。
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Feature 4 -->
+        <ScaleIn delay={150} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6 h-full">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">LED残量インジケーター</h3>
+            <p class="text-slate-700 text-sm leading-relaxed">
+              電池残量がひと目でわかるLED表示を搭載。
+              現場での電源管理もスムーズです。
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Feature 5 -->
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6 h-full">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">上蓋収納式ケーブル</h3>
+            <p class="text-slate-700 text-sm leading-relaxed">
+              充電ケーブルは本体の上蓋にすっきり収納可能。
+              運搬時の絡まりや断線リスクを軽減します。
+            </p>
+          </div>
+        </ScaleIn>
+        <!-- Feature 6 -->
+        <ScaleIn delay={250} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6 h-full">
+            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">チャージステーション</h3>
+            <p class="text-slate-700 text-sm leading-relaxed">
+              最大5台を同時充電できる専用ステーション。
+              落下防止ウィング・ロック機構付きで、運用も安心です。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <ScaleIn delay={0} from={0.95}>
+            <img
+              src="/wp-content/uploads/2025/07/4ec8-b3d2-5431cd5407dd.jpg"
+              alt="Popohu Mini Lite 5導入シーン"
+              class="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </ScaleIn>
+        </div>
+        <div class="lg:w-1/2">
+          <FadeIn delay={100}>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
+              なぜPopohu Mini Lite 5が選ばれるのか？
+            </h2>
+            <div class="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                Popohu Mini Lite 5は、<strong class="text-brand-teal">学校の教室・ナースステーション・オフィスの現場</strong>など、
+                電源確保に課題を抱える環境に向けて開発されました。
+              </p>
+              <p>
+                必要な機能だけに絞ったシンプルな構成で、<strong class="text-brand-teal">導入コストを抑えつつ</strong>、
+                <strong class="text-brand-teal">現場での使いやすさ・持ち運びやすさ</strong>を追求しています。
+              </p>
+              <p>
+                また、本体はチャージステーションでしか充電できない仕組みにより、
+                <strong class="text-brand-teal">不用意な持ち出しや盗難の抑止にもつながります</strong>。
+              </p>
+              <p>
+                これまで人が電源の位置に合わせていた時代は終わり。
+                Popohu Mini Lite 5は、働く人・学ぶ人を「電源の制約」から解き放ち、
+                自分のスタイルで動ける環境を実現。自由で快適なパフォーマンスを支えます。
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specs Section -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 text-center mb-12">
+          Popohu Mini Lite 5 主なスペック
+        </h2>
+      </FadeIn>
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <table class="w-full">
+          <tbody class="divide-y divide-slate-200">
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900 w-48">バッテリー</th>
+              <td class="px-6 py-4 text-slate-700">リン酸鉄リチウムイオンバッテリー（LiFePO4）</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">容量</th>
+              <td class="px-6 py-4 text-slate-700">64Wh / 20,000mAh</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">寸法</th>
+              <td class="px-6 py-4 text-slate-700">
+                本体：幅76×奥行76×高さ150mm<br />
+                チャージステーション：幅530×奥行116×高さ215mm
+              </td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">重量</th>
+              <td class="px-6 py-4 text-slate-700">約600g（本体）</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">出力ポート</th>
+              <td class="px-6 py-4 text-slate-700">
+                USB-A（最大18W）<br />
+                USB-C①（最大45W）<br />
+                USB-C②（最大65W）
+              </td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">最大出力</th>
+              <td class="px-6 py-4 text-slate-700">最大合計出力：100W</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">サイクル寿命</th>
+              <td class="px-6 py-4 text-slate-700">約2,000回</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">付属品</th>
+              <td class="px-6 py-4 text-slate-700">USB充電ケーブル ×1（本体に内蔵収納可）</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <th class="px-6 py-4 text-left font-semibold text-slate-900">保証期間</th>
+              <td class="px-6 py-4 text-slate-700">本体3年保証（ケーブルは初期不良のみ対応）＋延長3年間（有償）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Device Compatibility -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            充電できる機器と目安
+          </h2>
+          <p class="text-slate-600">Popohu Mini Lite 5は、日常的に使用するさまざまなデバイスを安全・安定して充電できます。</p>
+        </div>
+      </FadeIn>
+      <ScaleIn delay={0} from={0.95}>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <table class="w-full">
+            <thead class="bg-brand-teal text-white">
+              <tr>
+                <th class="px-6 py-4 text-left font-semibold">デバイス</th>
+                <th class="px-6 py-4 text-left font-semibold">充電目安</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="px-6 py-4 text-slate-700">ノートPC（USB-C給電）</td>
+                <td class="px-6 py-4 text-slate-700">約1回</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-slate-700">タブレット</td>
+                <td class="px-6 py-4 text-slate-700">約2回</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-slate-700">スマートフォン</td>
+                <td class="px-6 py-4 text-slate-700">約4回</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="mt-4 text-sm text-slate-500 text-center">
+            ※充電回数は機種や使用状況によって異なる場合があります。
+          </p>
+        </div>
+      </ScaleIn>
+    </div>
+  </section>
+
+  <!-- Implementation Flow -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold text-slate-900">導入の流れ</h2>
+        </div>
+      </FadeIn>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-slate-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+            <div class="text-4xl font-extrabold text-brand-teal mb-2">01</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">ご相談・お問い合わせ</h3>
+            <p class="text-slate-600 text-sm">導入環境や台数、ご利用シーンなど、お気軽にご相談ください。</p>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-slate-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+            <div class="text-4xl font-extrabold text-brand-teal mb-2">02</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">最適なプランのご提案</h3>
+            <p class="text-slate-600 text-sm">ご要望に応じて最適な製品構成をご提案いたします。</p>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-slate-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+            <div class="text-4xl font-extrabold text-brand-teal mb-2">03</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">ご発注・納品</h3>
+            <p class="text-slate-600 text-sm">在庫状況に応じて、最短で2〜3営業日以内に発送が可能です。</p>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={300} from={0.95}>
+          <div class="bg-slate-50 rounded-xl p-6 text-center hover:shadow-lg transition-all">
+            <div class="text-4xl font-extrabold text-brand-teal mb-2">04</div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-2">ご利用開始</h3>
+            <p class="text-slate-600 text-sm">届いたその日から簡単にご利用いただけます。</p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-12">
+          よくあるご質問
+        </h2>
+      </FadeIn>
+      <div class="space-y-6">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-lg font-semibold text-brand-teal mb-2">
+              Q. 学校や病院などで複数台導入したいのですが、見積り対応は可能ですか？
+            </h3>
+            <p class="text-slate-700">
+              はい、可能です。導入台数や構成に応じたお見積もりをご提案いたします。お気軽にお問い合わせください。
+            </p>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-lg font-semibold text-brand-teal mb-2">
+              Q. チャージステーションは別売りですか？
+            </h3>
+            <p class="text-slate-700">
+              いいえ、基本セットにはチャージステーションが含まれており、5台同時に充電できる構成となっています。
+            </p>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-lg font-semibold text-brand-teal mb-2">
+              Q. 盗難防止対策はされていますか？
+            </h3>
+            <p class="text-slate-700">
+              はい。本体単体では充電できず、専用チャージステーション経由でのみ充電可能な設計です。
+              また、ステーションにはロック機構も搭載しています。
+            </p>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={300} from={0.95}>
+          <div class="bg-white rounded-xl shadow-md p-6">
+            <h3 class="text-lg font-semibold text-brand-teal mb-2">
+              Q. 保証期間はどれくらいですか？
+            </h3>
+            <p class="text-slate-700">
+              本体は3年間の製品保証がございます。付属ケーブルは初期不良のみの対応となります。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            資料ダウンロード
+          </h2>
+          <p class="text-xl text-slate-600">
+            製品情報のPDFをダウンロードできます
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-1 gap-6">
+        <ScaleIn delay={0} from={0.95}>
+          <a
+            href="/wp-content/uploads/2025/08/ポポフミニLite5チラシ2.1.2.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-6 p-6 rounded-2xl border-2 border-slate-200 bg-white shadow-lg hover:shadow-xl hover:border-brand-teal/50 transition-all"
+          >
+            <!-- PDF Icon -->
+            <div class="w-16 h-16 flex-shrink-0 bg-red-50 rounded-xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+
+            <!-- Text Info -->
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-slate-900 text-lg">製品資料（PDF）</span>
+                <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-brand-teal/10 transition-colors">
+                  PDF
+                </span>
+              </div>
+              <p class="text-sm text-slate-600 mt-1">Popohu Mini Lite 5 製品チラシ</p>
+            </div>
+
+            <!-- Download Arrow -->
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-slate-400 group-hover:text-brand-teal transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l4-4m4 4v11"/>
+              </svg>
+            </div>
+          </a>
+        </ScaleIn>
+      </div>
+
+      <p class="text-center text-sm text-slate-500 mt-8">
+        ※ PDFファイルは新しいタブで開きます。保存はブラウザのメニューから行ってください。
+      </p>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-12">
+          ポポフシリーズを見る
+        </h2>
+      </FadeIn>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Popohu -->
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all flex flex-col">
+            <img
+              src="/wp-content/uploads/2024/11/カフェ-1.jpg"
+              alt="Popohu"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center gap-2 mb-3">
+                <h4 class="font-semibold text-slate-900 text-lg">Popohu</h4>
+                <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700">複数人で共有利用</span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed flex-grow mb-4">
+                会議室やオフィスの島で複数人が同時に使える電源ハブ。工事不要で配線もすっきり、
+                ABWのフリーアドレス環境に最適。安全でスマートな「みんなの電源」を実現します。
+              </p>
+              <a
+                href="/products/popohu"
+                class="inline-flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all"
+              >
+                Popohu サイトへ
+              </a>
+            </div>
+          </div>
+        </ScaleIn>
+        <!-- Popohu Mini -->
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all flex flex-col">
+            <img
+              src="/wp-content/uploads/2025/07/new_office.jpg"
+              alt="Popohu Mini"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center gap-2 mb-3">
+                <h4 class="font-semibold text-slate-900 text-lg">Popohu Mini</h4>
+                <span class="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700">Qi2対応</span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed flex-grow mb-4">
+                マグネット式Qi2で置くだけ簡単充電。USB-Cと合わせてデスク・ベッドサイド・カフェでも手軽に給電。
+                延長コード／ACアダプタから解放し、すっきり空間をつくります。
+              </p>
+              <a
+                href="/products/popohu-mini"
+                class="inline-flex items-center justify-center w-full px-6 py-3 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all"
+              >
+                Popohu Mini サイトへ
+              </a>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 px-6 bg-gradient-to-br from-brand-teal to-brand-blue text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <FadeIn>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+          現場の「困った」を、スマートに解決。
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          教室でも、病院でも、オフィスでも。<br class="hidden sm:block" />
+          電源工事不要、すぐに使えるポータブル電源『Popohu Mini Lite 5』で、
+          もっと柔軟な現場づくりを。
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-teal font-bold rounded-full hover:bg-slate-100 transition-all shadow-xl"
+        >
+          お問合せ・導入相談
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

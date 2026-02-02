@@ -1,0 +1,661 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/products" class="hover:text-brand-teal">製品</a></li>
+        <li>/</li>
+        <li class="text-slate-900">Popohu</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-white">
+    <div class="w-full">
+      <picture>
+        <!-- Mobile image -->
+        <source
+          srcset="/wp-content/uploads/2024/11/カフェ-1.jpg"
+          media="(max-width: 640px)"
+        />
+        <!-- Desktop image -->
+        <img
+          src="/wp-content/uploads/2024/11/メイン01-1.jpg"
+          alt="ポポフ 使用イメージ"
+          class="w-full object-cover object-center h-[50vh] md:h-[42vw] lg:h-[40vw] max-h-[700px] min-h-[300px]"
+        />
+      </picture>
+    </div>
+  </section>
+
+  <!-- Main Specs Section -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <!-- Title Bar -->
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl -mx-6 sm:-mx-8">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">全ての人にパワーを</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border border-slate-200 p-6 sm:p-10 shadow-lg">
+        <div class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-8">
+          <!-- Specs -->
+          <div class="flex-1 text-center md:text-left">
+            <div class="space-y-5">
+              <div class="border-b border-slate-200 pb-2">
+                <p class="text-slate-600 text-base sm:text-lg">大容量の</p>
+                <p class="text-4xl sm:text-5xl font-extrabold text-amber-800 leading-tight">192Wh</p>
+              </div>
+              <div class="border-b border-slate-200 pb-2">
+                <p class="text-slate-600 text-base sm:text-lg">最大出力</p>
+                <p class="text-4xl sm:text-5xl font-extrabold text-amber-800 leading-tight">190W</p>
+              </div>
+              <div>
+                <p class="text-slate-600 text-base sm:text-lg">USB-A / USB-C</p>
+                <p class="text-4xl sm:text-5xl font-extrabold text-amber-800 leading-tight">6台同時充電可能</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Image -->
+          <div class="flex-shrink-0 flex justify-center">
+            <img
+              src="/wp-content/uploads/2024/11/斜め.png"
+              alt="ポポフ 本体"
+              class="max-w-[250px] w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Images -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto space-y-10">
+      <FadeIn>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="/wp-content/uploads/2024/11/02-1.jpg" alt="Scene 1" class="w-full h-auto object-cover" />
+        </div>
+      </FadeIn>
+      <FadeIn delay={100}>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="/wp-content/uploads/2024/11/03.jpg" alt="Scene 2" class="w-full h-auto object-cover" />
+        </div>
+      </FadeIn>
+      <FadeIn delay={200}>
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img src="/wp-content/uploads/2024/11/03-01.jpg" alt="Scene 3" class="w-full h-auto object-cover" />
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Use Cases Cards -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">いつでもどこでもパワーチャージ</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 sm:p-10 shadow-lg">
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Office -->
+          <ScaleIn delay={0} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/office-150x150.png" alt="office" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">オフィス</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  オフィスでは電源が足りない場合や充電ポイントが限られている場合に便利です。フリーアドレスのデスクや会議室にてスマホやノートパソコンの充電が簡単に行うことができ、社員間で共有して使うこともできます。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+
+          <!-- Cafe -->
+          <ScaleIn delay={50} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/cafe-150x150.png" alt="cafe" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">カフェ</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  カフェで作業をする際、電源の近くに座ることができない場合でも、場所を選ばずスマホやノートパソコンの充電が可能です。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+
+          <!-- Hotel -->
+          <ScaleIn delay={100} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/hotel-150x150.png" alt="hotel" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">ホテル</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  客室では、充電ポイントや数が限られていることがありますが、ベッドの上などで自由に複数のデバイスを充電できます。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+
+          <!-- School -->
+          <ScaleIn delay={150} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/school-150x150.png" alt="school" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">学校や大学</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  学校や大学の教室や図書館では、充電ポイントが限られていることがありますが、いつでもどこでも、授業中や勉強中にデバイスを充電できます。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+
+          <!-- Event -->
+          <ScaleIn delay={200} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/event-150x150.png" alt="event" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">イベントや展示会場</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  電源の確保が難しい展示会やイベント会場での展示ブースやデモンストレーションの電源確保に役立ちます。1台で複数の機器に給電できます。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+
+          <!-- Outdoor -->
+          <ScaleIn delay={250} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/camp-150x150.png" alt="camp" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">アウトドア</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  キャンプやゴルフ、釣りなどのアウトドア活動中にも役立ちます。テント内や車内での充電用電源として使用できます。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+
+          <!-- Disaster -->
+          <ScaleIn delay={300} from={0.95}>
+            <article class="flex gap-5 p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div class="shrink-0 w-20 h-20 grid place-items-center">
+                <img src="/wp-content/uploads/2024/11/disaster-150x150.png" alt="disaster" class="w-[88px] h-auto" />
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">災害の備え</h3>
+                <p class="text-slate-700 text-sm leading-relaxed">
+                  停電や災害時にスマホなどの電子機器を充電できるため、緊急時の連絡手段や情報収集に役立ちます。
+                </p>
+              </div>
+            </article>
+          </ScaleIn>
+        </div>
+
+        <p class="text-slate-700 mt-6 text-center">
+          その他、自宅で家族で共有したり、イベントのノベルティとしても活用できます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- High Convenience Features -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">高い利便性</h2>
+      </div>
+
+      <FadeIn>
+        <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+          <img
+            src="/wp-content/uploads/2024/11/03-1-1024x721.jpg"
+            alt="高い利便性（POINT1-3）"
+            class="w-full h-auto rounded-xl"
+          />
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-16 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">他社比較</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg overflow-x-auto">
+        <table class="w-full border-collapse text-sm min-w-[800px]">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+              <th class="py-3 px-4 text-left font-semibold">製品名</th>
+              <th class="py-3 px-4 text-left font-semibold">市場価格</th>
+              <th class="py-3 px-4 text-left font-semibold">仕様</th>
+              <th class="py-3 px-4 text-left font-semibold">販売方法</th>
+              <th class="py-3 px-4 text-left font-semibold">用途</th>
+              <th class="py-3 px-4 text-left font-semibold">備考</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr class="hover:bg-slate-50">
+              <td class="py-4 px-4 font-bold text-brand-teal">シーテック（ポポフ）</td>
+              <td class="py-4 px-4">オープン価格※1<br>チャージトレイ付（1台単位、4台接続可）</td>
+              <td class="py-4 px-4">リン酸鉄 192Wh<br>出力C×4、A×2<br>サイクル回数2000回以上<br>最大出力190W</td>
+              <td class="py-4 px-4">代理店</td>
+              <td class="py-4 px-4">オフィス、店舗、レンタル<br>レジャー、災害対策</td>
+              <td class="py-4 px-4">2年保証／充電ケーブル（3本付）</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-4 px-4 font-medium">A社</td>
+              <td class="py-4 px-4">110,000円/台<br>チャージトレイ別売り136,000円（4台）</td>
+              <td class="py-4 px-4">三元系 240Wh<br>出力C×3、A×1<br>サイクル500回</td>
+              <td class="py-4 px-4">直販 / 代理店</td>
+              <td class="py-4 px-4">オフィス</td>
+              <td class="py-4 px-4">2年保証</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-4 px-4 font-medium">B社</td>
+              <td class="py-4 px-4">500,000円/4台<br>チャージトレイ付（4台）</td>
+              <td class="py-4 px-4">三元系 115Wh<br>C×2、A×1<br>サイクル1000回</td>
+              <td class="py-4 px-4">直販 / 代理店</td>
+              <td class="py-4 px-4">オフィス</td>
+              <td class="py-4 px-4">モニタなし／国産</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-4 px-4 font-medium">C社</td>
+              <td class="py-4 px-4">130,000円/5台<br>チャージトレイ付（5台）</td>
+              <td class="py-4 px-4">リン酸鉄 57.6Wh<br>C×2、A×1<br>サイクル2000回</td>
+              <td class="py-4 px-4">直販 / 代理店</td>
+              <td class="py-4 px-4">オフィス</td>
+              <td class="py-4 px-4">モニタなし／3年保証</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="py-4 px-4 font-medium">D社</td>
+              <td class="py-4 px-4">650,000円/6台<br>チャージトレイ付（6台）</td>
+              <td class="py-4 px-4">三元系 142Wh<br>C×3、A×2、AC×1、DC×1</td>
+              <td class="py-4 px-4">ネット通販</td>
+              <td class="py-4 px-4">オフィス</td>
+              <td class="py-4 px-4">AC電源口あり</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-sm text-slate-500 mt-3">※1 ポポフの価格はオープン価格となっております。詳細は販売店にご確認ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charging Capabilities -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">さまざまなデバイスをこれ1台で</h2>
+      </div>
+
+      <FadeIn>
+        <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+          <img
+            src="/wp-content/uploads/2025/10/11.jpg"
+            alt="充電可能回数 ノートPC・スマホ・タブレット"
+            class="w-full h-auto rounded-xl"
+          />
+          <p class="text-center text-sm text-slate-600 mt-4 leading-relaxed">
+            ※ポポフが満充電状態（192Wh）でノートPCは50Wh、スマホは12Wh、タブレットは28Whの容量を想定しています。<br class="hidden sm:block">
+            給電状況やデバイスのバッテリー残量によっては、多少の差があります。
+          </p>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Ports and Accessories -->
+  <section class="py-16 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">出力ポートと付属品</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Output Ports -->
+          <article class="border border-slate-200 rounded-xl overflow-hidden">
+            <div class="bg-slate-100 text-slate-800 text-center font-semibold py-3">
+              出力ポートは USB-C×4 / USB-A×2
+            </div>
+            <img
+              src="/wp-content/uploads/2024/11/13-1024x740.jpg"
+              alt="ポート構成図"
+              class="w-full h-auto object-contain p-4"
+            />
+          </article>
+
+          <!-- Accessories -->
+          <article class="border border-slate-200 rounded-xl overflow-hidden">
+            <div class="bg-slate-100 text-slate-800 text-center font-semibold py-3">
+              付属品
+            </div>
+            <img
+              src="/wp-content/uploads/2024/11/21-1024x511.jpg"
+              alt="付属品構成図"
+              class="w-full h-auto object-contain p-4"
+            />
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dimensions -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">場所を選ばないスリムデザイン</h2>
+      </div>
+
+      <FadeIn>
+        <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+          <img
+            src="/wp-content/uploads/2024/11/04-1-1024x782.jpg"
+            alt="寸法・重量 図"
+            class="w-full h-auto rounded-xl"
+          />
+          <p class="text-center text-sm text-slate-600 mt-4 leading-relaxed">
+            本体サイズは幅100mm × 高さ252.5mm × 奥行き26mm。<br class="hidden sm:block">
+            チャージトレイやケーブルを含めても総重量約1.8kgと軽量設計です。
+          </p>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="py-16 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">さあ、便利を持ち運びしよう ─ 電源をシェアしよう</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+        <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4">
+          <div class="shrink-0 w-[82%] sm:w-[48%] lg:w-[31%] snap-start">
+            <img src="/wp-content/uploads/2024/11/カフェ-1.jpg" alt="カフェやオフィスで利用" class="w-full h-auto rounded-xl border border-slate-200" />
+          </div>
+          <div class="shrink-0 w-[82%] sm:w-[48%] lg:w-[31%] snap-start">
+            <img src="/wp-content/uploads/2024/11/キャンプ-1.jpg" alt="キャンプなどのアウトドア" class="w-full h-auto rounded-xl border border-slate-200" />
+          </div>
+          <div class="shrink-0 w-[82%] sm:w-[48%] lg:w-[31%] snap-start">
+            <img src="/wp-content/uploads/2024/11/ホテル-1.jpg" alt="ホテルで使用" class="w-full h-auto rounded-xl border border-slate-200" />
+          </div>
+          <div class="shrink-0 w-[82%] sm:w-[48%] lg:w-[31%] snap-start">
+            <img src="/wp-content/uploads/2024/11/会議室.jpg" alt="オフィス会議で使用" class="w-full h-auto rounded-xl border border-slate-200" />
+          </div>
+          <div class="shrink-0 w-[82%] sm:w-[48%] lg:w-[31%] snap-start">
+            <img src="/wp-content/uploads/2024/11/学校-1.jpg" alt="学校や大学" class="w-full h-auto rounded-xl border border-slate-200" />
+          </div>
+          <div class="shrink-0 w-[82%] sm:w-[48%] lg:w-[31%] snap-start">
+            <img src="/wp-content/uploads/2024/11/防災-1.jpg" alt="防災や緊急時" class="w-full h-auto rounded-xl border border-slate-200" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specifications -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">仕様</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 shadow-lg overflow-hidden">
+        <table class="w-full text-sm border-collapse">
+          <tbody>
+            <tr class="border-t">
+              <th class="p-4 text-left bg-slate-50 font-semibold text-slate-700 w-40">種類</th>
+              <td class="p-4">リン酸鉄リチウムイオンバッテリー</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">寸法</th>
+              <td class="p-4">本機：上部 幅100(取っ手込み) / 下部 幅105×奥行105×高さ230 (取っ手下げた状態)mm<br>チャージトレイ：幅125×奥行125×高さ26 mm</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">重量</th>
+              <td class="p-4">1816g</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">容量</th>
+              <td class="p-4">192Wh</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">最大出力</th>
+              <td class="p-4">190W</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">出力ポート</th>
+              <td class="p-4">USB-C×4（内2口は入出力共用、PD65W×2、PD30W×2）／USB-A×2（18W×2）</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">入力</th>
+              <td class="p-4">チャージトレイ：USB-C、AC（アダプタ別売／4台セットは付属）、ドッキングコネクタ付（4台同時接続可能）</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">ディスプレイ</th>
+              <td class="p-4">IN/OUTのステータス、バッテリー残量を表示、操作がない場合はスクリーンオフ</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">付属品</th>
+              <td class="p-4">チャージトレイ・充電ケーブル／リール式80cm×3<br>（CtoC×2本／内1本Lightning付、AtoC×1本／Lightning付）付</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">サイクル寿命</th>
+              <td class="p-4">2000回</td>
+            </tr>
+            <tr class="border-t">
+              <th class="p-4 bg-slate-50 font-semibold text-slate-700">保証期間</th>
+              <td class="p-4">本体2年、ケーブル初期不良のみ対応</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="py-16 px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">資料ダウンロード</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <!-- Catalog -->
+          <ScaleIn delay={0} from={0.95}>
+            <a
+              href="/wp-content/uploads/2025/09/ポポフカタログDL1.4.1.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center gap-5 p-5 rounded-2xl border-2 border-slate-200 bg-white shadow-lg hover:shadow-xl hover:border-cyan-400/50 transition-all"
+            >
+              <div class="w-24 flex-shrink-0">
+                <img
+                  src="/wp-content/uploads/2024/11/WeChat61301fbb83ab9630de926ee4fe75027b-274x300.png"
+                  alt="WEBカタログ PDF"
+                  class="w-full h-auto rounded-lg border border-slate-200 object-contain"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-semibold text-slate-800">WEBカタログ（PDF）</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-cyan-400/10">
+                    PDF
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 mt-1">ダウンロードはこちら</p>
+              </div>
+              <svg class="w-5 h-5 text-slate-400 group-hover:text-cyan-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+            </a>
+          </ScaleIn>
+
+          <!-- Manual -->
+          <ScaleIn delay={50} from={0.95}>
+            <a
+              href="/wp-content/uploads/2024/12/ポポフ取説A3_2.8.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center gap-5 p-5 rounded-2xl border-2 border-slate-200 bg-white shadow-lg hover:shadow-xl hover:border-cyan-400/50 transition-all"
+            >
+              <div class="w-24 flex-shrink-0">
+                <img
+                  src="/wp-content/uploads/2024/11/WeChate8424dd8e64fe84d80c39acfc1ec975a-のコピー-280x300.png"
+                  alt="取扱説明書 PDF"
+                  class="w-full h-auto rounded-lg border border-slate-200 object-contain"
+                />
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-semibold text-slate-800">取扱説明書（PDF）</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-cyan-400/10">
+                    PDF
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 mt-1">ダウンロードはこちら</p>
+              </div>
+              <svg class="w-5 h-5 text-slate-400 group-hover:text-cyan-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+            </a>
+          </ScaleIn>
+        </div>
+
+        <p class="text-center text-xs text-slate-500 mt-4">
+          ※ PDFファイルは新しいタブで開きます。保存はブラウザのメニューから行ってください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-cyan-400 text-white text-center py-3 sm:py-4 rounded-t-2xl">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-white">正規販売代理店</h2>
+      </div>
+
+      <div class="bg-white rounded-b-2xl border-x border-b border-slate-200 p-6 shadow-lg">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <!-- LION -->
+          <a href="https://www.lion-jimuki.co.jp/ja/index.html" target="_blank" rel="noopener noreferrer"
+             class="group block rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-cyan-400/50 transition-all">
+            <div class="aspect-[5/3] grid place-items-center">
+              <img src="/wp-content/uploads/2024/10/01.png" alt="LION" class="max-h-16 object-contain" />
+            </div>
+          </a>
+
+          <!-- ranet -->
+          <a href="https://www.ranet.co.jp/" target="_blank" rel="noopener noreferrer"
+             class="group block rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-cyan-400/50 transition-all">
+            <div class="aspect-[5/3] grid place-items-center">
+              <img src="/wp-content/uploads/2024/10/02-1.png" alt="ranet" class="max-h-16 object-contain" />
+            </div>
+          </a>
+
+          <!-- TD SYNNEX -->
+          <a href="https://jp.tdsynnex.com/" target="_blank" rel="noopener noreferrer"
+             class="group block rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-cyan-400/50 transition-all">
+            <div class="aspect-[5/3] grid place-items-center">
+              <img src="/wp-content/uploads/2024/10/03.png" alt="TD SYNNEX" class="max-h-16 object-contain" />
+            </div>
+          </a>
+
+          <!-- ASKUL -->
+          <a href="https://www.askul.co.jp/p/RE07862/" target="_blank" rel="noopener noreferrer"
+             class="group block rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-cyan-400/50 transition-all">
+            <div class="aspect-[5/3] grid place-items-center">
+              <img src="/wp-content/uploads/2024/10/04.png" alt="ASKUL" class="max-h-16 object-contain" />
+            </div>
+          </a>
+
+          <!-- ACQUA -->
+          <a href="https://spacedesign.co.jp/" target="_blank" rel="noopener noreferrer"
+             class="group block rounded-xl border border-slate-200 bg-white p-6 hover:shadow-md hover:border-cyan-400/50 transition-all">
+            <div class="aspect-[5/3] grid place-items-center">
+              <img src="/wp-content/uploads/2024/10/05-1.png" alt="ACQUA" class="max-h-16 object-contain" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-slate-900 to-slate-800">
+    <div class="max-w-3xl mx-auto text-center">
+      <FadeIn>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+          お問い合わせ・資料請求
+        </h2>
+        <p class="text-slate-300 mb-8">
+          製品に関するご質問やお見積もりなど、<br class="sm:hidden" />
+          お気軽にご相談ください。
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-cyan-400 hover:bg-cyan-500 text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            お問い合わせ
+          </a>
+          <a
+            href="/products"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-slate-100 text-slate-900 font-semibold rounded-full transition-all"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            製品一覧
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.documentElement.style.setProperty('--brand-teal', '#00BFA5');
+  document.documentElement.style.setProperty('--brand-teal-dark', '#00A095');
+</script>
