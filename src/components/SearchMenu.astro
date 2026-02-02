@@ -19,6 +19,9 @@
   />
 </div>
 
+<!-- Google Widget Script (loaded dynamically when needed) -->
+<div id="google-widget-script-container"></div>
+
 <!-- Search Dropdown Menu -->
 <div
   id="search-menu"
@@ -122,6 +125,46 @@
   const googleAiInput = document.getElementById('google-ai-search-trigger');
 
   let isMenuOpen = false;
+  let googleScriptLoaded = false;
+  let googleScriptLoading = false;
+
+  // Dynamically load Google Widget script
+  function loadGoogleWidgetScript(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (googleScriptLoaded) {
+        resolve();
+        return;
+      }
+
+      if (googleScriptLoading) {
+        // Wait for existing load to complete
+        const checkInterval = setInterval(() => {
+          if (googleScriptLoaded) {
+            clearInterval(checkInterval);
+            resolve();
+          }
+        }, 100);
+        return;
+      }
+
+      googleScriptLoading = true;
+
+      const script = document.createElement('script');
+      script.src = 'https://cloud.google.com/ai/gen-app-builder/client?hl=ja';
+      script.async = true;
+      script.onload = () => {
+        googleScriptLoaded = true;
+        googleScriptLoading = false;
+        resolve();
+      };
+      script.onerror = () => {
+        googleScriptLoading = false;
+        reject(new Error('Failed to load Google Widget script'));
+      };
+
+      document.head.appendChild(script);
+    });
+  }
 
   function toggleMenu(e?: Event) {
     if (e) e.stopPropagation();
@@ -160,18 +203,26 @@
     }
   });
 
-  // Google AI search - activate widget container
-  googleAiBtn?.addEventListener('click', (e) => {
+  // Google AI search - load script and activate widget
+  googleAiBtn?.addEventListener('click', async (e) => {
     e.stopPropagation();
     closeMenu();
 
-    // Activate Google's widget
-    googleAiContainer?.classList.add('active');
+    try {
+      // Load Google Widget script first (only on first click)
+      await loadGoogleWidgetScript();
 
-    // Focus the input after a short delay
-    setTimeout(() => {
-      googleAiInput?.focus();
-    }, 100);
+      // Activate Google's widget
+      googleAiContainer?.classList.add('active');
+
+      // Focus the input after a short delay
+      setTimeout(() => {
+        googleAiInput?.focus();
+      }, 200);
+    } catch (error) {
+      console.error('Failed to load Google Widget:', error);
+      alert('AI検索の読み込みに失敗しました。もう一度お試しください。');
+    }
   });
 
   // Close Google AI widget when clicking outside
