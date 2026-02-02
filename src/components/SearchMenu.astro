@@ -2,23 +2,16 @@
 // SearchMenu.astro - Dual search dropdown menu (PageFind + Google AI)
 ---
 
-<!-- Google AI Search Widget (hidden by default) -->
+<!-- Google AI Search Widget -->
 <gen-search-widget
   configId="bdff1d11-8603-47e8-851d-747312e6e3f5"
   triggerId="google-ai-search-trigger">
 </gen-search-widget>
 
-<!-- Hidden trigger for Google Widget -->
-<input
-  type="hidden"
-  id="google-ai-search-trigger"
-  style="display: none;"
-/>
-
 <!-- Search Dropdown Menu -->
 <div
   id="search-menu"
-  class="absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-200 opacity-0 scale-95 pointer-events-none z-50"
+  class="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-200 opacity-0 scale-95 pointer-events-none z-50"
   aria-hidden="true">
 
   <!-- PageFind Search (Keyword) -->
@@ -37,29 +30,27 @@
     </div>
   </button>
 
-  <!-- Google AI Search (Semantic) -->
-  <button
-    id="google-ai-search-btn"
-    class="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 transition-colors text-left border-t border-slate-100"
-    aria-label="AI検索">
-    <div class="w-10 h-10 bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-      <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-      </svg>
-    </div>
-    <div class="flex-1 min-w-0">
-      <div class="text-sm font-semibold text-slate-900">AI検索</div>
-      <div class="text-xs text-slate-500">意味を理解して検索</div>
-    </div  >
-  </button>
+  <!-- Divider -->
+  <div class="h-px bg-slate-100 mx-4"></div>
+
+  <!-- Google AI Search - Embedded Input -->
+  <div class="p-3">
+    <label for="google-ai-search-trigger" class="block text-xs font-medium text-slate-500 mb-2 px-1">
+      ✨ AI検索（意味を理解）
+    </label>
+    <input
+      id="google-ai-search-trigger"
+      type="text"
+      placeholder="何でもお尋ねください..."
+      class="w-full px-3 py-2 text-sm bg-gradient-to-r from-brand-teal/5 to-brand-blue/5 border border-brand-teal/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal/50 transition-all"
+    />
+  </div>
 </div>
 
 <script>
   const searchTrigger = document.getElementById('search-trigger');
   const searchMenu = document.getElementById('search-menu');
   const pagefindBtn = document.getElementById('pagefind-search-btn');
-  const googleAiBtn = document.getElementById('google-ai-search-btn');
-  const googleAiTrigger = document.getElementById('google-ai-search-trigger');
 
   let isMenuOpen = false;
 
@@ -100,15 +91,7 @@
     }
   });
 
-  // Google AI search - trigger widget and close menu
-  googleAiBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    closeMenu();
-    // Trigger Google's widget by clicking the hidden input
-    (googleAiTrigger as any)?.click();
-  });
-
-  // Close menu when clicking outside
+  // Close menu when clicking outside (but not on Google's input)
   document.addEventListener('click', (e) => {
     if (isMenuOpen && !searchMenu?.contains(e.target as Node) && e.target !== searchTrigger) {
       closeMenu();
@@ -120,5 +103,11 @@
     if (e.key === 'Escape' && isMenuOpen) {
       closeMenu();
     }
+  });
+
+  // Prevent menu close when clicking on Google AI input
+  const googleAiInput = document.getElementById('google-ai-search-trigger');
+  googleAiInput?.addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 </script>
