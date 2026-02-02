@@ -2,20 +2,20 @@
 // SearchMenu.astro - Dual search dropdown menu (PageFind + Google AI)
 ---
 
-<!-- Google AI Search Widget (embedded in menu, initially hidden) -->
-<div id="google-ai-widget-container" class="hidden">
+<!-- Google AI Search Widget (always rendered, initially hidden off-screen) -->
+<div id="google-ai-widget-container" class="google-ai-widget">
   <gen-search-widget
     configId="bdff1d11-8603-47e8-851d-747312e6e3f5"
     triggerId="google-ai-search-trigger"
     anchorsTarget="_blank">
   </gen-search-widget>
 
-  <!-- Trigger input for Google Widget (visible when widget is shown) -->
+  <!-- Trigger input for Google Widget -->
   <input
     id="google-ai-search-trigger"
     type="text"
     placeholder="何でもお尋ねください..."
-    class="w-full px-4 py-3 text-base border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal/50"
+    class="google-ai-input"
   />
 </div>
 
@@ -57,6 +57,61 @@
     </div>
   </button>
 </div>
+
+<style>
+  /* Widget container - always rendered but positioned off-screen initially */
+  .google-ai-widget {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  /* When active */
+  .google-ai-widget.active {
+    z-index: 9999;
+    opacity: 1;
+    pointer-events: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15vh;
+  }
+
+  /* Trigger input */
+  .google-ai-input {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 500px;
+    max-width: 90vw;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    background: white;
+    transition: all 0.2s ease;
+  }
+
+  .google-ai-widget.active .google-ai-input {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  .google-ai-input:focus {
+    outline: none;
+    border-color: rgb(13 148 136 / 0.5);
+    box-shadow: 0 0 0 3px rgb(13 148 136 / 0.1);
+  }
+</style>
 
 <script>
   const searchTrigger = document.getElementById('search-trigger');
@@ -105,40 +160,24 @@
     }
   });
 
-  // Google AI search - show widget container and focus input
+  // Google AI search - activate widget container
   googleAiBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     closeMenu();
 
-    // Show Google's widget container as a modal overlay
-    if (googleAiContainer) {
-      googleAiContainer.classList.remove('hidden');
-      googleAiContainer.style.position = 'fixed';
-      googleAiContainer.style.top = '0';
-      googleAiContainer.style.left = '0';
-      googleAiContainer.style.right = '0';
-      googleAiContainer.style.bottom = '0';
-      googleAiContainer.style.zIndex = '9999';
-      googleAiContainer.style.display = 'flex';
-      googleAiContainer.style.flexDirection = 'column';
-      googleAiContainer.style.alignItems = 'center';
-      googleAiContainer.style.justifyContent = 'flex-start';
-      googleAiContainer.style.paddingTop = '15vh';
-      googleAiContainer.style.backgroundColor = 'rgba(0,0,0,0.5)';
-      googleAiContainer.style.backdropFilter = 'blur(4px)';
+    // Activate Google's widget
+    googleAiContainer?.classList.add('active');
 
-      // Focus the input after a short delay
-      setTimeout(() => {
-        googleAiInput?.focus();
-      }, 100);
-    }
+    // Focus the input after a short delay
+    setTimeout(() => {
+      googleAiInput?.focus();
+    }, 100);
   });
 
-  // Close Google AI widget when clicking outside the input
+  // Close Google AI widget when clicking outside
   googleAiContainer?.addEventListener('click', (e) => {
     if (e.target === googleAiContainer) {
-      googleAiContainer.classList.add('hidden');
-      googleAiContainer.removeAttribute('style');
+      googleAiContainer?.classList.remove('active');
     }
   });
 
@@ -149,15 +188,14 @@
     }
   });
 
-  // Close menu on Escape key
+  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (isMenuOpen) {
         closeMenu();
       }
-      if (!googleAiContainer?.classList.contains('hidden')) {
-        googleAiContainer.classList.add('hidden');
-        googleAiContainer.removeAttribute('style');
+      if (googleAiContainer?.classList.contains('active')) {
+        googleAiContainer.classList.remove('active');
       }
     }
   });
