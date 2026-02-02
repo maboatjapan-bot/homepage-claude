@@ -6,19 +6,18 @@
 <div id="google-ai-widget-container" class="hidden">
   <gen-search-widget
     configId="bdff1d11-8603-47e8-851d-747312e6e3f5"
-    placeholder="何でもお尋ねください..."
+    triggerId="google-ai-search-trigger"
     anchorsTarget="_blank">
   </gen-search-widget>
-</div>
 
-<!-- Hidden trigger input for Google Widget -->
-<input
-  id="google-ai-search-trigger"
-  type="text"
-  class="sr-only"
-  tabindex="-1"
-  aria-hidden="true"
-/>
+  <!-- Trigger input for Google Widget (visible when widget is shown) -->
+  <input
+    id="google-ai-search-trigger"
+    type="text"
+    placeholder="何でもお尋ねください..."
+    class="w-full px-4 py-3 text-base border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal/50"
+  />
+</div>
 
 <!-- Search Dropdown Menu -->
 <div
@@ -59,26 +58,13 @@
   </button>
 </div>
 
-<style>
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-</style>
-
 <script>
   const searchTrigger = document.getElementById('search-trigger');
   const searchMenu = document.getElementById('search-menu');
   const pagefindBtn = document.getElementById('pagefind-search-btn');
   const googleAiBtn = document.getElementById('google-ai-search-btn');
   const googleAiContainer = document.getElementById('google-ai-widget-container');
+  const googleAiInput = document.getElementById('google-ai-search-trigger');
 
   let isMenuOpen = false;
 
@@ -119,18 +105,40 @@
     }
   });
 
-  // Google AI search - open Google widget
+  // Google AI search - show widget container and focus input
   googleAiBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     closeMenu();
-    // Show Google's widget container
+
+    // Show Google's widget container as a modal overlay
     if (googleAiContainer) {
       googleAiContainer.classList.remove('hidden');
-      // Focus the widget's input after a short delay
+      googleAiContainer.style.position = 'fixed';
+      googleAiContainer.style.top = '0';
+      googleAiContainer.style.left = '0';
+      googleAiContainer.style.right = '0';
+      googleAiContainer.style.bottom = '0';
+      googleAiContainer.style.zIndex = '9999';
+      googleAiContainer.style.display = 'flex';
+      googleAiContainer.style.flexDirection = 'column';
+      googleAiContainer.style.alignItems = 'center';
+      googleAiContainer.style.justifyContent = 'flex-start';
+      googleAiContainer.style.paddingTop = '15vh';
+      googleAiContainer.style.backgroundColor = 'rgba(0,0,0,0.5)';
+      googleAiContainer.style.backdropFilter = 'blur(4px)';
+
+      // Focus the input after a short delay
       setTimeout(() => {
-        const widgetInput = googleAiContainer?.querySelector('input[type="text"]');
-        widgetInput?.focus();
+        googleAiInput?.focus();
       }, 100);
+    }
+  });
+
+  // Close Google AI widget when clicking outside the input
+  googleAiContainer?.addEventListener('click', (e) => {
+    if (e.target === googleAiContainer) {
+      googleAiContainer.classList.add('hidden');
+      googleAiContainer.removeAttribute('style');
     }
   });
 
@@ -143,8 +151,14 @@
 
   // Close menu on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isMenuOpen) {
-      closeMenu();
+    if (e.key === 'Escape') {
+      if (isMenuOpen) {
+        closeMenu();
+      }
+      if (!googleAiContainer?.classList.contains('hidden')) {
+        googleAiContainer.classList.add('hidden');
+        googleAiContainer.removeAttribute('style');
+      }
     }
   });
 </script>
