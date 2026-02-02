@@ -278,6 +278,62 @@ import SlideIn from '../../components/SlideIn.astro';
     </div>
   </section>
 
+  <!-- Download Section -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            資料ダウンロード
+          </h2>
+          <p class="text-xl text-slate-600">
+            製品情報のPDFをダウンロードできます
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-1 gap-6">
+        <ScaleIn delay={0} from={0.95}>
+          <a
+            href="/wp-content/uploads/2025/09/PoPoHu_mini_instruction-1.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-6 p-6 rounded-2xl border-2 border-slate-200 bg-white shadow-lg hover:shadow-xl hover:border-brand-teal/50 transition-all"
+          >
+            <!-- PDF Icon -->
+            <div class="w-16 h-16 flex-shrink-0 bg-red-50 rounded-xl flex items-center justify-center">
+              <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
+              </svg>
+            </div>
+
+            <!-- Text Info -->
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-slate-900 text-lg">取扱説明書（PDF）</span>
+                <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-brand-teal/10 transition-colors">
+                  PDF
+                </span>
+              </div>
+              <p class="text-sm text-slate-600 mt-1">Popohu Mini 取扱説明書</p>
+            </div>
+
+            <!-- Download Arrow -->
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-slate-400 group-hover:text-brand-teal transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+            </div>
+          </a>
+        </ScaleIn>
+      </div>
+
+      <p class="text-center text-sm text-slate-500 mt-8">
+        ※ PDFファイルは新しいタブで開きます。保存はブラウザのメニューから行ってください。
+      </p>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
     <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
