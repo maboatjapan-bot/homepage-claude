@@ -6,6 +6,11 @@
 <div id="google-ai-widget-container" class="google-ai-widget">
   <!-- Clickable backdrop for closing -->
   <div class="google-ai-backdrop"></div>
+
+  <!-- White card wrapper (like PageFind) -->
+  <div class="google-ai-card">
+    <!-- Widget will be injected here -->
+  </div>
 </div>
 
 <!-- Search Dropdown Menu -->
@@ -73,14 +78,23 @@
     display: block;
   }
 
-  /* Content wrapper - center the widget */
-  .google-ai-widget > gen-search-widget {
+  /* Center card wrapper - THIS is what centers the widget */
+  .google-ai-card {
     position: relative;
     z-index: 1;
-    display: block;
     margin: 20vh auto 0;
     max-width: 700px;
     width: 90%;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+
+  /* Widget inside card */
+  .google-ai-card gen-search-widget {
+    display: block !important;
+    width: 100%;
   }
 
   /* Close button */
@@ -166,9 +180,11 @@
         document.body.appendChild(googleAiContainer);
       }
 
-      // Preserve backdrop and add widget
+      // Preserve backdrop and card
       const backdrop = googleAiContainer.querySelector('.google-ai-backdrop');
+      const card = googleAiContainer.querySelector('.google-ai-card');
       googleAiContainer.innerHTML = '';
+
       if (backdrop) googleAiContainer.appendChild(backdrop);
       else {
         const newBackdrop = document.createElement('div');
@@ -176,7 +192,17 @@
         googleAiContainer.appendChild(newBackdrop);
       }
 
-      googleAiContainer.appendChild(widget);
+      if (card) {
+        card.innerHTML = '';
+        googleAiContainer.appendChild(card);
+      } else {
+        const newCard = document.createElement('div');
+        newCard.className = 'google-ai-card';
+        googleAiContainer.appendChild(newCard);
+      }
+
+      // Add widget to card
+      googleAiContainer.querySelector('.google-ai-card')?.appendChild(widget);
 
       // Add close button
       const closeBtn = document.createElement('div');
