@@ -2,11 +2,7 @@
 // SearchMenu.astro - Dual search dropdown menu (PageFind + Google AI)
 ---
 
-<!-- Google AI Search Widget (loaded dynamically) -->
-<!-- Widget will be injected here when user clicks AI search -->
-<div id="google-widget-script-container"></div>
-
-<!-- Widget container (Google Widget renders its own UI) -->
+<!-- Widget container - will be moved to body when initialized -->
 <div id="google-ai-widget-container" class="google-ai-widget"></div>
 
 <!-- Search Dropdown Menu -->
@@ -56,30 +52,29 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 99999;
     opacity: 0;
     pointer-events: none;
     display: none;
-    overflow-y: auto;
-    padding: 2rem 1rem;
-  }
-
-  /* When active - show as full-screen overlay */
-  .google-ai-widget.active {
-    z-index: 9999;
-    opacity: 1;
-    pointer-events: auto;
-    display: block;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
   }
 
+  /* When active - show */
+  .google-ai-widget.active {
+    opacity: 1;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   /* Close button */
   .google-ai-close {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 10000;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     width: 3rem;
     height: 3rem;
     background: white;
@@ -89,26 +84,11 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.2s;
+    z-index: 100000;
   }
 
   .google-ai-close:hover {
     transform: scale(1.1);
-  }
-
-  /* Let Google Widget control its own layout */
-  .google-ai-widget gen-search-widget {
-    display: block !important;
-    margin: 0 auto;
-  }
-
-  /* Ensure all Widget elements are visible */
-  .google-ai-widget gen-search-widget *,
-  .google-ai-widget gen-search-widget *::before,
-  .google-ai-widget gen-search-widget *::after {
-    visibility: visible !important;
-    display: initial !important;
-    opacity: 1 !important;
   }
 </style>
 
@@ -117,7 +97,7 @@
   const searchMenu = document.getElementById('search-menu');
   const pagefindBtn = document.getElementById('pagefind-search-btn');
   const googleAiBtn = document.getElementById('google-ai-search-btn');
-  const googleAiContainer = document.getElementById('google-ai-widget-container');
+  let googleAiContainer = document.getElementById('google-ai-widget-container');
 
   let isMenuOpen = false;
   let googleScriptLoaded = false;
@@ -155,37 +135,47 @@
       // Wait for custom element to be registered
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Create the widget element (let Google render everything)
+      // Create the widget element
       const widget = document.createElement('gen-search-widget');
       widget.setAttribute('configId', 'bdff1d11-8603-47e8-851d-747312e6e3f5');
       widget.setAttribute('placeholder', '何でもお尋ねください...');
       widget.setAttribute('anchorsTarget', '_blank');
       widget.setAttribute('alwaysOpened', '');
 
-      // Clear container and add widget directly
-      if (googleAiContainer) {
-        googleAiContainer.innerHTML = '';
-        googleAiContainer.appendChild(widget);
-
-        // Add close button
-        const closeBtn = document.createElement('div');
-        closeBtn.className = 'google-ai-close';
-        closeBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
-        closeBtn.addEventListener('click', () => {
-          googleAiContainer?.classList.remove('active');
-        });
-        googleAiContainer.appendChild(closeBtn);
-
-        // Show the container
-        googleAiContainer.classList.add('active');
-        widgetInitialized = true;
-
-        // Focus the widget input after it renders
-        setTimeout(() => {
-          const input = widget?.querySelector('input[type="text"]');
-          input?.focus();
-        }, 500);
+      // Get or create container (move to body to avoid z-index conflicts)
+      googleAiContainer = document.getElementById('google-ai-widget-container');
+      if (!googleAiContainer) {
+        googleAiContainer = document.createElement('div');
+        googleAiContainer.id = 'google-ai-widget-container';
+        googleAiContainer.className = 'google-ai-widget';
+        document.body.appendChild(googleAiContainer);
+      } else if (googleAiContainer.parentElement !== document.body) {
+        // Move to body if it's not already there
+        document.body.appendChild(googleAiContainer);
       }
+
+      // Clear and add widget
+      googleAiContainer.innerHTML = '';
+      googleAiContainer.appendChild(widget);
+
+      // Add close button
+      const closeBtn = document.createElement('div');
+      closeBtn.className = 'google-ai-close';
+      closeBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+      closeBtn.addEventListener('click', () => {
+        googleAiContainer?.classList.remove('active');
+      });
+      googleAiContainer.appendChild(closeBtn);
+
+      // Show the container
+      googleAiContainer.classList.add('active');
+      widgetInitialized = true;
+
+      // Focus the widget input after it renders
+      setTimeout(() => {
+        const input = widget?.querySelector('input[type="text"]');
+        input?.focus();
+      }, 500);
     } catch (error) {
       console.error('Failed to initialize Google Widget:', error);
       alert('AI検索の読み込みに失敗しました。もう一度お試しください。');
@@ -236,14 +226,11 @@
   });
 
   // Close Google AI widget when clicking background
-  googleAiContainer?.addEventListener('click', (e) => {
-    if (e.target === googleAiContainer) {
-      googleAiContainer?.classList.remove('active');
-    }
-  });
-
-  // Close menu when clicking outside
   document.addEventListener('click', (e) => {
+    const container = document.getElementById('google-ai-widget-container');
+    if (container?.classList.contains('active') && e.target === container) {
+      container.classList.remove('active');
+    }
     if (isMenuOpen && !searchMenu?.contains(e.target as Node) && e.target !== searchTrigger) {
       closeMenu();
     }
@@ -253,8 +240,9 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (isMenuOpen) closeMenu();
-      if (googleAiContainer?.classList.contains('active')) {
-        googleAiContainer.classList.remove('active');
+      const container = document.getElementById('google-ai-widget-container');
+      if (container?.classList.contains('active')) {
+        container.classList.remove('active');
       }
     }
   });
