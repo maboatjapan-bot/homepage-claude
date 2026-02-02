@@ -1,5 +1,6 @@
 ---
 import SearchModal from './SearchModal.astro';
+import SearchMenu from './SearchMenu.astro';
 ---
 <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50">
   <div class="max-w-7xl mx-auto px-6">
@@ -25,15 +26,18 @@ import SearchModal from './SearchModal.astro';
       </nav>
 
       <!-- Desktop CTA -->
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden md:flex items-center gap-4 relative">
         <button
           id="search-trigger"
           class="p-2 text-slate-300 hover:text-brand-teal hover:bg-slate-800 rounded-lg transition-colors"
-          aria-label="検索">
+          aria-label="検索"
+          aria-haspopup="true"
+          aria-expanded="false">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
           </svg>
         </button>
+        <SearchMenu />
         <a href="/contact" class="inline-flex px-5 py-2 bg-brand-teal hover:bg-brand-teal-dark text-white text-sm font-medium rounded-full transition-all shadow-lg shadow-brand-teal/20">
           お問い合わせ
         </a>
@@ -99,15 +103,8 @@ import SearchModal from './SearchModal.astro';
 </header>
 
 <script>
-  // Search trigger
-  const searchTrigger = document.getElementById('search-trigger');
+  // Mobile search trigger only (desktop handled by SearchMenu component)
   const searchTriggerMobile = document.getElementById('search-trigger-mobile');
-
-  searchTrigger?.addEventListener('click', () => {
-    if (window.openSearch) {
-      window.openSearch();
-    }
-  });
 
   searchTriggerMobile?.addEventListener('click', () => {
     if (window.openSearch) {
