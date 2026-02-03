@@ -152,21 +152,27 @@
         const input = widget?.querySelector('input[type="text"], input[type="search"]');
         input?.focus();
 
-        // Try to add click listener to backdrop for closing
+        // Add click listener to backdrop for closing
         try {
           const shadowRoot = widget?.shadowRoot;
           if (shadowRoot) {
             const backdrop = shadowRoot.querySelector('.backdrop');
             if (backdrop) {
-              backdrop.addEventListener('click', () => {
-                googleAiContainer!.innerHTML = '';
-                widgetCreated = false;
+              console.log('Found backdrop, adding click listener');
+              backdrop.addEventListener('click', (e) => {
+                // Only close if not clicking on close button or other interactive elements
+                if ((e.target as Element).tagName !== 'BUTTON' && !(e.target as Element).closest('button')) {
+                  console.log('Backdrop clicked, closing widget');
+                  googleAiContainer!.innerHTML = '';
+                  widgetCreated = false;
+                }
               });
+            } else {
+              console.log('Backdrop not found in shadow root');
             }
           }
         } catch (err) {
-          // Shadow root access failed, will use global click handler as fallback
-          console.log('Could not access widget shadow root, using fallback close handler');
+          console.log('Could not access widget shadow root:', err);
         }
       }, 1000);
     } catch (error) {
@@ -222,6 +228,34 @@
   document.addEventListener('click', (e) => {
     if (isMenuOpen && !searchMenu?.contains(e.target as Node) && e.target !== searchTrigger) {
       closeMenu();
+    }
+
+    // Close Google Widget when clicking backdrop
+    const widget = googleAiContainer?.querySelector('gen-search-widget');
+    if (widget) {
+      const path = e.composedPath();
+
+      // Check if click path contains backdrop element
+      const clickedBackdrop = path.some((node): node is Element => {
+        return node instanceof Element && (
+          node.classList?.contains('backdrop') ||
+          node.getAttribute?.('role') === 'presentation'
+        );
+      });
+
+      // Check if click is inside content area
+      const clickedContent = path.some((node): node is Element => {
+        return node instanceof Element && (
+          node.classList?.contains('content') ||
+          node.closest('.content')
+        );
+      });
+
+      // Close if clicked on backdrop but not on content
+      if (clickedBackdrop && !clickedContent) {
+        googleAiContainer!.innerHTML = '';
+        widgetCreated = false;
+      }
     }
   });
 
