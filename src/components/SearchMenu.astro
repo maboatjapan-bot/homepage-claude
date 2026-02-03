@@ -151,7 +151,24 @@
       setTimeout(() => {
         const input = widget?.querySelector('input[type="text"], input[type="search"]');
         input?.focus();
-      }, 500);
+
+        // Try to add click listener to backdrop for closing
+        try {
+          const shadowRoot = widget?.shadowRoot;
+          if (shadowRoot) {
+            const backdrop = shadowRoot.querySelector('.backdrop');
+            if (backdrop) {
+              backdrop.addEventListener('click', () => {
+                googleAiContainer!.innerHTML = '';
+                widgetCreated = false;
+              });
+            }
+          }
+        } catch (err) {
+          // Shadow root access failed, will use global click handler as fallback
+          console.log('Could not access widget shadow root, using fallback close handler');
+        }
+      }, 1000);
     } catch (error) {
       console.error('Failed to initialize Google Widget:', error);
       alert('AI検索の読み込みに失敗しました。もう一度お試しください。');
@@ -212,6 +229,13 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (isMenuOpen) closeMenu();
+
+      // Close Google Widget
+      const widget = googleAiContainer?.querySelector('gen-search-widget');
+      if (widget) {
+        googleAiContainer!.innerHTML = '';
+        widgetCreated = false;
+      }
     }
   });
 </script>
