@@ -2,16 +2,8 @@
 // SearchMenu.astro - Dual search dropdown menu (PageFind + Google AI)
 ---
 
-<!-- Widget container - will be moved to body when initialized -->
-<div id="google-ai-widget-container" class="google-ai-widget">
-  <!-- Clickable backdrop for closing -->
-  <div class="google-ai-backdrop"></div>
-
-  <!-- White card wrapper (like PageFind) -->
-  <div class="google-ai-card">
-    <!-- Widget will be injected here -->
-  </div>
-</div>
+<!-- Google Widget container - widget renders itself as full-screen dialog -->
+<div id="google-ai-widget-container" class="google-ai-widget"></div>
 
 <!-- Search Dropdown Menu -->
 <div
@@ -53,69 +45,37 @@
 </div>
 
 <style>
-  /* Widget container - like PageFind modal */
+  /* Google Widget container - holds the widget which creates its own dialog */
   .google-ai-widget {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    opacity: 0;
-    pointer-events: none;
-    display: none;
+    /* Widget creates its own full-screen dialog, so we just control visibility */
   }
 
-  /* Backdrop */
-  .google-ai-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-  }
-
-  /* When active - show */
-  .google-ai-widget.active {
-    opacity: 1;
-    pointer-events: auto;
-    display: block;
-  }
-
-  /* Center card wrapper - THIS is what centers the widget */
-  .google-ai-card {
-    position: relative;
-    z-index: 1;
-    margin: 20vh auto 0;
-    max-width: 700px;
-    width: 90%;
-    background: white;
-    border-radius: 1rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-  }
-
-  /* Widget inside card */
-  .google-ai-card gen-search-widget {
+  /* Widget renders itself with position: fixed and high z-index */
+  .google-ai-widget gen-search-widget {
     display: block !important;
-    width: 100%;
   }
 
-  /* Close button */
-  .google-ai-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 100000;
-    width: 3rem;
-    height: 3rem;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* Override widget positioning to center the content area */
+  .google-ai-widget gen-search-widget::part(dialog) {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding-top: 20vh !important;
   }
 
-  .google-ai-close:hover {
-    transform: scale(1.1);
+  /* Style the widget's content area to look like PageFind */
+  .google-ai-widget gen-search-widget::part(content) {
+    max-width: 700px !important;
+    width: 90% !important;
+    background: white !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Override backdrop to match PageFind */
+  .google-ai-widget gen-search-widget::part(backdrop) {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(4px) !important;
   }
 </style>
 
@@ -129,12 +89,12 @@
   let isMenuOpen = false;
   let googleScriptLoaded = false;
   let googleScriptLoading = false;
-  let widgetInitialized = false;
+  let widgetCreated = false;
 
   // Dynamically load Google Widget script and create widget
   async function initGoogleWidget() {
-    if (widgetInitialized) {
-      googleAiContainer?.classList.add('active');
+    // Widget already created, nothing to do
+    if (widgetCreated) {
       return;
     }
 
@@ -162,13 +122,6 @@
       // Wait for custom element to be registered
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      // Create the widget element
-      const widget = document.createElement('gen-search-widget');
-      widget.setAttribute('configId', 'bdff1d11-8603-47e8-851d-747312e6e3f5');
-      widget.setAttribute('placeholder', '何でもお尋ねください...');
-      widget.setAttribute('anchorsTarget', '_blank');
-      widget.setAttribute('alwaysOpened', '');
-
       // Get or create container (move to body to avoid z-index conflicts)
       googleAiContainer = document.getElementById('google-ai-widget-container');
       if (!googleAiContainer) {
@@ -180,46 +133,23 @@
         document.body.appendChild(googleAiContainer);
       }
 
-      // Preserve backdrop and card
-      const backdrop = googleAiContainer.querySelector('.google-ai-backdrop');
-      const card = googleAiContainer.querySelector('.google-ai-card');
+      // Clear any existing content
       googleAiContainer.innerHTML = '';
 
-      if (backdrop) googleAiContainer.appendChild(backdrop);
-      else {
-        const newBackdrop = document.createElement('div');
-        newBackdrop.className = 'google-ai-backdrop';
-        googleAiContainer.appendChild(newBackdrop);
-      }
+      // Create the widget element
+      const widget = document.createElement('gen-search-widget');
+      widget.setAttribute('configId', 'bdff1d11-8603-47e8-851d-747312e6e3f5');
+      widget.setAttribute('placeholder', '何でもお尋ねください...');
+      widget.setAttribute('anchorsTarget', '_blank');
+      widget.setAttribute('alwaysOpened', '');
 
-      if (card) {
-        card.innerHTML = '';
-        googleAiContainer.appendChild(card);
-      } else {
-        const newCard = document.createElement('div');
-        newCard.className = 'google-ai-card';
-        googleAiContainer.appendChild(newCard);
-      }
-
-      // Add widget to card
-      googleAiContainer.querySelector('.google-ai-card')?.appendChild(widget);
-
-      // Add close button
-      const closeBtn = document.createElement('div');
-      closeBtn.className = 'google-ai-close';
-      closeBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
-      closeBtn.addEventListener('click', () => {
-        googleAiContainer?.classList.remove('active');
-      });
-      googleAiContainer.appendChild(closeBtn);
-
-      // Show the container
-      googleAiContainer.classList.add('active');
-      widgetInitialized = true;
+      // Add widget directly to container (widget creates its own full-screen dialog)
+      googleAiContainer.appendChild(widget);
+      widgetCreated = true;
 
       // Focus the widget input after it renders
       setTimeout(() => {
-        const input = widget?.querySelector('input[type="text"]');
+        const input = widget?.querySelector('input[type="text"], input[type="search"]');
         input?.focus();
       }, 500);
     } catch (error) {
@@ -271,17 +201,8 @@
     initGoogleWidget();
   });
 
-  // Close handlers
+  // Close dropdown menu when clicking outside
   document.addEventListener('click', (e) => {
-    const container = document.getElementById('google-ai-widget-container');
-    const backdrop = container?.querySelector('.google-ai-backdrop');
-
-    // Close Google widget when clicking backdrop
-    if (container?.classList.contains('active') && (e.target === backdrop || e.target === container)) {
-      container.classList.remove('active');
-    }
-
-    // Close dropdown menu
     if (isMenuOpen && !searchMenu?.contains(e.target as Node) && e.target !== searchTrigger) {
       closeMenu();
     }
@@ -291,10 +212,6 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (isMenuOpen) closeMenu();
-      const container = document.getElementById('google-ai-widget-container');
-      if (container?.classList.contains('active')) {
-        container.classList.remove('active');
-      }
     }
   });
 </script>
