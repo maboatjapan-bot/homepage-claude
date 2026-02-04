@@ -152,27 +152,38 @@
         const input = widget?.querySelector('input[type="text"], input[type="search"]');
         input?.focus();
 
-        // Add click listener to backdrop for closing
+        // Add click listener to close widget when clicking outside content area
+        // Note: backdrop is display:none in alwaysOpened mode, so we use dialog click
         try {
           const shadowRoot = widget?.shadowRoot;
           if (shadowRoot) {
-            const backdrop = shadowRoot.querySelector('.backdrop');
-            if (backdrop) {
-              console.log('Found backdrop, adding click listener');
-              backdrop.addEventListener('click', (e) => {
-                // Only close if not clicking on close button or other interactive elements
-                if ((e.target as Element).tagName !== 'BUTTON' && !(e.target as Element).closest('button')) {
-                  console.log('Backdrop clicked, closing widget');
+            const dialog = shadowRoot.querySelector('[role="dialog"]');
+            if (dialog) {
+              dialog.addEventListener('click', (e) => {
+                // Get the actual click position
+                const x = e.clientX;
+                const y = e.clientY;
+
+                // Check if click is near the center (content area) or edges (should close)
+                // Content is typically centered with max-width around 700px
+                const viewportWidth = window.innerWidth;
+                const centerX = viewportWidth / 2;
+                const contentWidth = 700; // Approximate content width
+
+                // Calculate content area bounds
+                const contentLeft = centerX - contentWidth / 2;
+                const contentRight = centerX + contentWidth / 2;
+
+                // If click is outside horizontal content bounds, close widget
+                if (x < contentLeft || x > contentRight) {
                   googleAiContainer!.innerHTML = '';
                   widgetCreated = false;
                 }
               });
-            } else {
-              console.log('Backdrop not found in shadow root');
             }
           }
         } catch (err) {
-          console.log('Could not access widget shadow root:', err);
+          console.log('Could not add click listener to dialog:', err);
         }
       }, 1000);
     } catch (error) {
@@ -230,31 +241,25 @@
       closeMenu();
     }
 
-    // Close Google Widget when clicking backdrop
+    // Close Google Widget when clicking outside content area
     const widget = googleAiContainer?.querySelector('gen-search-widget');
     if (widget) {
       const path = e.composedPath();
 
-      // Check if click path contains backdrop element
-      const clickedBackdrop = path.some((node): node is Element => {
-        return node instanceof Element && (
-          node.classList?.contains('backdrop') ||
-          node.getAttribute?.('role') === 'presentation'
-        );
-      });
+      // Check if click originated from widget
+      if (path.includes(widget)) {
+        // Calculate content area bounds (centered, ~700px wide)
+        const viewportWidth = window.innerWidth;
+        const centerX = viewportWidth / 2;
+        const contentWidth = 700;
+        const contentLeft = centerX - contentWidth / 2;
+        const contentRight = centerX + contentWidth / 2;
 
-      // Check if click is inside content area
-      const clickedContent = path.some((node): node is Element => {
-        return node instanceof Element && (
-          node.classList?.contains('content') ||
-          node.closest('.content')
-        );
-      });
-
-      // Close if clicked on backdrop but not on content
-      if (clickedBackdrop && !clickedContent) {
-        googleAiContainer!.innerHTML = '';
-        widgetCreated = false;
+        // If click is outside content bounds, close widget
+        if (e.clientX < contentLeft || e.clientX > contentRight) {
+          googleAiContainer!.innerHTML = '';
+          widgetCreated = false;
+        }
       }
     }
   });
