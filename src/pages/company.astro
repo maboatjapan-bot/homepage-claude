@@ -22,131 +22,135 @@ import SlideIn from '../components/SlideIn.astro';
   </nav>
 
   <!-- Hero -->
-  <section class="py-16 px-6 bg-white">
+  <section class="py-16 px-6 bg-brand-teal relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <SlideIn direction="left">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
-              Company Profile
-            </div>
+        <ScaleIn delay={0} from={0.9}>
+          <div class="flex justify-center lg:justify-start">
+            <img src="/assets/images/company/hero-illustration.png" alt="会社情報" class="w-48 h-auto" />
+          </div>
+        </ScaleIn>
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+        <SlideIn direction="right">
+          <div>
+            <p class="text-white text-xl mb-4"><strong>『企業のDX化』</strong></p>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
               会社概要
             </h1>
 
-            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-              デジタルの力で未来を加速する。<br />
-              <span class="text-brand-teal font-semibold">革新の一歩を共に</span>。
-            </p>
-
-            <p class="text-slate-600 mb-8 leading-relaxed">
-              シーテック株式会社は、最新技術を活用したソリューション提供により、<br class="hidden sm:block" />
-              お客様のビジネス変革を支援しています。
+            <p class="text-white text-lg mb-8" style="line-height: 2.4;">
+              IoTテクノロジーを活かしたサービス、製品を<br />
+              <strong>"スピーディー"</strong><br />
+              <strong>"品質重視"</strong><br />
+              にてご提供することで<br />
+              <strong>"より豊かに"</strong><br />
+              <strong>"より便利に"</strong><br />
+              バージョンUPできるように目指します。
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/recruit" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+              <a href="/recruit" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 text-brand-teal text-base font-medium rounded-full transition-all shadow-xl">
                 採用情報
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
-              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-base font-medium rounded-full transition-all border border-white/20">
                 お問い合わせ
               </a>
             </div>
           </div>
         </SlideIn>
-
-        <ScaleIn delay={0} from={0.9}>
-          <div class="relative">
-            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center">
-              <svg class="w-48 h-48 text-brand-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
-            </div>
-          </div>
-        </ScaleIn>
       </div>
     </div>
   </section>
 
   <!-- Company Info -->
-  <section class="py-24 px-6 bg-slate-50">
-    <div class="max-w-7xl mx-auto">
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
       <FadeIn>
         <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4 tracking-tight text-slate-900" style="letter-spacing: 2px;">
             会社情報
           </h2>
+          <p class="text-xl text-slate-600">COMPANY</p>
         </div>
       </FadeIn>
 
-      <div class="max-w-4xl mx-auto">
+      <div class="space-y-0">
+        <!-- 社名 - Stripe 1 -->
         <ScaleIn delay={0} from={0.95}>
-          <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-slate-200/50">
-            <dl class="grid gap-6">
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">会社名</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">シーテック株式会社</dd>
-              </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 py-8 px-6 bg-slate-100">
+            <div class="md:col-span-1">
+              <p class="text-slate-700">社名</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-900 font-medium">シーテック株式会社</p>
+            </div>
+          </div>
+        </ScaleIn>
 
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">英文社名</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">Swiftechie Co., Ltd.</dd>
-              </div>
+        <!-- 設立 - Stripe 2 -->
+        <ScaleIn delay={50} from={0.95}>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 py-6 px-6 bg-white">
+            <div class="md:col-span-1">
+              <p class="text-slate-700">設立</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-900 font-medium">2017年10月</p>
+            </div>
+          </div>
+        </ScaleIn>
 
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">代表者</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">松江 芳夫</dd>
-              </div>
+        <!-- 所在地 - Stripe 3 -->
+        <ScaleIn delay={100} from={0.95}>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 py-8 px-6 bg-slate-100">
+            <div class="md:col-span-1">
+              <p class="text-slate-700">所在地</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-900 font-medium">
+                〒104-0033<br />
+                東京都中央区新川1-14-5金盃第三ビル7F
+              </p>
+            </div>
+          </div>
+        </ScaleIn>
 
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">住所</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">
-                  〒104-0033<br />
-                  東京都中央区新川1-14-5<br />
-                  金盃第3ビル7階
-                </dd>
-              </div>
+        <!-- 役員 - Stripe 4 -->
+        <ScaleIn delay={150} from={0.95}>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 py-6 px-6 bg-white">
+            <div class="md:col-span-1">
+              <p class="text-slate-700">役員</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-900 font-medium">代表取締役　松江　芳夫</p>
+            </div>
+          </div>
+        </ScaleIn>
 
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">電話番号</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">03-6222-8452（代表）</dd>
-              </div>
+        <!-- 社員数 - Stripe 5 -->
+        <ScaleIn delay={200} from={0.95}>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 py-8 px-6 bg-slate-100">
+            <div class="md:col-span-1">
+              <p class="text-slate-700">社員数</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-900 font-medium">40名（2024年3月時点）</p>
+            </div>
+          </div>
+        </ScaleIn>
 
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">設立</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">2006年4月1日</dd>
-              </div>
-
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">資本金</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">1,000万円</dd>
-              </div>
-
-              <div class="grid md:grid-cols-3 gap-4 border-b border-slate-200 pb-6">
-                <dt class="text-sm font-semibold text-slate-500">事業内容</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">
-                  システム開発・ソフトウェア開発<br />
-                  クラウドサービス構築・運用<br />
-                  AI ソリューション提供<br />
-                  製品開発・販売
-                </dd>
-              </div>
-
-              <div class="grid md:grid-cols-3 gap-4">
-                <dt class="text-sm font-semibold text-slate-500">取引银行</dt>
-                <dd class="md:col-span-2 text-lg text-slate-900">
-                  三菱UFJ銀行<br />
-                  三井住友銀行
-                </dd>
-              </div>
-            </dl>
+        <!-- 事業内容 - Stripe 6 -->
+        <ScaleIn delay={250} from={0.95}>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0 py-6 px-6 bg-white">
+            <div class="md:col-span-1">
+              <p class="text-slate-700">事業内容</p>
+            </div>
+            <div class="md:col-span-2">
+              <p class="text-slate-900 font-medium">SI事業/IoT事業/AI事業</p>
+            </div>
           </div>
         </ScaleIn>
       </div>
