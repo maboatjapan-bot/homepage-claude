@@ -10,170 +10,162 @@ import SlideIn from '../../components/SlideIn.astro';
 <BaseLayout>
   <Header />
 
-  <!-- Breadcrumb -->
-  <nav class="pt-20 px-6 bg-white">
+  <!-- Hero Section -->
+  <section class="pt-20 pb-16 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
     <div class="max-w-7xl mx-auto">
-      <ol class="flex items-center gap-2 text-sm text-slate-500">
-        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
-        <li>/</li>
-        <li><a href="/products" class="hover:text-brand-teal">製品</a></li>
-        <li>/</li>
-        <li class="text-slate-900">Popohu Mini</li>
-      </ol>
-    </div>
-  </nav>
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <div class="space-y-6">
+            <h3 class="text-xl md:text-2xl font-bold mb-4">
+              コンセントが届かないあのデスクも、<br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">ポポフならどこでもスマート給電</span>
+            </h3>
 
-  <!-- Product Hero -->
-  <section class="py-16 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Product Image -->
-        <ScaleIn delay={0} from={0.9}>
-          <div class="relative">
-            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center overflow-hidden">
-              <img
-                src="/wp-content/uploads/2025/07/generation-b7663557-1673-4917-8c82-da9b8b19f7c0.jpg"
-                alt="Popohu Mini"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <!-- Badge -->
-            <div class="absolute -top-4 -right-4 bg-brand-teal text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-              NEW
-            </div>
-          </div>
-        </ScaleIn>
-
-        <!-- Product Info -->
-        <SlideIn direction="right">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-              ポータブル電源
-            </div>
-
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-              Popohu Mini
-            </h1>
-
-            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
-              コンセントが届かないあのデスクも、<br class="hidden sm:block" />
-              <span class="text-brand-teal font-semibold">ポポフならどこでもスマート給電</span>。
-            </p>
-
-            <p class="text-slate-600 mb-8 leading-relaxed">
+            <p class="text-slate-700 leading-relaxed mb-4">
               延長コードやACアダプタを持ち歩く手間から解放。「ポポフ」なら、電源工事不要で会議室・カフェ・自宅のデスクまでどこでも電源を確保できます。
             </p>
-
-            <!-- Key Features -->
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                  </svg>
-                </div>
-                <span class="text-sm text-slate-600">工事不要</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                  </svg>
-                </div>
-                <span class="text-sm text-slate-600">持ち運び便利</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                  </svg>
-                </div>
-                <span class="text-sm text-slate-600">安全設計</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brand-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                  </svg>
-                </div>
-                <span class="text-sm text-slate-600">長寿命</span>
-              </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
-                お問い合わせ
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+            <p class="text-slate-700 leading-relaxed mb-4">
+              配線のないすっきりした空間を実現し、清潔感ある空間づくりへ貢献。業務効率と集中力もアップします。
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              ポポフは、柔軟な働き方を支える「ABWソリューション」として、次世代の電源インフラを提供します。
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="/wp-content/uploads/2025/09/PoPoHu_mini_instruction.pdf" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition">
+                資料をダウンロード
               </a>
-              <a href="/products" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
-                他の製品を見る
+              <a href="/contact" class="border border-slate-300 hover:border-blue-600 text-slate-700 hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition">
+                お問合せ・導入相談
               </a>
             </div>
           </div>
-        </SlideIn>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="py-24 px-6 bg-slate-50">
-    <div class="max-w-7xl mx-auto">
-      <FadeIn>
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            主な特徴
-          </h2>
-          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
-            Popohu Mini が選ばれる理由
-          </p>
         </div>
-      </FadeIn>
+        <div class="lg:w-1/2">
+          <div class="overflow-hidden rounded-2xl shadow-xl">
+            <img
+              src="/wp-content/uploads/2025/07/new_top_banner.jpg"
+              alt="ポポフmini オフィス使用"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <ScaleIn delay={0} from={0.9}>
-          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
-            <h3 class="text-2xl font-semibold mb-3 text-blue-600">💰 大幅なコスト削減</h3>
-            <p class="text-slate-600 leading-relaxed">
-              電源工事が不要なため、一般的な有線設備に比べて導入の手間とコストを大きく抑えられます。
-            </p>
+  <!-- Services Section: ビジネス活用シーン -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex justify-between items-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold leading-tight text-slate-900 mb-6">
+          給電で広がる<br class="sm:hidden">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">ビジネス活用シーン</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- オフィス -->
+        <div class="lg:col-span-2 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+          <img
+            src="/wp-content/uploads/2025/07/new_office.jpg"
+            alt="オフィスで"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-8 text-white">
+            <h3 class="text-xl font-bold text-white mb-2">オフィスでも自由に給電</h3>
+            <p class="font-medium text-white text-sm">どの席でもすぐ使える、スマートデスクへ。</p>
+          </div>
+        </div>
+
+        <!-- 会議室 -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+          <img
+            src="/wp-content/uploads/2025/07/new_meeting.jpg"
+            alt="会議室で"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6 text-white">
+            <h3 class="text-xl font-bold text-white mb-2">会議室での共有利用に最適</h3>
+            <p class="font-medium text-white text-sm">工事不要で導入しやすく、すっきり整った空間演出にも対応。</p>
+          </div>
+        </div>
+
+        <!-- カフェ -->
+        <div class="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+          <img
+            src="/wp-content/uploads/2025/07/new_caffee.jpg"
+            alt="カフェで"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6 text-white">
+            <h3 class="text-xl font-bold text-white mb-2">カフェでも快適に給電＆作業</h3>
+            <p class="font-medium text-white text-sm">コンセント不要で、好きな席でもスムーズに仕事が進む。</p>
+          </div>
+        </div>
+
+        <!-- YouTube Video -->
+        <div class="lg:col-span-2">
+          <div class="text-center mb-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+              🎬 漫画で見るポポフのある日常
+            </h3>
+          </div>
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+            <iframe
+              src="https://www.youtube.com/embed/kenuz8hs84s?rel=0&modestbranding=1&playsinline=1"
+              title="Popofu Animation Video"
+              class="absolute inset-0 w-full h-full"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section: 導入メリット -->
+  <section class="py-20 px-6 bg-slate-100">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-10">
+        ポポフ導入による<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">3つのメリット</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+            <h3 class="text-lg font-bold text-blue-600 mb-3">💰 大幅なコスト削減</h3>
+            <p class="text-slate-700">電源工事が不要なため、一般的な有線設備に比べて導入の手間とコストを大きく抑えられます。</p>
           </div>
         </ScaleIn>
-
-        <ScaleIn delay={100} from={0.9}>
-          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
-            <h3 class="text-2xl font-semibold mb-3 text-blue-600">📈 業務効率＆満足度アップ</h3>
-            <p class="text-slate-600 leading-relaxed">
-              電源を探したりACアダプタを持ち歩く手間から解放されます。職場環境のスマート化によりビジネスに集中でき社員の満足度も向上します。
-            </p>
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+            <h3 class="text-lg font-bold text-blue-600 mb-3">📈 業務効率＆満足度アップ</h3>
+            <p class="text-slate-700">電源を探したりACアダプタを持ち歩く手間から解放されます。職場環境のスマート化によりビジネスに集中でき社員の満足度も向上します。</p>
           </div>
         </ScaleIn>
-
-        <ScaleIn delay={200} from={0.9}>
-          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
-            <h3 class="text-2xl font-semibold mb-3 text-blue-600">🪑 柔軟なレイアウトに対応</h3>
-            <p class="text-slate-600 leading-relaxed">
-              フリーアドレス・ABW空間に最適。デスクまわり、会議室やカフェスペースなど、電源位置を気にせず配置できます。
-            </p>
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
+            <h3 class="text-lg font-bold text-blue-600 mb-3">🪑 柔軟なレイアウトに対応</h3>
+            <p class="text-slate-700">フリーアドレス・ABW空間に最適。デスクまわり、会議室やカフェスペースなど、電源位置を気にせず配置できます。</p>
           </div>
         </ScaleIn>
       </div>
     </div>
   </section>
 
-  <!-- ABW Section -->
-  <section class="py-24 px-6 bg-white">
+  <!-- ABW解説ビジュアル＋価値訴求 -->
+  <section class="py-20 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
-      <FadeIn>
-        <h2 class="text-4xl sm:text-5xl font-bold mb-10 tracking-tight text-slate-900">
-          ABW × ポポフ を <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">図で解説</span>
-        </h2>
-      </FadeIn>
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-10">
+        ABW × ポポフ を <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">図で解説</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <ScaleIn delay={0} from={0.9}>
           <img src="/wp-content/uploads/2025/07/ABW01.jpg" alt="ABW導入図" class="rounded-xl shadow-lg w-full object-cover">
         </ScaleIn>
@@ -190,33 +182,31 @@ import SlideIn from '../../components/SlideIn.astro';
     </div>
   </section>
 
-  <!-- Recommended For Section -->
-  <section class="py-24 px-6 bg-slate-100">
+  <!-- こんな方におすすめ -->
+  <section class="py-20 px-6 bg-slate-100">
     <div class="max-w-7xl mx-auto">
-      <FadeIn>
-        <h2 class="text-4xl sm:text-5xl font-bold mb-10 tracking-tight text-slate-900">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">こんな方におすすめ</span>
-        </h2>
-      </FadeIn>
-      <div class="grid md:grid-cols-3 gap-6 text-slate-700 text-base">
-        <ScaleIn delay={0} from={0.9}>
-          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-            <p class="mb-2 text-2xl">👨‍💼</p>
-            <p class="font-semibold mb-2 text-slate-900">総務部門など電源設備導入を検討中の方</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-10">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">こんな方におすすめ</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-700 text-sm sm:text-base">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white p-6 rounded-xl shadow-sm border">
+            <p class="mb-2 text-blue-600 text-xl">👨‍💼</p>
+            <p class="font-semibold mb-1">総務部門など電源設備導入を検討中の方</p>
             <p>工事不要・レイアウト自由な電源環境を探している方に。既存オフィスにも即導入でき、手間なく運用開始できます。</p>
           </div>
         </ScaleIn>
-        <ScaleIn delay={100} from={0.9}>
-          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-            <p class="mb-2 text-2xl">🏠</p>
-            <p class="font-semibold mb-2 text-slate-900">ABWや在宅勤務に対応した環境整備を進める企業様</p>
+        <ScaleIn delay={100} from={0.95}>
+          <div class="bg-white p-6 rounded-xl shadow-sm border">
+            <p class="mb-2 text-blue-600 text-xl">🏠</p>
+            <p class="font-semibold mb-1">ABWや在宅勤務に対応した環境整備を進める企業様</p>
             <p>カフェ・自宅リビング・ベッド横でも電源確保。どこでも"仕事ができる場所"に変える柔軟なワークスタイルを実現。</p>
           </div>
         </ScaleIn>
-        <ScaleIn delay={200} from={0.9}>
-          <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-            <p class="mb-2 text-2xl">🏢</p>
-            <p class="font-semibold mb-2 text-slate-900">オフィスリニューアルや移転を予定している担当者</p>
+        <ScaleIn delay={200} from={0.95}>
+          <div class="bg-white p-6 rounded-xl shadow-sm border">
+            <p class="mb-2 text-blue-600 text-xl">🏢</p>
+            <p class="font-semibold mb-1">オフィスリニューアルや移転を予定している担当者</p>
             <p>レイアウトに縛られないスマートな電源構成を導入することで、コスト削減と同時に洗練された空間づくりを実現できます。</p>
           </div>
         </ScaleIn>
@@ -224,195 +214,313 @@ import SlideIn from '../../components/SlideIn.astro';
     </div>
   </section>
 
-  <!-- Specifications -->
-  <section class="py-24 px-6 bg-white">
-    <div class="max-w-4xl mx-auto">
-      <FadeIn>
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            仕様
-          </h2>
-        </div>
-      </FadeIn>
-
-      <ScaleIn delay={0} from={0.95}>
-        <div class="bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
-          <div class="bg-gradient-to-r from-brand-teal to-brand-blue text-white px-4 py-2 font-semibold text-lg">製品仕様</div>
-          <table class="min-w-full text-sm text-slate-800">
-            <tbody>
-              <tr class="border-t"><td class="px-4 py-3 font-medium w-1/3 whitespace-nowrap bg-white">バッテリー</td><td class="px-4 py-3 bg-slate-50/50">リン酸鉄リチウムイオンバッテリー</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-slate-50/50">容量</td><td class="px-4 py-3 bg-white">80Wh / 25,000mAh</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-white">寸法</td><td class="px-4 py-3 bg-slate-50/50">幅87×奥行87×高さ156mm</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-slate-50/50">重量</td><td class="px-4 py-3 bg-white">800g</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-white">出力ポート</td><td class="px-4 py-3 bg-slate-50/50">最大合計出力：100W</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-slate-50/50">ワイヤレス充電</td><td class="px-4 py-3 bg-white">15W（Qi2対応）／上蓋上部に搭載</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-white">USB-A出力</td><td class="px-4 py-3 bg-slate-50/50">最大18W</td></tr>
-              <tr class="border-t"><td class="px-4 py-3 whitespace-nowrap bg-slate-50/50">USB-C出力</td><td class="px-4 py-3 bg-white">①：最大45W　②：最大65W（入力対応）</td></tr>
-              <tr class="border-t border-b"><td class="px-4 py-3 whitespace-nowrap bg-white">サイクル寿命</td><td class="px-4 py-3 bg-slate-50/50">約2,000回</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </ScaleIn>
-    </div>
-  </section>
-
-  <!-- Use Cases -->
-  <section class="py-24 px-6 bg-slate-50">
+  <!-- Product Overview & Specs Section -->
+  <section class="py-16 px-6 bg-slate-50">
     <div class="max-w-7xl mx-auto">
-      <FadeIn>
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            給電で広がる<br class="sm:hidden">ビジネス活用シーン
-          </h2>
+      <h2 class="text-2xl sm:text-3xl font-bold leading-tight text-slate-900 mb-6">
+        ビジネスに適した<span class="inline sm:hidden"><br></span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">製品設計</span>
+      </h2>
+
+      <div class="text-slate-700 leading-relaxed mb-12 max-w-4xl">
+        <p class="mb-4">
+          ポポフminiは、業務にも日常にも安心して使えるポータブル電源。発熱・発火リスクが低い「リン酸鉄リチウムイオンバッテリー（LiFePO4）」を採用し、一般的な電池よりも高い安全性と約2〜4倍の長寿命を実現。災害時や長時間利用にも最適です。
+        </p>
+        <p class="mb-4">
+          洗練されたデザインは、オフィスやカフェ、自宅内のさまざまな空間にすっきりと馴染みます。軽量・コンパクト設計で、施設内のデスクやカウンター間を自由に持ち運ぶことができます。
+        </p>
+        <p>
+          オフィスのデスク上や会議室、カフェスペースなど<strong>配線工事なしで自由に設置可能</strong>。ABWの実現やオフィスリニューアルにも最適な「新しい電源のかたち」です。
+        </p>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-start md:items-stretch gap-10">
+        <!-- Vertical YouTube Video -->
+        <div class="md:w-1/2">
+          <div class="relative w-full h-full min-h-[420px] max-h-[740px] overflow-hidden rounded-lg shadow-xl bg-black">
+            <img
+              src="/wp-content/uploads/2025/07/new_home.jpg"
+              alt="Popofu Mini"
+              class="w-full h-full object-cover object-bottom"
+            />
+            <div class="absolute inset-0 bg-black/30"></div>
+            <a
+              href="https://www.youtube.com/watch?v=RMQd8A3HwF4"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 inline-flex items-center justify-center gap-2 px-5 sm:px-6 h-12 rounded-xl bg-indigo-600 text-white font-semibold shadow-md hover:bg-indigo-700 transition"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              再生する
+            </a>
+          </div>
+          <div class="mt-3 text-sm text-slate-600">
+            ※ 再生できない場合は
+            <a href="https://www.youtube.com/watch?v=RMQd8A3HwF4" target="_blank" rel="noopener" class="text-blue-600 underline">
+              YouTubeで視聴
+            </a>
+          </div>
         </div>
-      </FadeIn>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-        <ScaleIn delay={0} from={0.9}>
-          <div class="lg:col-span-2 group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-            <img src="/wp-content/uploads/2025/07/new_office.jpg" alt="オフィスで" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 text-white">
-              <h3 class="text-xl font-bold text-white mb-2">オフィスでも自由に給電</h3>
-              <p class="font-medium text-white text-sm">どの席でもすぐ使える、スマートデスクへ。</p>
+        <!-- Product Specs -->
+        <div class="md:w-1/2">
+          <div class="bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 font-semibold text-lg">
+              製品仕様
             </div>
+            <table class="min-w-full text-sm text-slate-800">
+              <tbody>
+                <tr class="border-t">
+                  <td class="px-4 py-3 font-medium w-1/3 whitespace-nowrap">バッテリー</td>
+                  <td class="px-4 py-3">リン酸鉄リチウムイオンバッテリー</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">容量</td>
+                  <td class="px-4 py-3">80Wh / 25,000mAh</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">寸法</td>
+                  <td class="px-4 py-3">幅87×奥行87×高さ156mm</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">重量</td>
+                  <td class="px-4 py-3">800g</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">充電回数目安</td>
+                  <td class="px-4 py-3">ノートPC：約1.5回、タブレット：約3回、スマホ：約7回</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">出力ポート</td>
+                  <td class="px-4 py-3">最大合計出力：100W</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">ワイヤレス充電</td>
+                  <td class="px-4 py-3">15W（Qi2対応）／上蓋上部に搭載</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">USB-A出力</td>
+                  <td class="px-4 py-3">最大18W</td>
+                </tr>
+                <tr class="border-t">
+                  <td class="px-4 py-3 whitespace-nowrap">USB-C出力</td>
+                  <td class="px-4 py-3">①：最大45W　②：最大65W（入力対応）</td>
+                </tr>
+                <tr class="border-t border-b">
+                  <td class="px-4 py-3 whitespace-nowrap">サイクル寿命</td>
+                  <td class="px-4 py-3">約2,000回</td>
+                </tr>
+                <tr class="border-t border-b">
+                  <td class="px-4 py-3 whitespace-nowrap">保証期間</td>
+                  <td class="px-4 py-3">本体2年、ケーブル初期不良のみ対応</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </ScaleIn>
-
-        <ScaleIn delay={100} from={0.9}>
-          <div class="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-            <img src="/wp-content/uploads/2025/07/new_meeting.jpg" alt="会議室で" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6 text-white">
-              <h3 class="text-xl font-bold text-white mb-2">会議室での共有利用に最適</h3>
-              <p class="font-medium text-white text-sm">工事不要で導入しやすく、すっきり整った空間演出にも対応。</p>
-            </div>
-          </div>
-        </ScaleIn>
-
-        <ScaleIn delay={200} from={0.9}>
-          <div class="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-            <img src="/wp-content/uploads/2025/07/new_caffee.jpg" alt="カフェで" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6 text-white">
-              <h3 class="text-xl font-bold text-white mb-2">カフェでも快適に給電＆作業</h3>
-              <p class="font-medium text-white text-sm">コンセント不要で、好きな席でもスムーズに仕事が進む。</p>
-            </div>
-          </div>
-        </ScaleIn>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Product Gallery -->
-  <section class="py-24 px-6 bg-white">
+  <!-- 電源セット -->
+  <section class="py-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
-      <FadeIn>
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            製品ギャラリー
-          </h2>
-        </div>
-      </FadeIn>
+      <h2 class="text-2xl sm:text-3xl font-bold leading-tight text-slate-900 mb-10">
+        シェア・チーム活用に特化した<span class="inline sm:hidden"><br></span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">電源セット</span>
+      </h2>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <!-- mini Quad -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start mb-16">
         <ScaleIn delay={0} from={0.9}>
-          <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-            <img src="/wp-content/uploads/2025/07/generation-776b87d9-3ad4-4c85-adcb-25bcb3e975ed.jpg" alt="Popohu Mini 詳細" class="w-full h-auto" />
-          </div>
+          <img
+            src="/wp-content/uploads/2025/07/generation-776b87d9-3ad4-4c85-adcb-25bcb3e975ed.jpg"
+            alt="ポポフmini Quad"
+            class="rounded-xl shadow-md w-full object-cover"
+          />
         </ScaleIn>
+        <SlideIn direction="right">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">ポポフmini Quad</h3>
+            <p class="text-base text-slate-700 leading-relaxed mb-4">
+              会議室・カフェ・打合せブースなど、配線が困難な場所でもすぐに使える4台構成の電源セット。
+            </p>
+            <p class="text-base text-slate-700 leading-relaxed mb-4">
+              専用の盗難防止ステーション（別売）と組み合わせれば、セミパブリック空間でも安心して設置可能。工事不要で既存空間にもそのまま導入できます。
+            </p>
+            <p class="text-base text-slate-700 leading-relaxed mb-4">
+              コードが散らからず、空間全体の美観と使い勝手を向上。ABWを支えるスマートな共有インフラとして活躍します。
+            </p>
+            <span class="inline-block text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
+              共有利用に最適な4台構成
+            </span>
+          </div>
+        </SlideIn>
+      </div>
 
-        <ScaleIn delay={100} from={0.9}>
-          <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
-            <img src="/wp-content/uploads/2025/07/generation-b7663557-1673-4917-8c82-da9b8b19f7c0.jpg" alt="Popohu Mini 本体" class="w-full h-auto" />
-          </div>
+      <!-- Lite5 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <ScaleIn delay={0} from={0.9}>
+          <img
+            src="/wp-content/uploads/2025/07/generation-b7663557-1673-4917-8c82-da9b8b19f7c0.jpg"
+            alt="ポポフ Lite5"
+            class="rounded-xl shadow-md w-full object-cover"
+          />
         </ScaleIn>
+        <SlideIn direction="right">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">ポポフmini Lite5</h3>
+            <p class="text-base text-slate-700 leading-relaxed mb-4">
+              持ち運びやすいハンドル付きボックスに、5台をまとめて収納できるモデル。イベントやワークショップ、プロジェクトチーム単位の導入にも最適です。
+            </p>
+            <p class="text-base text-slate-700 leading-relaxed mb-4">
+              各端末にはカラーバンドを装備し、個別識別や管理がしやすく、混乱や紛失のリスクも軽減。チーム内での使い分けがスムーズです。
+            </p>
+            <p class="text-base text-slate-700 leading-relaxed mb-4">
+              本体の充電は専用ステーションに限定されており、不正な持ち出しへの抑止力にも。軽量ながら、ノートPC1台分の給電にしっかり対応。気軽に使えて、柔軟な働き方を支える安心のパートナーです。
+            </p>
+            <span class="inline-block text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">
+              多台運用に特化した安全設計
+            </span>
+          </div>
+        </SlideIn>
       </div>
     </div>
   </section>
 
-  <!-- Download Section -->
-  <section class="py-24 px-6 bg-white">
+  <!-- FAQ -->
+  <section class="py-20 px-6 bg-slate-100">
     <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-8">よくあるご質問</h2>
+      <div class="space-y-4">
+        <!-- FAQ項目1 -->
+        <details class="border border-slate-200 rounded-lg group">
+          <summary class="w-full text-left px-6 py-4 font-medium text-slate-800 flex justify-between items-center cursor-pointer hover:bg-slate-50">
+            バッテリーの寿命はどれくらいですか？
+            <span class="group-open:hidden">＋</span>
+            <span class="hidden group-open:inline">−</span>
+          </summary>
+          <div class="px-6 pb-4 text-slate-600">
+            約2,000回の充放電が可能で、毎日使用しても5年以上使える耐久性があります。
+            長寿命のLiFePO4電池を採用しており、法人利用にも安心です。
+          </div>
+        </details>
+
+        <!-- FAQ項目2 -->
+        <details class="border border-slate-200 rounded-lg group">
+          <summary class="w-full text-left px-6 py-4 font-medium text-slate-800 flex justify-between items-center cursor-pointer hover:bg-slate-50">
+            設置には工事が必要ですか？
+            <span class="group-open:hidden">＋</span>
+            <span class="hidden group-open:inline">−</span>
+          </summary>
+          <div class="px-6 pb-4 text-slate-600">
+            工事は不要です。ポポフはACコンセントで充電して、どこでもすぐに使用可能。
+            電源工事費やレイアウト制限がなく、移設も簡単です。
+          </div>
+        </details>
+
+        <!-- FAQ項目3 -->
+        <details class="border border-slate-200 rounded-lg group">
+          <summary class="w-full text-left px-6 py-4 font-medium text-slate-800 flex justify-between items-center cursor-pointer hover:bg-slate-50">
+            複数人での利用は可能ですか？
+            <span class="group-open:hidden">＋</span>
+            <span class="hidden group-open:inline">−</span>
+          </summary>
+          <div class="px-6 pb-4 text-slate-600">
+            はい。QuadセットやLite5モデルなら複数人での同時利用に最適です。
+            セキュリティや持ち運びの配慮もされており、チーム・イベント用途にも対応します。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ポポフシリーズを見る -->
+  <section class="py-14 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
       <FadeIn>
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            資料ダウンロード
-          </h2>
-          <p class="text-xl text-slate-600">
-            製品情報のPDFをダウンロードできます
-          </p>
-        </div>
+        <h2 class="text-xl sm:text-2xl font-bold text-center mb-10 text-slate-800">ポポフシリーズを見る</h2>
       </FadeIn>
 
-      <div class="grid md:grid-cols-1 gap-6">
+      <div class="grid sm:grid-cols-2 gap-8">
+        <!-- Popohu -->
         <ScaleIn delay={0} from={0.95}>
-          <a
-            href="/wp-content/uploads/2025/09/PoPoHu_mini_instruction.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group flex items-center gap-6 p-6 rounded-2xl border-2 border-slate-200 bg-white shadow-lg hover:shadow-xl hover:border-brand-teal/50 transition-all"
-          >
-            <!-- PDF Icon -->
-            <div class="w-16 h-16 flex-shrink-0 bg-red-50 rounded-xl flex items-center justify-center">
-              <svg class="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-
-            <!-- Text Info -->
-            <div class="flex-1">
-              <div class="flex items-center justify-between">
-                <span class="font-semibold text-slate-900 text-lg">取扱説明書（PDF）</span>
-                <span class="text-xs px-3 py-1 rounded-full bg-slate-100 text-slate-600 group-hover:bg-brand-teal/10 transition-colors">
-                  PDF
-                </span>
+          <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition transform hover:-translate-y-1">
+            <img
+              src="/wp-content/uploads/2024/11/カフェ-1.jpg"
+              alt="ポポフ"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 text-left">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-lg font-semibold text-slate-800">ポポフ</h3>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">複数人で共有利用</span>
               </div>
-              <p class="text-sm text-slate-600 mt-1">Popohu Mini 取扱説明書</p>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                会議室やオフィスの島で複数人が同時に使える電源ハブ。工事不要で配線もすっきり、ABWのフリーアドレス環境に最適。安全でスマートな「みんなの電源」を実現します。
+              </p>
+              <a
+                href="/products/popohu"
+                class="inline-block px-4 py-2 text-sm font-medium bg-slate-800 text-white rounded-md transition hover:bg-slate-700">
+                ポポフ サイトへ
+              </a>
             </div>
+          </div>
+        </ScaleIn>
 
-            <!-- Download Arrow -->
-            <div class="flex-shrink-0">
-              <svg class="w-6 h-6 text-slate-400 group-hover:text-brand-teal transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-              </svg>
+        <!-- Popohu Mini Lite5 -->
+        <ScaleIn delay={100} from={0.95}>
+          <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition transform hover:-translate-y-1">
+            <img
+              src="/wp-content/uploads/2025/07/top_school.jpg"
+              alt="ポポフmini Lite5"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 text-left">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="text-lg font-semibold text-slate-800">ポポフmini Lite5</h3>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">学校・業務向け</span>
+              </div>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                ノートPCやタブレットの充電に特化したシンプルモデル。教室・医療・業務現場で使いやすく、チャージステーションに戻してのみ充電できる仕様で持ち出し抑止にも有効です。
+              </p>
+              <a
+                href="/products/popohu-minilite5"
+                class="inline-block px-4 py-2 text-sm font-medium bg-slate-800 text-white rounded-md transition hover:bg-slate-700">
+                ポポフmini Lite5 サイトへ
+              </a>
             </div>
-          </a>
+          </div>
         </ScaleIn>
       </div>
-
-      <p class="text-center text-sm text-slate-500 mt-8">
-        ※ PDFファイルは新しいタブで開きます。保存はブラウザのメニューから行ってください。
-      </p>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <FadeIn>
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          Popohu Mini について
-          <br>詳しくご相談ください
-        </h2>
-        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-          お客様のニーズに合わせた最適なソリューションをご提案します。
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
-            お問い合わせ
-          </a>
-          <a href="/products/pitopa" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
-            他の製品を見る
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </FadeIn>
+  <section class="py-20 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">導入をご検討中の企業様へ</h2>
+      <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-6 leading-relaxed">
+        工事不要・低コストで、すぐに導入可能。<br>
+        ポポフは「自由な席選び」と「業務効率アップ」を両立するABWソリューション。
+      </p>
+      <p class="text-base text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
+        詳しい製品情報や導入方法については、ぜひお気軽にご相談ください。
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="/wp-content/uploads/2025/09/PoPoHu_mini_instruction.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-bold transition">
+          資料をダウンロード
+        </a>
+        <a href="/contact" class="bg-transparent border-2 border-white hover:bg-white/10 px-8 py-4 rounded-lg font-bold transition">
+          導入について相談する
+        </a>
+      </div>
     </div>
   </section>
 

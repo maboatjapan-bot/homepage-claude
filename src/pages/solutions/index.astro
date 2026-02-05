@@ -27,14 +27,11 @@ import ScaleIn from '../../components/ScaleIn.astro';
 
       <FadeIn delay={200}>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
-            AI ソリューション
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+            お問い合わせ
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
-          </a>
-          <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
-            お問い合わせ
           </a>
         </div>
       </FadeIn>
@@ -55,96 +52,74 @@ import ScaleIn from '../../components/ScaleIn.astro';
         </div>
       </FadeIn>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- System Development -->
         <ScaleIn delay={0} from={0.95}>
           <a href="/solutions/system-development" class="group block">
-            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-10 border border-slate-200 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/10 transition-all duration-300 h-full">
-              <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-8 shadow-xl">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                </svg>
-              </div>
-              <h3 class="text-2xl font-semibold mb-3 text-slate-900">システム開発</h3>
-              <p class="text-slate-600 mb-6 leading-relaxed">
-                お客様のビジネス課題を解決する、最適なシステムを企画・開発・運用します。
-              </p>
-              <div class="flex items-center text-brand-teal font-medium">
-                詳しく見る
-                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </div>
-            </div>
-          </a>
-        </ScaleIn>
-
-        <!-- System Integration -->
-        <ScaleIn delay={150} from={0.95}>
-          <a href="/solutions/system-integration" class="group block">
-            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-10 border border-slate-200 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/10 transition-all duration-300 h-full">
-              <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-8 shadow-xl">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1v3a1 1 0 11-2 0V6a1 1 0 00-1-1V4z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                </svg>
-              </div>
-              <h3 class="text-2xl font-semibold mb-3 text-slate-900">システム集成</h3>
-              <p class="text-slate-600 mb-6 leading-relaxed">
-                既存システムとの連携から、全体最適化まで統合的なソリューションを提供します。
-              </p>
-              <div class="flex items-center text-brand-teal font-medium">
-                詳しく見る
-                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl overflow-hidden border border-slate-200 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/10 transition-all duration-300 h-full">
+              <img src="/assets/images/solutions/system-development.jpg" alt="システム開発" class="w-full h-48 object-cover" />
+              <div class="p-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-6 shadow-xl -mt-12 border-4 border-white">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-slate-900">システム開発</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                  最適なシステム開発で業務効率化
+                </p>
+                <div class="flex items-center text-brand-teal font-medium">
+                  詳しく見る
+                  <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </a>
         </ScaleIn>
 
         <!-- Infrastructure -->
-        <ScaleIn delay={300} from={0.95}>
+        <ScaleIn delay={150} from={0.95}>
           <a href="/solutions/infrastructure" class="group block">
-            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-10 border border-slate-200 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/10 transition-all duration-300 h-full">
-              <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-8 shadow-xl">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-              </div>
-              <h3 class="text-2xl font-semibold mb-3 text-slate-900">インフラ構築・運用</h3>
-              <p class="text-slate-600 mb-6 leading-relaxed">
-                安定したインフラ環境の構築から、24時間365日の監視・運用まで。
-              </p>
-              <div class="flex items-center text-brand-teal font-medium">
-                詳しく見る
-                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
+            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl overflow-hidden border border-slate-200 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/10 transition-all duration-300 h-full">
+              <img src="/assets/images/solutions/infrastructure.jpg" alt="インフラ構築" class="w-full h-48 object-cover" />
+              <div class="p-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-6 shadow-xl -mt-12 border-4 border-white">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-slate-900">インフラ構築</h3>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                  柔軟なインフラで安全性を確保
+                </p>
+                <div class="flex items-center text-brand-teal font-medium">
+                  詳しく見る
+                  <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </div>
               </div>
             </div>
           </a>
         </ScaleIn>
 
-        <!-- AI Highlight -->
-        <ScaleIn delay={450} from={0.95}>
-          <a href="/ai" class="group block">
-            <div class="bg-gradient-to-br from-brand-teal/10 to-brand-blue/10 rounded-3xl p-10 border-2 border-brand-teal/30 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/20 transition-all duration-300 h-full relative overflow-hidden">
-              <!-- Decorative -->
-              <div class="absolute top-0 right-0 w-32 h-32 bg-brand-teal/10 rounded-full blur-2xl"></div>
-
-              <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-8 shadow-xl relative z-10">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
-              </div>
-              <div class="relative z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal text-white rounded-full text-sm font-medium mb-3">
-                  主力サービス
+        <!-- System Operation -->
+        <ScaleIn delay={300} from={0.95}>
+          <a href="/solutions/system-operation" class="group block">
+            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl overflow-hidden border border-slate-200 hover:border-brand-teal/50 hover:shadow-xl hover:shadow-brand-teal/10 transition-all duration-300 h-full">
+              <img src="/assets/images/solutions/system-operation.jpg" alt="システム運用保守" class="w-full h-48 object-cover" />
+              <div class="p-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center mb-6 shadow-xl -mt-12 border-4 border-white">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 002.573 1.066c.426 1.756 2.924 1.756 3.35 0a1.724 1.724 0 002.573-1.066c1.543.94 3.31-.826 2.37-2.37a1.724 1.724 0 00-2.572-1.066c-.426-1.756-2.924-1.756-3.35 0a1.724 1.724 0 00-2.573 1.066c-1.543-.94-3.31.826-2.37-2.37a1.724 1.724 0 00-2.572 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 002.573-1.066c-1.543.94-3.31-.826-2.37 2.37a1.724 1.724 0 002.573 1.066c.426 1.756 2.924 1.756 3.35 0 .996.608 2.296.07 2.572-1.065z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
                 </div>
-                <h3 class="text-2xl font-semibold mb-3 text-slate-900">AI ソリューション</h3>
+                <h3 class="text-2xl font-semibold mb-3 text-slate-900">システム運用保守</h3>
                 <p class="text-slate-600 mb-6 leading-relaxed">
-                  最先端の AI 技術で、お客様のビジネス課題を解決します。当社の主力サービス。
+                  安心と信頼のシステム運用サポート
                 </p>
                 <div class="flex items-center text-brand-teal font-medium">
                   詳しく見る

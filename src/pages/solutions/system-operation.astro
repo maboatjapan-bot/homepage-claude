@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ScaleIn from '../../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Breadcrumb -->
+  <nav class="pt-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <ol class="flex items-center gap-2 text-sm text-slate-500">
+        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
+        <li>/</li>
+        <li><a href="/solutions" class="hover:text-brand-teal">エンタープライズ</a></li>
+        <li>/</li>
+        <li class="text-slate-900">システム運用保守</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <SlideIn direction="left">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-teal/10 rounded-full text-brand-teal text-sm font-medium mb-6">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              System Operation & Maintenance
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+              システム運用保守
+            </h1>
+
+            <p class="text-2xl text-brand-teal font-semibold mb-8">
+              安定した運用でビジネスを支える
+            </p>
+
+            <p class="text-slate-600 mb-8 leading-relaxed" style="letter-spacing: 2px;">
+              システム開発にとどまらず、お客様の経営テーマに寄り添い、最適な提案を行うことで、お客様に寄り添いながら成果を出すことを常に意識し運用保守に努めています。
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
+                お問い合わせ
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="/solutions" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
+                他のサービスを見る
+              </a>
+            </div>
+          </div>
+        </SlideIn>
+
+        <ScaleIn delay={0} from={0.9}>
+          <div class="relative">
+            <div class="aspect-square bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl flex items-center justify-center">
+              <svg class="w-48 h-48 text-brand-teal/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Strengths -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-4 tracking-tight text-slate-900">
+            Our Strengths
+          </h2>
+          <p class="text-2xl text-brand-teal text-right">我々の強み</p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-slate-900 text-center">プロジェクトを超えた統合管理</h3>
+            <p class="text-slate-600 leading-relaxed text-center">
+              複数のプロジェクトを一元管理し、効率的なリソース配分と情報共有を実現します。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-slate-900 text-center">システムリスク管理・変更管理</h3>
+            <p class="text-slate-600 leading-relaxed text-center">
+              システム運用における潜在的な脅威を指し、適切に管理することでトラブルを未然に防ぎます。さらにシステムやプロジェクトの変更を計画的に実施し、安定性を維持しつつ新たな要求に対応します。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Efforts -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-4 tracking-tight text-slate-900">
+            Our Efforts
+          </h2>
+          <p class="text-2xl text-brand-teal text-right">我々の取り組み</p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">
+              保守に止まらない全体的な<br>
+              <span class="text-brand-teal">マネジメント</span>
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              システム運用管理広範な分野でシステムの維持管理を担当し、迅速な対応を心がけています。品質を確保しつつ、常にサービス向上のための取り組みを行っています。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">
+              実務に基づく<br>
+              <span class="text-brand-teal">業務知識</span>
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              派遣を通じてお客様に密接に関わる業務を経験しているため、プロジェクト推進やお客様のルール・手続きに関する知識を豊富に蓄積しています。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900">
+              システム技術に関する<br>
+              <span class="text-brand-teal">専門性</span>
+            </h3>
+            <p class="text-slate-600 leading-relaxed">
+              IT部門だけでなく、事務部門や他のさまざまな部署においても、RPAの導入支援を行っています。各部門のニーズに合わせた最適な自動化ソリューションを提供し、業務効率化や生産性向上を実現するために尽力しています。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-4 tracking-tight text-slate-900">
+            Features Of Our Company
+          </h2>
+          <p class="text-2xl text-brand-teal text-right">弊社の特徴</p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900 text-center">システム運用管理</h3>
+            <p class="text-slate-600 leading-relaxed text-center">
+              システム運用管理広範な分野でシステムの維持管理を担当し、迅速な対応を心がけています。品質を確保しつつ、常にサービス向上のための取り組みを行っています。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900 text-center">IT人材派遣</h3>
+            <p class="text-slate-600 leading-relaxed text-center" style="letter-spacing: 2px;">
+              派遣を通じてお客様に密接に関わる業務を経験しているため、プロジェクト推進やお客様のルール・手続きに関する知識を豊富に蓄積しています。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-slate-900 text-center">手間を省いて成果を最大化<br>RPA</h3>
+            <p class="text-slate-600 leading-relaxed text-center" style="letter-spacing: 2px;">
+              IT部門だけでなく、事務部門や他のさまざまな部署においても、RPAの導入支援を行っています。各部門のニーズに合わせた最適な自動化ソリューションを提供し、業務効率化や生産性向上を実現するために尽力しています。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+          システム運用保守について
+          <br>ご相談ください
+        </h2>
+        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+          お客様のニーズにお合わせた最適なソリューションをご提案します。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
+            お問い合わせ
+          </a>
+          <a href="/solutions" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
+            他のサービスを見る
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

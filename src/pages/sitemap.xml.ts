@@ -20,7 +20,7 @@ const staticPages = [
   '/products/pitoshiyu',
   '/solutions',
   '/solutions/system-development',
-  '/solutions/system-integration',
+  '/solutions/system-operation',
   '/solutions/infrastructure',
 ];
 

@@ -9,15 +9,15 @@ import "@pagefind/default-ui/css/ui.css";
 
   <!-- Modal Content -->
   <div class="absolute inset-0 flex items-start justify-center pt-[20vh] px-4">
-    <div id="search-panel" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl transform transition-all scale-95 opacity-0" role="search">
+    <div id="search-panel" class="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl transform transition-all scale-95 opacity-0 flex flex-col" role="search">
       <!-- Search Header -->
-      <div class="flex items-center gap-4 p-6 border-b border-slate-200">
+      <div class="flex items-center gap-4 p-6 border-b border-slate-200 flex-shrink-0">
         <div class="flex-1">
-          <div id="search"></div>
+          <div id="search" class="relative"></div>
         </div>
         <button
           id="search-close"
-          class="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
+          class="p-2 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors flex-shrink-0"
           aria-label="閉じる">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -26,7 +26,7 @@ import "@pagefind/default-ui/css/ui.css";
       </div>
 
       <!-- Search Footer -->
-      <div class="p-4 border-t border-slate-200 flex items-center justify-between text-sm text-slate-500">
+      <div class="p-4 border-t border-slate-200 flex items-center justify-between text-sm text-slate-500 flex-shrink-0">
         <div class="flex items-center gap-2">
           <kbd class="px-2 py-1 bg-slate-100 rounded text-xs font-mono">ESC</kbd>
           <span>で閉じる</span>
@@ -76,9 +76,17 @@ import "@pagefind/default-ui/css/ui.css";
   }
 
   #search .pagefind-ui__drawer {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
     border: none !important;
     box-shadow: none !important;
     max-height: 60vh !important;
+    z-index: 10 !important;
+    background: white !important;
+    padding: 0 0.5rem 0.5rem !important;
+    margin-top: 0.5rem !important;
   }
 
   #search .pagefind-ui__result-title {

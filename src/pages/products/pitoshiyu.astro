@@ -10,21 +10,8 @@ import SlideIn from '../../components/SlideIn.astro';
 <BaseLayout>
   <Header />
 
-  <!-- Breadcrumb -->
-  <nav class="pt-20 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <ol class="flex items-center gap-2 text-sm text-slate-500">
-        <li><a href="/" class="hover:text-brand-teal">ホーム</a></li>
-        <li>/</li>
-        <li><a href="/products" class="hover:text-brand-teal">製品</a></li>
-        <li>/</li>
-        <li class="text-slate-900">ピッとシュ！</li>
-      </ol>
-    </div>
-  </nav>
-
   <!-- Product Hero -->
-  <section class="py-16 px-6 bg-white">
+  <section class="pt-20 pb-16 px-6 bg-white">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <!-- Product Image -->
@@ -232,6 +219,192 @@ import SlideIn from '../../components/SlideIn.astro';
   </section>
 
   <!-- Use Cases -->
+  <section class="py-24 px-6 bg-slate-50">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            幅広い業種でご利用いただけます
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            一般企業のみならず、様々な施設で活躍します
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">一般企業</h3>
+            <p class="text-sm text-slate-600">オフィスの出入口での衛生管理</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={75} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">学校・教育機関</h3>
+            <p class="text-sm text-slate-600">登校時の健康チェック</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">病院・介護施設</h3>
+            <p class="text-sm text-slate-600">入館時の衛生管理</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={225} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">フィットネスクラブ</h3>
+            <p class="text-sm text-slate-600">施設利用時の衛生対策</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">自治体・公共施設</h3>
+            <p class="text-sm text-slate-600">公共の場での感染予防</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={75} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">飲食小売業</h3>
+            <p class="text-sm text-slate-600">店舗出入口での衛生管理</p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center">
+            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-slate-900 mb-2">その他施設</h3>
+            <p class="text-sm text-slate-600">様々なシーンで活用可能</p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Section -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            推奨パートナー製品
+          </h2>
+          <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+            ピッとシュ！で動作確認済みの信頼できる製品
+          </p>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-900">USBケーブル</h3>
+                <p class="text-sm text-slate-500">USB-C – USB-A 変換ケーブル</p>
+              </div>
+            </div>
+            <div class="space-y-2 text-sm text-slate-700">
+              <p><span class="font-medium">メーカー：</span>サンワサプライ</p>
+              <p><span class="font-medium">型番：</span>KU-CA20K</p>
+              <p><span class="font-medium">製品名：</span>USB2.0 Type C-Aケーブル（ブラック・2m）</p>
+              <p class="text-xs text-slate-500 mt-2">※このシリーズで長さが違うもの（0.5m、1.0m、1.5m、2.0m、3.0m）でも問題ございません。</p>
+            </div>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-slate-900">USBアダプター</h3>
+                <p class="text-sm text-slate-500">コンセント – USB-A 変換アダプター</p>
+              </div>
+            </div>
+            <div class="space-y-2 text-sm text-slate-700">
+              <p><span class="font-medium">メーカー：</span>サンワサプライ</p>
+              <p><span class="font-medium">型番：</span>ACA-IP52BK</p>
+              <p><span class="font-medium">製品名：</span>USB充電器（2A・高耐久タイプ・ブラック）</p>
+              <p class="text-xs text-slate-500 mt-2">※ピッとシュ！に内蔵電池はないため、給電用として使用します。</p>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-sm text-slate-500 max-w-2xl mx-auto">
+          ※これらの製品は弊社で動作確認を実施済みです。<br>
+          製品によっては互換性が異なる場合がございますので、ご購入の際は販売店にご確認ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Note about discontinued product -->
+  <section class="py-16 px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-8 text-center">
+        <svg class="w-12 h-12 text-amber-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <h3 class="text-xl font-semibold text-slate-900 mb-3">本製品は販売終了いたしました</h3>
+        <p class="text-slate-600">
+          ピッとシュ！は2022年版スタンダードモデルとして販売しておりましたが、現在は販売を終了しております。<br>
+          最新製品については、<a href="/products" class="text-brand-teal hover:underline">製品一覧</a>をご確認ください。
+        </p>
+      </div>
+    </div>
+  </section>
   <section class="py-24 px-6 bg-slate-50">
     <div class="max-w-7xl mx-auto">
       <FadeIn>
