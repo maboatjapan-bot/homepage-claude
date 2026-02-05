@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ScaleIn from '../components/ScaleIn.astro';
+import SlideIn from '../../components/SlideIn.astro';
 ---
 
 <BaseLayout>
@@ -21,7 +22,7 @@ import ScaleIn from '../components/ScaleIn.astro';
           <FadeIn>
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full mb-8">
               <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-              <span class="text-sm font-medium">Core Technology</span>
+              <span class="text-sm font-medium">WithAI for Business Promotion</span>
             </div>
           </FadeIn>
 
@@ -33,12 +34,19 @@ import ScaleIn from '../components/ScaleIn.astro';
 
           <FadeIn delay={200}>
             <p class="text-xl text-white/80 mb-8 leading-relaxed">
-              当社の主力サービス。最先端の AI 技術で、お客様のビジネス課題を解決します。<br class="hidden sm:block" />
-              業務自動化からデータ分析まで、幅広い領域で AI を活用したソリューションを提供します。
+              <span class="text-brand-yellow-300 font-semibold">マーケティング・プロモーション向けAI</span>で、<br class="hidden sm:block" />
+              広告戦略を変革します。
             </p>
           </FadeIn>
 
           <FadeIn delay={300}>
+            <p class="text-lg text-white/70 mb-8 leading-relaxed">
+              WithAIは、AIを活用したマーケティング支援プラットフォームです。
+              フリーランスや中小企業向けに、広告の作成から配信、分析までをワンストップで自動化し、業務効率を大幅に向上させます。
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={400}>
             <div class="flex flex-col sm:flex-row gap-4">
               <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 text-base font-semibold rounded-full transition-all shadow-xl">
                 無料相談を予約
@@ -46,8 +54,8 @@ import ScaleIn from '../components/ScaleIn.astro';
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
-              <a href="#services" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-base font-medium rounded-full transition-all border border-white/20">
-                サービスを見る
+              <a="#withai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-base font-medium rounded-full transition-all border border-white/20">
+                WithAI を詳しく見る
               </a>
             </div>
           </FadeIn>
@@ -66,61 +74,147 @@ import ScaleIn from '../components/ScaleIn.astro';
     </div>
   </section>
 
-  <!-- What is AI -->
-  <section class="py-24 px-6 bg-white">
+  <!-- Supported Platforms -->
+  <section class="py-16 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <FadeIn>
+        <p class="text-center text-slate-600 mb-8">
+          TikTok・YouTube・Instagram・X・Facebookなどの主要SNSや動画プラットフォームに対応し、コンテンツをAIで一括配信できます。
+        </p>
+      </FadeIn>
+      <FadeIn delay={100}>
+        <p class="text-center text-lg text-slate-700 font-medium">
+          人的コストを大幅に削減しながら、コンテンツ品質・配信効率・SEO対策を最適化し、ターゲットユーザーの流入を最大化します。
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- What is WithAI -->
+  <section id="withai" class="py-24 px-6 bg-slate-50">
     <div class="max-w-4xl mx-auto">
       <FadeIn>
         <div class="text-center mb-16">
           <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            AI とは
+            WithAI for Business Promotion とは？
           </h2>
-          <p class="text-xl text-slate-600 leading-relaxed">
-            Artificial Intelligence（人工知能）は、大量のデータから学習し、<br class="hidden sm:block" />
-            人間のように思考し、判断する技術です。
-          </p>
         </div>
       </FadeIn>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <FadeIn delay={100}>
+        <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-200">
+          <p class="text-lg text-slate-700 leading-relaxed mb-6">
+            現代は情報が溢れる時代となり、広告プロモーションはビジネスの成功に不可欠な要素です。
+            「良い商品は宣伝しなくても売れる」時代は終わり、スピード・効果・コストのバランスが重要になっています。
+          </p>
+          <p class="text-lg text-slate-700 leading-relaxed">
+            <strong class="text-brand-teal">WithAI for Business Promotion</strong>は、AIを活用して情報収集と発信を自動化し、業務の効率を向上させるソリューションです。
+            プレスリリースやブログ記事の自動生成、企業サイト・SNSへのマルチチャネル配信、さらにパフォーマンス分析を通じたプロモーション最適化を実現します。
+          </p>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- 6 Key Points -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            AIで広告を革新する6つのポイント
+          </h2>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Point 1 -->
         <ScaleIn delay={0} from={0.9}>
-          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200">
-            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-2xl p-8 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-slate-900">機械学習</h3>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">ローカルAI環境</h3>
             <p class="text-slate-600 leading-relaxed">
-              データからパターンを学習し、予測や分類を行う技術
+              オフライン環境でAIを運用し、大規模言語モデルを活用。無制限のデータ出力を実現し、追加コストなし。
             </p>
           </div>
         </ScaleIn>
 
-        <ScaleIn delay={100} from={0.9}>
-          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200">
-            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        <!-- Point 2 -->
+        <ScaleIn delay={75} from={0.9}>
+          <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-2xl p-8 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-slate-900">自然言語処理</h3>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">多様な生成モード</h3>
             <p class="text-slate-600 leading-relaxed">
-              テキストや音声を理解し、人間のように対話する技術
+              クローリング、検索エンジン、スクレイピングなどを組み合わせ、自動的に豊富なコンテンツを生成。
             </p>
           </div>
         </ScaleIn>
 
-        <ScaleIn delay={200} from={0.9}>
-          <div class="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-8 border border-slate-200">
-            <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
-              <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+        <!-- Point 3 -->
+        <ScaleIn delay={150} from={0.9}>
+          <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-2xl p-8 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold mb-3 text-slate-900">画像認識</h3>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">自動操作で広範囲配信</h3>
             <p class="text-slate-600 leading-relaxed">
-              画像や動画を解析し、物体や顔を識別する技術
+              国内外の主要サイトやアプリにクロスプラットフォームで広告を配信。最大1000台の端末を分散操作し、リアルなユーザー操作を再現。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <!-- Point 4 -->
+        <ScaleIn delay={225} from={0.9}>
+          <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-2xl p-8 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">汎用AIインテグレーション</h3>
+            <p class="text-slate-600 leading-relaxed">
+              OpenAIをはじめとするすべてのAIモデルAPIと統合可能。タスクごとに柔軟な設定が可能で、完全自動運用を実現。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <!-- Point 5 -->
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-2xl p-8 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">品質管理システム</h3>
+            <p class="text-slate-600 leading-relaxed">
+              生成コンテンツを二重評価し、キーワードフィルタリングを適用。SEO効果を向上させ、高品質な記事のみを配信。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <!-- Point 6 -->
+        <ScaleIn delay={375} from={0.9}>
+          <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-2xl p-8 border border-slate-200">
+            <div class="w-14 h-14 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">完全自動運用</h3>
+            <p class="text-slate-600 leading-relaxed">
+              広告プロセス全体（収集→執筆→校正→配信→流入促進）をAIが自動管理し、インテリジェント監視を行う。
             </p>
           </div>
         </ScaleIn>
@@ -128,13 +222,72 @@ import ScaleIn from '../components/ScaleIn.astro';
     </div>
   </section>
 
-  <!-- AI Services -->
-  <section id="services" class="py-24 px-6 bg-slate-50">
+  <!-- Automation Process -->
+  <section class="py-24 px-6 bg-slate-50">
     <div class="max-w-7xl mx-auto">
       <FadeIn>
         <div class="text-center mb-16">
           <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            AI サービス
+            データ収集から配信までの自動化プロセス
+          </h2>
+        </div>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Step 1 -->
+        <ScaleIn delay={0} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
+            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">データ収集</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              汎用大規模モデルAPIを活用し、作業計画を設定。ネット自動収集とローカルデータインポートで、広告配信に最適なデータを取得。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <!-- Step 2 -->
+        <ScaleIn delay={100} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
+            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">コンテンツ生成</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              AIPSが自動で高品質なコンテンツを生成し、SEO最適化 & 自動構成調整を実行。ターゲットに適した投稿スタイルで、効果的な広告文を作成。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <!-- Step 3 -->
+        <ScaleIn delay={200} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
+            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">一括配信</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              最大1000台のデバイスを分散操作し、SNSや動画メディアへ一括投稿。AIがリアルタイム分析を行い、広告効果を最大化。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <!-- Step 4 -->
+        <ScaleIn delay={300} from={0.9}>
+          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
+            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
+            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">効果分析</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              内外の主要SNS・メディアに対応し、Facebook、Google、YouTube、Xなどへ広告を自動配信。AIがターゲット流入を最大化し、広告展開を最適化。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other AI Services -->
+  <section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            その他の AI サービス
           </h2>
           <p class="text-xl text-slate-600 max-w-2xl mx-auto">
             お客様の課題に合わせた最適な AI ソリューションを提供します
@@ -144,7 +297,7 @@ import ScaleIn from '../components/ScaleIn.astro';
 
       <div class="grid md:grid-cols-2 gap-8">
         <ScaleIn delay={0} from={0.95}>
-          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+          <div class="bg-slate-50 rounded-2xl p-10 border border-slate-200">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +333,7 @@ import ScaleIn from '../components/ScaleIn.astro';
         </ScaleIn>
 
         <ScaleIn delay={150} from={0.95}>
-          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+          <div class="bg-slate-50 rounded-2xl p-10 border border-slate-200">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +369,7 @@ import ScaleIn from '../components/ScaleIn.astro';
         </ScaleIn>
 
         <ScaleIn delay={300} from={0.95}>
-          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+          <div class="bg-slate-50 rounded-2xl p-10 border border-slate-200">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -252,7 +405,7 @@ import ScaleIn from '../components/ScaleIn.astro';
         </ScaleIn>
 
         <ScaleIn delay={450} from={0.95}>
-          <div class="bg-white rounded-2xl p-10 shadow-lg shadow-slate-200/50 border border-slate-200">
+          <div class="bg-slate-50 rounded-2xl p-10 border border-slate-200">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-14 h-14 bg-gradient-to-br from-brand-teal to-brand-blue rounded-2xl flex items-center justify-center flex-shrink-0">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,10 +451,10 @@ import ScaleIn from '../components/ScaleIn.astro';
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <FadeIn>
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          AI でビジネスを変革しませんか？
+          WithAI でビジネスを変革しませんか？
         </h2>
         <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-          お客様の課題を一緒に解決しましょう。<br class="hidden sm:block" />
+          広告プロモーションの課題を解決し、貴社のビジネス成長を強力にサポートします。<br class="hidden sm:block" />
           無料相談を実施しています。
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
