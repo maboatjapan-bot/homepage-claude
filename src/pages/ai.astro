@@ -76,7 +76,7 @@ import SlideIn from '../../components/SlideIn.astro';
 
   <!-- WITH AI Philosophy -->
   <section class="py-24 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <FadeIn>
         <div class="text-center mb-16">
           <img src="/assets/images/ai/logo.png" alt="WITH AI Logo" class="w-32 h-32 mx-auto mb-8" />
@@ -86,15 +86,22 @@ import SlideIn from '../../components/SlideIn.astro';
           <p class="text-2xl text-brand-teal font-semibold mb-4">
             AIは『by』ではなく『with』
           </p>
-          <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+          <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-12">
             WITH AI 今から活用できれば、未来は明るい。<br />
             WITH AI はあなたの頼りになる部下達です。
           </p>
         </div>
       </FadeIn>
 
+      <!-- WITH AI Infographic - Full Width Display -->
       <FadeIn delay={100}>
-        <div class="bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl p-10 border border-slate-200">
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+          <img src="/assets/images/ai/02-1-2.jpg" alt="WITH AI インフォグラフィック" class="w-full max-w-5xl mx-auto rounded-2xl shadow-xl" />
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={150}>
+        <div class="mt-12 bg-gradient-to-br from-brand-teal/5 to-brand-blue/5 rounded-3xl p-10 border border-slate-200">
           <p class="text-lg text-slate-700 leading-relaxed text-center">
             私たちのWITH AIは、AIによって人間を置き換えるのではなく、
             AIと共に働くことでビジネスの可能性を広げることを理念としています。
@@ -231,99 +238,6 @@ import SlideIn from '../../components/SlideIn.astro';
             </ul>
           </div>
         </ScaleIn>
-      </div>
-    </div>
-  </section>
-
-  <!-- RAGFLOW Architecture -->
-  <section class="py-24 px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <FadeIn>
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            RAGFLOW 技術アーキテクチャ
-          </h2>
-          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-            社内データを安全に活用する独自のRAG（Retrieval Augmented Generation）システム
-          </p>
-        </div>
-      </FadeIn>
-
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <ScaleIn delay={0} from={0.9}>
-          <div>
-            <img src="/assets/images/ai/banner.jpg" alt="RAGFLOW Architecture" class="w-full rounded-2xl shadow-xl" />
-          </div>
-        </ScaleIn>
-
-        <div>
-          <div class="space-y-6">
-            <FadeIn delay={100}>
-              <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xl font-bold text-slate-900">ローカル利用で完結可能</h3>
-                </div>
-                <p class="text-slate-600">
-                  オフライン環境でのAI運用が可能で、外部へのデータ送信を最小限に抑えます。
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={150}>
-              <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xl font-bold text-slate-900">情報漏洩リスクを最小化</h3>
-                </div>
-                <p class="text-slate-600">
-                  社内データを外部に公開することなく、安全にAI活用が可能です。
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={200}>
-              <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xl font-bold text-slate-900">Knowledge Base化（社内知）</h3>
-                </div>
-                <p class="text-slate-600">
-                  社内ドキュメントやデータをベクトルデータベースに変換し、検索可能な知識ベースを構築します。
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={250}>
-              <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-                <div class="flex items-center gap-4 mb-4">
-                  <div class="w-12 h-12 bg-brand-teal/10 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                    </svg>
-                  </div>
-                  <h3 class="text-xl font-bold text-slate-900">2つの専門ロール</h3>
-                </div>
-                <p class="text-slate-600">
-                  <strong class="text-brand-teal">「司書」</strong>がデータ管理を行い、
-                  <strong class="text-brand-teal">「相談役」</strong>が何でもご相談に応じます。
-                </p>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -481,52 +395,60 @@ import SlideIn from '../../components/SlideIn.astro';
     <div class="max-w-7xl mx-auto">
       <FadeIn>
         <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-slate-900">
-            データ収集から配信までの自動化プロセス
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight text-slate-900">
+            —– データ収集から配信までの自動化プロセス —–
           </h2>
         </div>
       </FadeIn>
 
-      <div class="grid md:grid-cols-4 gap-6">
-        <!-- Step 1 -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Step 1: データ収AI強化 -->
         <ScaleIn delay={0} from={0.9}>
-          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
-            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
-            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">データ収集</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+          <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100">
+              <img src="/assets/images/ai/step1.jpg" alt="データ収AI強化" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-lg font-bold mb-4 text-slate-900 text-center">データ収AI強化</h3>
+            <p class="text-slate-600 text-sm leading-relaxed text-center">
               汎用大規模モデルAPIを活用し、作業計画を設定。ネット自動収集とローカルデータインポートで、広告配信に最適なデータを取得。
             </p>
           </div>
         </ScaleIn>
 
-        <!-- Step 2 -->
+        <!-- Step 2: コンテンツ生成&自動最適化 -->
         <ScaleIn delay={100} from={0.9}>
-          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
-            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
-            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">コンテンツ生成</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+          <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100">
+              <img src="/assets/images/ai/step2.jpg" alt="コンテンツ生成&自動最適化" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-lg font-bold mb-4 text-slate-900 text-center">コンテンツ生成&<br/>自動最適化</h3>
+            <p class="text-slate-600 text-sm leading-relaxed text-center">
               AIPSが自動で高品質なコンテンツを生成し、SEO最適化 & 自動構成調整を実行。ターゲットに適した投稿スタイルで、効果的な広告文を作成。
             </p>
           </div>
         </ScaleIn>
 
-        <!-- Step 3 -->
+        <!-- Step 3: リモートデバイス& 自動配信 -->
         <ScaleIn delay={200} from={0.9}>
-          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
-            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
-            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">一括配信</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+          <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100">
+              <img src="/assets/images/ai/step3.jpg" alt="リモートデバイス& 自動配信" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-lg font-bold mb-4 text-slate-900 text-center">リモートデバイス&<br/>自動配信</h3>
+            <p class="text-slate-600 text-sm leading-relaxed text-center">
               最大1000台のデバイスを分散操作し、SNSや動画メディアへ一括投稿。AIがリアルタイム分析を行い、広告効果を最大化。
             </p>
           </div>
         </ScaleIn>
 
-        <!-- Step 4 -->
+        <!-- Step 4: クロスプラットフォーム展開 -->
         <ScaleIn delay={300} from={0.9}>
-          <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 relative">
-            <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
-            <h3 class="text-lg font-bold mb-3 text-slate-900 mt-2">効果分析</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+          <div class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200">
+            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100">
+              <img src="/assets/images/ai/step4.jpg" alt="クロスプラットフォーム展開" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-lg font-bold mb-4 text-slate-900 text-center">クロスプラットフォーム展開</h3>
+            <p class="text-slate-600 text-sm leading-relaxed text-center">
               内外の主要SNS・メディアに対応し、Facebook、Google、YouTube、Xなどへ広告を自動配信。AIがターゲット流入を最大化し、広告展開を最適化。
             </p>
           </div>
