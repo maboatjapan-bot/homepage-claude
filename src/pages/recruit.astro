@@ -40,32 +40,25 @@ const companyTripPhotos = [
   </nav>
 
   <!-- Hero -->
-  <section class="py-16 px-6 bg-gradient-to-br from-brand-teal to-brand-blue text-white relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
+  <section class="py-16 px-6 bg-brand-teal relative overflow-hidden" style="background-image: url('/assets/images/recruitment/hero-bg.png'); background-size: cover; background-position: center;">
     <div class="max-w-7xl mx-auto relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <SlideIn direction="left">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 rounded-full text-white text-sm font-medium mb-6">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-              Recruitment
-            </div>
+        <ScaleIn delay={0} from={0.9}>
+          <div class="flex justify-center lg:justify-start">
+            <img src="/assets/images/recruitment/hero-illustration.png" alt="採用情報" class="w-64 h-auto" />
+          </div>
+        </ScaleIn>
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
+        <SlideIn direction="right">
+          <div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 text-white">
               採用情報
             </h1>
 
-            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+            <p class="text-xl text-white mb-8 leading-relaxed" style="line-height: 2.4;">
               私たちは、常に新しい挑戦を求めるチームです。<br />
               お客様に寄り添い、企業様のバージョンアップを目指して<br />
-              <span class="font-semibold">常に革新を求める姿勢</span>で望みます。
-            </p>
-
-            <p class="text-white/80 mb-8 leading-relaxed">
+              <strong>常に革新を求める姿勢</strong>で望みます。<br />
               そのためには様々なアイディア、視点、考えを必要としています。<br />
               あなたのアイデアとエネルギーを活かし、共に革新を追求しましょう。<br />
               私たちと一緒に、未来を切り拓きませんか？
@@ -79,16 +72,6 @@ const companyTripPhotos = [
             </a>
           </div>
         </SlideIn>
-
-        <ScaleIn delay={0} from={0.9}>
-          <div class="relative">
-            <div class="aspect-square bg-white/10 rounded-3xl flex items-center justify-center backdrop-blur-sm">
-              <svg class="w-48 h-48 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-          </div>
-        </ScaleIn>
       </div>
     </div>
   </section>
