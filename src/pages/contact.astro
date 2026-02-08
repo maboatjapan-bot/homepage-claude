@@ -37,21 +37,10 @@ import CallToAction from '../components/CallToAction.astro';
         <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-slate-200/50">
           <form
             id="contact-form"
-            action="https://api.web3forms.com/submit"
-            method="POST"
             class="space-y-6"
           >
-            <!-- Web3Forms Access Key -->
-            <input type="hidden" name="access_key" value="09e5cc5b-a31b-40ee-b00f-f5eb9a47350c">
-
-            <!-- Subject -->
-            <input type="hidden" name="subject" value="ウェブサイトからのお問い合わせ">
-
-            <!-- From Name -->
-            <input type="hidden" name="from_name" value="Swiftechie ウェブサイト">
-
-            <!-- Redirect URL (optional - uncomment to use custom success page) -->
-            <!-- <input type="hidden" name="redirect" value="/contact/success"> -->
+            <!-- Honeypot for spam protection -->
+            <input type="text" name="website" id="hp" class="hidden" tabindex="-1" autocomplete="off">
 
             <div class="grid md:grid-cols-2 gap-6">
               <!-- Name -->
@@ -202,18 +191,109 @@ import CallToAction from '../components/CallToAction.astro';
             </div>
           </form>
 
-          <script>
+          <script define:vars={{ baseUrl: 'https://ums.aws.swiftechie.com/api/operation/sendByEmail' }}>
             const form = document.getElementById('contact-form');
             const successMsg = document.getElementById('form-success');
             const errorMsg = document.getElementById('form-error');
             const submitBtn = form.querySelector('button[type="submit"]');
 
+            // Minimum time before submit (anti-spam)
+            const MIN_SECONDS_TO_SUBMIT = 3;
+            const startedAt = Date.now();
+            const LAST_SEND_KEY = 'swiftechie_contact_last_send';
+
+            // Check if can send now (rate limiting)
+            function canSendNow() {
+              const last = Number(localStorage.getItem(LAST_SEND_KEY) || '0');
+              return Date.now() - last >= 60 * 1000;
+            }
+
+            function markSent() {
+              localStorage.setItem(LAST_SEND_KEY, String(Date.now()));
+            }
+
+            // Escape HTML for safe email content
+            function escapeHtml(s) {
+              return String(s ?? '')
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#039;');
+            }
+
+            // Build HTML email content
+            function buildHtmlContent(data) {
+              const sentAt = new Date().toLocaleString('ja-JP', { hour12: false });
+              return [
+                '<p>',
+                '【 会社名 】' + escapeHtml(data.company) + '<br />',
+                '【 お名前 】' + escapeHtml(data.name) + '<br />',
+                '【 メールアドレス 】' + escapeHtml(data.email) + '<br />',
+                '【 電話番号 】' + escapeHtml(data.phone) + '<br />',
+                '【 お問い合わせ種別 】' + escapeHtml(data.type) + '<br />',
+                '【 お問い合わせ内容 】<br />',
+                escapeHtml(data.message).replaceAll('\\n', '<br />'),
+                '</p>',
+                '<hr />',
+                '<p>',
+                '【 送信日時 】' + escapeHtml(sentAt) + '<br />',
+                '【 区分 】ウェブサイト全般',
+                '</p>',
+                '<p>&nbsp;</p>',
+              ].join('');
+            }
+
+            // Get emailGroupKey based on inquiry type
+            function getEmailGroupKey(type) {
+              if (type === '製品に関するお問い合わせ') {
+                return 'contact-pro'; // support@swiftechie.com
+              }
+              return 'contact-others'; // info@swiftechie.com
+            }
+
+            // Get title based on inquiry type
+            function getTitle(type) {
+              const baseTitle = '【シーテック株式会社】Webサイトより　';
+              switch (type) {
+                case '製品に関するお問い合わせ':
+                  return baseTitle + '製品に関するお問い合わせ';
+                case 'サービスに関するお問い合わせ':
+                  return baseTitle + 'サービスに関するお問い合わせ';
+                case '採用に関するお問い合わせ':
+                  return baseTitle + '採用に関するお問い合わせ';
+                default:
+                  return baseTitle + 'お問い合わせ';
+              }
+            }
+
             form.addEventListener('submit', async (e) => {
               e.preventDefault();
+
+              // Honeypot check (spam protection)
+              const hp = form.querySelector('input[name="website"]')?.value || '';
+              if (hp.trim() !== '') return;
 
               // Hide messages
               successMsg.classList.add('hidden');
               errorMsg.classList.add('hidden');
+
+              // Check minimum time
+              const sec = (Date.now() - startedAt) / 1000;
+              if (sec < MIN_SECONDS_TO_SUBMIT) {
+                errorMsg.querySelector('p').textContent = '少し時間をおいてから送信してください。';
+                errorMsg.classList.remove('hidden');
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+              }
+
+              // Check rate limiting
+              if (!canSendNow()) {
+                errorMsg.querySelector('p').textContent = '送信回数が多すぎます。しばらく待ってから再度お試しください。';
+                errorMsg.classList.remove('hidden');
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+              }
 
               // Disable button and show loading
               submitBtn.disabled = true;
@@ -225,25 +305,45 @@ import CallToAction from '../components/CallToAction.astro';
                 送信中...
               `;
 
+              // Get form data
               const formData = new FormData(form);
+              const data = {
+                company: formData.get('company') || '',
+                name: formData.get('name') || '',
+                email: formData.get('email') || '',
+                phone: formData.get('phone') || '',
+                type: formData.get('type') || '',
+                message: formData.get('message') || '',
+              };
+
+              const emailGroupKey = getEmailGroupKey(data.type);
+              const title = getTitle(data.type);
+              const content = buildHtmlContent(data);
 
               try {
-                const response = await fetch('https://api.web3forms.com/submit', {
+                // Send to UMS API
+                const umsFormData = new FormData();
+                umsFormData.append('title', title);
+                umsFormData.append('emailGroupKey', emailGroupKey);
+                umsFormData.append('content', content);
+
+                const response = await fetch('https://ums.aws.swiftechie.com/api/operation/sendByEmail', {
                   method: 'POST',
-                  body: formData
+                  headers: { accept: '*/*' },
+                  body: umsFormData
                 });
 
-                const result = await response.json();
-
-                if (result.success) {
-                  // Show success message
-                  successMsg.classList.remove('hidden');
-                  form.reset();
-                  // Scroll to success message
-                  successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                  throw new Error(result.message || '送信に失敗しました');
+                if (!response.ok) {
+                  throw new Error('HTTP ' + response.status);
                 }
+
+                // Mark as sent
+                markSent();
+
+                // Show success message
+                successMsg.classList.remove('hidden');
+                form.reset();
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
               } catch (error) {
                 console.error('Form submission error:', error);
                 errorMsg.classList.remove('hidden');
