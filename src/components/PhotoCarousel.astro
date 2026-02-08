@@ -53,6 +53,41 @@ import 'swiper/css/effect-coverflow';
           </div>
         </div>
       ))}
+      <!-- Duplicate slides for seamless loop when photo count is low -->
+      {photos.length < 5 && photos.map((photo, index) => (
+        <div class="swiper-slide swiper-slide-duplicate">
+          <div class="photo-card">
+            <div class="photo-inner">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                class="photo-image"
+                data-swiper-parallax-scale="1.1"
+                data-swiper-parallax-opacity="0.5"
+              />
+              <div class="photo-overlay"></div>
+            </div>
+          </div>
+        </div>
+      ))}
+      {photos.length < 5 && photos.map((photo, index) => (
+        <div class="swiper-slide swiper-slide-duplicate">
+          <div class="photo-card">
+            <div class="photo-inner">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                class="photo-image"
+                data-swiper-parallax-scale="1.1"
+                data-swiper-parallax-opacity="0.5"
+              />
+              <div class="photo-overlay"></div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
 
     <!-- Navigation Buttons -->
@@ -245,27 +280,22 @@ import 'swiper/css/effect-coverflow';
     const container = document.querySelector(`#${config.id}-swiper`);
     const slidesCount = container?.querySelectorAll('.swiper-slide').length || 0;
 
-    // Use rewind instead of loop for better compatibility with few slides
-    // Rewind will jump back to start when reaching the end
-    const shouldUseRewind = slidesCount <= 4;
-
+    // For seamless loop with few slides, we need more aggressive settings
+    // Swiper requires enough duplicated slides to create the illusion of infinite loop
     const swiperConfig: any = {
-      modules: [Navigation, Pagination, EffectCoverflow, Autoplay, Parallax],
+      modules: [Navigation, Pagination, Autoplay, Parallax],
       slidesPerView: isMobile ? 1 : config.slidesPerView,
       spaceBetween: isMobile ? 16 : config.spaceBetween,
-      centeredSlides: isMobile ? false : (config.centeredSlides ?? true),
-      loop: !shouldUseRewind,
-      rewind: shouldUseRewind,
+      centeredSlides: false,
+      loop: true,
+      // Critical: Need enough loopedSlides for Swiper to create clones
+      // Minimum is 2x slidesPerView for seamless loop
+      loopedSlides: Math.max(slidesCount * 2, 6),
+      loopAdditionalSlides: 2, // More additional clones for smoother transition
+      loopFillGroupWithBlank: false, // Don't fill with blank slides
       parallax: true,
       speed: 600,
-      effect: isMobile ? 'slide' : 'coverflow',
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 2,
-        slideShadows: false,
-      },
+      effect: 'slide',
       autoplay: {
         delay: 4000,
         disableOnInteraction: false,
@@ -282,7 +312,23 @@ import 'swiper/css/effect-coverflow';
       },
       on: {
         init: function() {
-          console.log(`Swiper ${config.id} initialized with ${slidesCount} slides, loop: ${!shouldUseRewind}, rewind: ${shouldUseRewind}`);
+          const actualSlides = this.slides.length;
+          const originalSlides = this.originalSlides?.length || slidesCount;
+          const wrapper = this.el.querySelector('.swiper-wrapper');
+          const allSlides = wrapper?.querySelectorAll('.swiper-slide');
+          const duplicateSlides = wrapper?.querySelectorAll('.swiper-slide-duplicate');
+
+          console.log(`=== Swiper ${config.id} Debug ===`);
+          console.log(`Original slides: ${originalSlides}`);
+          console.log(`this.slides.length: ${actualSlides}`);
+          console.log(`DOM total slides: ${allSlides?.length}`);
+          console.log(`Duplicate slides: ${duplicateSlides?.length}`);
+          console.log(`loop enabled: ${this.params.loop}`);
+          console.log(`loopedSlides: ${this.params.loopedSlides}`);
+          console.log(`loopAdditionalSlides: ${this.params.loopAdditionalSlides}`);
+          console.log(`slidesPerView: ${this.params.slidesPerView}`);
+          console.log(`========================`);
+
           // Force width recalculation after init
           setTimeout(() => {
             this.update();
@@ -292,45 +338,35 @@ import 'swiper/css/effect-coverflow';
       },
     };
 
-    // Add loop-specific settings only if using loop mode
-    if (!shouldUseRewind) {
-      swiperConfig.loopedSlides = Math.max(slidesCount, 5);
-      swiperConfig.loopAdditionalSlides = 2;
-    }
-
     // Apply breakpoints
     swiperConfig.breakpoints = {
       320: {
         slidesPerView: 1,
         spaceBetween: 16,
-        centeredSlides: false,
-        effect: 'slide',
-        loop: !shouldUseRewind,
-        rewind: shouldUseRewind,
+        loop: true,
+        loopedSlides: Math.max(slidesCount * 2, 6),
+        loopAdditionalSlides: 2,
       },
       640: {
         slidesPerView: 1.2,
         spaceBetween: 20,
-        centeredSlides: false,
-        effect: 'slide',
-        loop: !shouldUseRewind,
-        rewind: shouldUseRewind,
+        loop: true,
+        loopedSlides: Math.max(slidesCount * 2, 6),
+        loopAdditionalSlides: 2,
       },
       768: {
         slidesPerView: 2,
         spaceBetween: 24,
-        centeredSlides: true,
-        effect: 'coverflow',
-        loop: !shouldUseRewind,
-        rewind: shouldUseRewind,
+        loop: true,
+        loopedSlides: Math.max(slidesCount * 2, 6),
+        loopAdditionalSlides: 2,
       },
       1024: {
         slidesPerView: config.slidesPerView,
         spaceBetween: config.spaceBetween,
-        centeredSlides: config.centeredSlides ?? true,
-        effect: 'coverflow',
-        loop: !shouldUseRewind,
-        rewind: shouldUseRewind,
+        loop: true,
+        loopedSlides: Math.max(slidesCount * 2, 6),
+        loopAdditionalSlides: 2,
       },
     };
 
