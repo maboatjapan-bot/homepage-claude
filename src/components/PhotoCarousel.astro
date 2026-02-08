@@ -242,13 +242,20 @@ import 'swiper/css/effect-coverflow';
   // This runs on the client after component loads
   const initCarousel = (config: CarouselConfig) => {
     const isMobile = window.innerWidth < 768;
+    const container = document.querySelector(`#${config.id}-swiper`);
+    const slidesCount = container?.querySelectorAll('.swiper-slide').length || 0;
 
-    const swiper = new Swiper(`#${config.id}-swiper`, {
+    // Use rewind instead of loop for better compatibility with few slides
+    // Rewind will jump back to start when reaching the end
+    const shouldUseRewind = slidesCount <= 4;
+
+    const swiperConfig: any = {
       modules: [Navigation, Pagination, EffectCoverflow, Autoplay, Parallax],
       slidesPerView: isMobile ? 1 : config.slidesPerView,
       spaceBetween: isMobile ? 16 : config.spaceBetween,
       centeredSlides: isMobile ? false : (config.centeredSlides ?? true),
-      loop: true,
+      loop: !shouldUseRewind,
+      rewind: shouldUseRewind,
       parallax: true,
       speed: 600,
       effect: isMobile ? 'slide' : 'coverflow',
@@ -273,34 +280,9 @@ import 'swiper/css/effect-coverflow';
         clickable: true,
         dynamicBullets: true,
       },
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 16,
-          centeredSlides: false,
-          effect: 'slide',
-        },
-        640: {
-          slidesPerView: 1.2,
-          spaceBetween: 20,
-          centeredSlides: false,
-          effect: 'slide',
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 24,
-          centeredSlides: true,
-          effect: 'coverflow',
-        },
-        1024: {
-          slidesPerView: config.slidesPerView,
-          spaceBetween: config.spaceBetween,
-          centeredSlides: config.centeredSlides ?? true,
-          effect: 'coverflow',
-        },
-      },
       on: {
         init: function() {
+          console.log(`Swiper ${config.id} initialized with ${slidesCount} slides, loop: ${!shouldUseRewind}, rewind: ${shouldUseRewind}`);
           // Force width recalculation after init
           setTimeout(() => {
             this.update();
@@ -308,7 +290,51 @@ import 'swiper/css/effect-coverflow';
           }, 100);
         },
       },
-    });
+    };
+
+    // Add loop-specific settings only if using loop mode
+    if (!shouldUseRewind) {
+      swiperConfig.loopedSlides = Math.max(slidesCount, 5);
+      swiperConfig.loopAdditionalSlides = 2;
+    }
+
+    // Apply breakpoints
+    swiperConfig.breakpoints = {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        centeredSlides: false,
+        effect: 'slide',
+        loop: !shouldUseRewind,
+        rewind: shouldUseRewind,
+      },
+      640: {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        centeredSlides: false,
+        effect: 'slide',
+        loop: !shouldUseRewind,
+        rewind: shouldUseRewind,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+        centeredSlides: true,
+        effect: 'coverflow',
+        loop: !shouldUseRewind,
+        rewind: shouldUseRewind,
+      },
+      1024: {
+        slidesPerView: config.slidesPerView,
+        spaceBetween: config.spaceBetween,
+        centeredSlides: config.centeredSlides ?? true,
+        effect: 'coverflow',
+        loop: !shouldUseRewind,
+        rewind: shouldUseRewind,
+      },
+    };
+
+    const swiper = new Swiper(`#${config.id}-swiper`, swiperConfig);
 
     return swiper;
   };
