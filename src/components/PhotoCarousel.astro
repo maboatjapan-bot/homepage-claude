@@ -1,36 +1,5 @@
 ---
-/**
- * PhotoCarousel - Design-focused photo carousel using Swiper.js
- *
- * Features:
- * - Modern card design with shadows and rounded corners
- * - Smooth transitions and touch/swipe support
- * - Parallax effect for depth perception
- * - Lazy loading for performance
- * - Responsive breakpoints
- * - Autoplay with pause on hover
- * - Navigation arrows and pagination dots
- */
-
-interface Photo {
-  src: string;
-  alt: string;
-}
-
-interface Props {
-  photos: Photo[];
-  title: string;
-  subtitle?: string;
-  id: string;
-}
-
-const { photos, title, subtitle, id } = Astro.props;
-
-// Import Swiper CSS
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-coverflow';
+const { photos, id } = Astro.props;
 ---
 
 <div class={`photo-carousel-wrapper ${id}-wrapper`} id={`${id}-wrapper`}>
@@ -39,23 +8,17 @@ import 'swiper/css/effect-coverflow';
       {photos.map((photo, index) => (
         <div class="swiper-slide">
           <div class="photo-card">
-            <div class="photo-inner">
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                loading="lazy"
-                class="photo-image"
-                data-swiper-parallax-scale="1.1"
-                data-swiper-parallax-opacity="0.5"
-              />
-              <div class="photo-overlay"></div>
-            </div>
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              class="photo-image"
+            />
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Navigation Buttons -->
     <div class={`swiper-button-prev ${id}-prev`}>
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -67,7 +30,6 @@ import 'swiper/css/effect-coverflow';
       </svg>
     </div>
 
-    <!-- Pagination -->
     <div class={`swiper-pagination ${id}-pagination`}></div>
   </div>
 </div>
@@ -76,83 +38,66 @@ import 'swiper/css/effect-coverflow';
   .photo-carousel-wrapper {
     position: relative;
     width: 100%;
-    max-width: 100%;
-    padding: 1rem 0;
+    padding: 1rem 0 3rem;
   }
 
   .swiper {
-    overflow: hidden;
+    overflow: visible !important;
     width: 100%;
-    padding: 1rem 0 2rem;
+    padding: 0 4rem;
+  }
+
+  @media (max-width: 768px) {
+    .swiper {
+      padding: 0 3rem;
+    }
   }
 
   .swiper-slide {
-    transition: transform 0.3s ease;
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.85);
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .photo-card {
     position: relative;
     overflow: hidden;
     border-radius: 1.5rem;
-    box-shadow:
-      0 4px 6px -1px rgb(0 0 0 / 0.1),
-      0 2px 4px -2px rgb(0 0 0 / 0.1),
-      0 20px 25px -5px rgb(0 0 0 / 0.1),
-      0 8px 10px -6px rgb(0 0 0 / 0.1);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     aspect-ratio: 16 / 9;
-  }
-
-  .photo-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    background: #f0f0f0;
   }
 
   .photo-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    display: block;
   }
 
-  .photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0) 50%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .swiper-slide-active .photo-image {
-    transform: scale(1.05);
-  }
-
-  .swiper-slide-active .photo-overlay {
-    opacity: 1;
-  }
-
-  .photo-card:hover .photo-image {
-    transform: scale(1.1);
-  }
-
-  /* Navigation Buttons */
   .swiper-button-prev,
   .swiper-button-next {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3rem;
+    height: 3rem;
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
     border-radius: 50%;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     top: 50%;
     transform: translateY(-50%);
+    transition: all 0.2s ease;
+    z-index: 10;
+  }
+
+  .swiper-button-prev:hover,
+  .swiper-button-next:hover {
+    background: #ffffff;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(1.05);
   }
 
   .swiper-button-prev::after,
@@ -162,167 +107,45 @@ import 'swiper/css/effect-coverflow';
 
   .swiper-button-prev svg,
   .swiper-button-next svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #0f766e;
-    stroke-width: 2.5;
-  }
-
-  .swiper-button-prev:hover,
-  .swiper-button-next:hover {
-    background: white;
-    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
-    transform: translateY(-50%) scale(1.05);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #0d9488;
   }
 
   .swiper-button-prev {
-    left: -1.75rem;
+    left: 0.5rem;
   }
 
   .swiper-button-next {
-    right: -1.75rem;
+    right: 0.5rem;
   }
 
-  @media (max-width: 768px) {
-    .swiper-button-prev {
-      left: 0.5rem;
-    }
-    .swiper-button-next {
-      right: 0.5rem;
-    }
-
-    /* Mobile: Ensure consistent width during animations */
-    .photo-carousel-wrapper {
-      min-width: 100%;
-      width: 100%;
-    }
-
-    .swiper-wrapper {
-      width: 100% !important;
-      box-sizing: border-box;
-    }
-
-    .swiper-slide {
-      width: 100% !important;
-      max-width: 100%;
-    }
-  }
-
-  /* Pagination */
   .swiper-pagination {
     bottom: 0 !important;
   }
 
   .swiper-pagination-bullet {
-    width: 0.75rem;
-    height: 0.75rem;
-    background: rgba(15, 118, 110, 0.3);
+    width: 0.625rem;
+    height: 0.625rem;
+    background: rgba(13, 148, 136, 0.3);
     opacity: 1;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
 
   .swiper-pagination-bullet-active {
-    width: 2rem;
-    border-radius: 0.375rem;
-    background: linear-gradient(135deg, #0d9488 0%, #3b82f6 100%);
+    width: 1.5rem;
+    border-radius: 0.25rem;
+    background: #0d9488;
   }
 </style>
 
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, EffectCoverflow, Autoplay, Parallax } from 'swiper/modules';
+<script define:vars={{ photos, id }}>
+  // Load Swiper from CDN
+  import('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs')
+    .then(module => {
+      const Swiper = module.default;
 
-  interface CarouselConfig {
-    id: string;
-    slidesPerView: number;
-    spaceBetween: number;
-    centeredSlides?: boolean;
-  }
-
-  // This runs on the client after component loads
-  const initCarousel = (config: CarouselConfig) => {
-    const isMobile = window.innerWidth < 768;
-
-    const swiper = new Swiper(`#${config.id}-swiper`, {
-      modules: [Navigation, Pagination, EffectCoverflow, Autoplay, Parallax],
-      slidesPerView: isMobile ? 1 : config.slidesPerView,
-      spaceBetween: isMobile ? 16 : config.spaceBetween,
-      centeredSlides: isMobile ? false : (config.centeredSlides ?? true),
-      loop: true,
-      parallax: true,
-      speed: 600,
-      effect: isMobile ? 'slide' : 'coverflow',
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 2,
-        slideShadows: false,
-      },
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      navigation: {
-        nextEl: `.${config.id}-next`,
-        prevEl: `.${config.id}-prev`,
-      },
-      pagination: {
-        el: `.${config.id}-pagination`,
-        clickable: true,
-        dynamicBullets: true,
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 16,
-          centeredSlides: false,
-          effect: 'slide',
-        },
-        640: {
-          slidesPerView: 1.2,
-          spaceBetween: 20,
-          centeredSlides: false,
-          effect: 'slide',
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 24,
-          centeredSlides: true,
-          effect: 'coverflow',
-        },
-        1024: {
-          slidesPerView: config.slidesPerView,
-          spaceBetween: config.spaceBetween,
-          centeredSlides: config.centeredSlides ?? true,
-          effect: 'coverflow',
-        },
-      },
-      on: {
-        init: function() {
-          // Force width recalculation after init
-          setTimeout(() => {
-            this.update();
-            this.updateSize();
-          }, 100);
-        },
-      },
-    });
-
-    return swiper;
-  };
-
-  // Auto-initialize when DOM is ready
-  document.addEventListener('DOMContentLoaded', () => {
-    // Find all carousel wrappers
-    const carousels = document.querySelectorAll('.photo-carousel-wrapper');
-
-    carousels.forEach((wrapper) => {
-      const id = wrapper.id.replace('-wrapper', '');
-      const slidesCount = wrapper.querySelectorAll('.swiper-slide').length;
-
-      // Determine slides per view based on slide count
+      const slidesCount = photos.length;
       let slidesPerView = 2.5;
       if (slidesCount <= 3) {
         slidesPerView = 1.5;
@@ -330,12 +153,69 @@ import 'swiper/css/effect-coverflow';
         slidesPerView = 3;
       }
 
-      initCarousel({
-        id,
-        slidesPerView,
-        spaceBetween: 24,
+      new Swiper(`#${id}-swiper`, {
+        modules: [module.Navigation, module.Pagination, module.EffectCoverflow, module.Autoplay],
+        slidesPerView: slidesPerView,
+        spaceBetween: 20,
         centeredSlides: true,
+        loop: true,
+        speed: 500,
+        effect: 'coverflow',
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        navigation: {
+          nextEl: `.${id}-next`,
+          prevEl: `.${id}-prev`,
+        },
+        pagination: {
+          el: `.${id}-pagination`,
+          clickable: true,
+          dynamicBullets: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            centeredSlides: false,
+            effect: 'slide',
+          },
+          640: {
+            slidesPerView: 1.2,
+            spaceBetween: 15,
+            centeredSlides: false,
+            effect: 'slide',
+          },
+          768: {
+            slidesPerView: 1.8,
+            spaceBetween: 20,
+            centeredSlides: true,
+            effect: 'coverflow',
+          },
+          1024: {
+            slidesPerView: slidesPerView,
+            spaceBetween: 20,
+            centeredSlides: true,
+            effect: 'coverflow',
+          },
+        },
+        on: {
+          init: function() {
+            setTimeout(() => {
+              this.update();
+            }, 100);
+          },
+        },
       });
-    });
-  });
+    })
+    .catch(err => console.error('Failed to load Swiper:', err));
 </script>

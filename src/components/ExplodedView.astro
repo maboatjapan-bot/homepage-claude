@@ -1,0 +1,373 @@
+---
+// Exploded View Component for Popohu
+// Interactive SVG-based exploded view animation
+---
+
+<div class="exploded-view-container" id="explodedView">
+  <div class="exploded-canvas">
+    <!-- SVG Exploded View -->
+    <svg class="exploded-svg" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Gradients for realistic appearance -->
+        <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#2d3748;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#4a5568;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#2d3748;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="frontPanelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#1a202c;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#2d3748;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#1a202c;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="usbPortGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#475569;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow">
+          <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+        </filter>
+      </defs>
+
+      <!-- Connection Lines (visible when exploded) -->
+      <g class="connection-lines" opacity="0">
+        <!-- Left side connections -->
+        <line x1="70" y1="150" x2="70" y2="220" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+        <line x1="70" y1="320" x2="70" y2="390" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+        <line x1="70" y1="490" x2="70" y2="560" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+
+        <!-- Right side connections -->
+        <line x1="330" y1="150" x2="330" y2="220" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+        <line x1="330" y1="320" x2="330" y2="390" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+        <line x1="330" y1="490" x2="330" y2="560" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+
+        <!-- Center connection -->
+        <line x1="200" y1="80" x2="200" y2="130" stroke="#00BFA5" stroke-width="2" stroke-dasharray="5,5"/>
+      </g>
+
+      <!-- Part Labels (visible when exploded) -->
+      <g class="part-labels" opacity="0">
+        <text x="50" y="140" class="label-text">LEDインジケーター</text>
+        <text x="50" y="240" class="label-text">USB-C ポート</text>
+        <text x="50" y="340" class="label-text">USB-A ポート</text>
+        <text x="50" y="440" class="label-text">ディスプレイ</text>
+        <text x="50" y="540" class="label-text">バッテリーパック</text>
+        <text x="260" y="80" class="label-text">ハンドル</text>
+      </g>
+
+      <!-- MAIN BODY GROUP -->
+      <g class="part-body" filter="url(#shadow)">
+        <!-- Body base -->
+        <rect class="body-shape" x="80" y="130" width="240" height="440" rx="12" fill="url(#bodyGradient)" />
+
+        <!-- Handle attachment points -->
+        <rect x="185" y="130" width="30" height="20" fill="#1a202c" />
+        <rect x="185" y="550" width="30" height="20" fill="#1a202c" />
+
+        <!-- Internal battery visualization -->
+        <rect class="battery-cell" x="100" y="450" width="200" height="100" rx="8" fill="#1e3a5f" stroke="#00BFA5" stroke-width="2"/>
+        <text x="200" y="510" text-anchor="middle" fill="#00BFA5" font-size="20" font-weight="bold">192Wh</text>
+
+        <!-- Circuit pattern decoration -->
+        <g class="circuit-pattern" opacity="0.1">
+          <path d="M 90 180 L 100 180 L 100 200 L 110 200" stroke="#00BFA5" stroke-width="1" fill="none"/>
+          <path d="M 290 180 L 300 180 L 300 200 L 310 200" stroke="#00BFA5" stroke-width="1" fill="none"/>
+          <path d="M 90 250 L 100 250 L 100 270 L 110 270" stroke="#00BFA5" stroke-width="1" fill="none"/>
+          <path d="M 290 250 L 300 250 L 300 270 L 310 270" stroke="#00BFA5" stroke-width="1" fill="none"/>
+        </g>
+      </g>
+
+      <!-- FRONT PANEL GROUP -->
+      <g class="part-front-panel" filter="url(#shadow)">
+        <!-- Panel background -->
+        <rect class="panel-shape" x="70" y="70" width="260" height="480" rx="16" fill="url(#frontPanelGradient)" />
+
+        <!-- LED Indicators -->
+        <g class="led-indicators">
+          <circle cx="110" cy="110" r="8" fill="#10b981" class="led-dot"/>
+          <circle cx="140" cy="110" r="8" fill="#10b981" class="led-dot"/>
+          <circle cx="170" cy="110" r="8" fill="#10b981" class="led-dot"/>
+          <circle cx="200" cy="110" r="8" fill="#10b981" class="led-dot"/>
+          <text x="155" y="135" text-anchor="middle" fill="#94a3b8" font-size="10">バッテリー残量</text>
+        </g>
+
+        <!-- Display Screen -->
+        <rect class="screen-display" x="100" y="400" width="200" height="80" rx="8" fill="url(#screenGradient)"/>
+        <text x="200" y="440" text-anchor="middle" fill="white" font-size="18" font-weight="bold">100%</text>
+        <text x="200" y="460" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="10">出力中</text>
+
+        <!-- USB-C Ports (Top row) -->
+        <g class="usb-c-ports">
+          <rect x="95" y="160" width="30" height="50" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <rect x="135" y="160" width="30" height="50" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <rect x="175" y="160" width="30" height="50" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <rect x="215" y="160" width="30" height="50" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <text x="200" y="230" text-anchor="middle" fill="#94a3b8" font-size="10">USB-C × 4</text>
+        </g>
+
+        <!-- USB-A Ports (Bottom row) -->
+        <g class="usb-a-ports">
+          <rect x="120" y="250" width="40" height="30" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <rect x="180" y="250" width="40" height="30" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <rect x="240" y="250" width="40" height="30" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <rect x="300" y="250" width="40" height="30" rx="4" fill="url(#usbPortGradient)" stroke="#64748b" stroke-width="1"/>
+          <text x="200" y="300" text-anchor="middle" fill="#94a3b8" font-size="10">USB-A × 2</text>
+        </g>
+
+        <!-- Port labels -->
+        <text x="110" y="220" text-anchor="middle" fill="#64748b" font-size="8">PD65W</text>
+        <text x="190" y="220" text-anchor="middle" fill="#64748b" font-size="8">PD65W</text>
+        <text x="270" y="220" text-anchor="middle" fill="#64748b" font-size="8">PD30W</text>
+        <text x="330" y="220" text-anchor="middle" fill="#64748b" font-size="8">PD30W</text>
+
+        <!-- Brand logo area -->
+        <rect x="150" y="320" width="100" height="40" rx="8" fill="#1a202c" stroke="#00BFA5" stroke-width="1"/>
+        <text x="200" y="345" text-anchor="middle" fill="#00BFA5" font-size="12" font-weight="bold">POPOHU</text>
+      </g>
+
+      <!-- HANDLE GROUP -->
+      <g class="part-handle" filter="url(#shadow)">
+        <!-- Handle body -->
+        <rect class="handle-shape" x="180" y="30" width="40" height="50" rx="8" fill="#4a5568" stroke="#2d3748" stroke-width="2"/>
+        <!-- Handle grip -->
+        <rect x="188" y="45" width="24" height="30" rx="4" fill="#2d3748"/>
+        <!-- Hinge -->
+        <circle cx="200" cy="75" r="6" fill="#1a202c" stroke="#00BFA5" stroke-width="1"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Controls -->
+  <div class="exploded-controls">
+    <button class="control-btn" id="assembleBtn" aria-label="組立図">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+      </svg>
+      <span>組立図</span>
+    </button>
+    <button class="control-btn active" id="explodeBtn" aria-label="分解図">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+      </svg>
+      <span>分解図</span>
+    </button>
+  </div>
+
+  <!-- Info Panel -->
+  <div class="exploded-info">
+    <p class="text-sm text-slate-600">
+      クリックまたはボタンで部品の構造を確認できます
+    </p>
+  </div>
+</div>
+
+<style>
+  .exploded-view-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .exploded-canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .exploded-svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Part Groups */
+  .part-body,
+  .part-front-panel,
+  .part-handle {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Exploded State */
+  .exploded-view-container.exploded .part-body {
+    transform: translateY(60px);
+  }
+
+  .exploded-view-container.exploded .part-front-panel {
+    transform: translateY(-100px);
+  }
+
+  .exploded-view-container.exploded .part-handle {
+    transform: translateY(-120px) rotate(-15deg);
+  }
+
+  .exploded-view-container.exploded .connection-lines,
+  .exploded-view-container.exploded .part-labels {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.3s;
+  }
+
+  /* Connection Lines Animation */
+  .connection-lines line {
+    stroke-dasharray: 5, 5;
+    animation: dashMove 1s linear infinite;
+  }
+
+  @keyframes dashMove {
+    to {
+      stroke-dashoffset: -10;
+    }
+  }
+
+  /* LED Animation */
+  .led-dot {
+    animation: ledPulse 2s ease-in-out infinite;
+  }
+
+  .led-dot:nth-child(1) { animation-delay: 0s; }
+  .led-dot:nth-child(2) { animation-delay: 0.3s; }
+  .led-dot:nth-child(3) { animation-delay: 0.6s; }
+  .led-dot:nth-child(4) { animation-delay: 0.9s; }
+
+  @keyframes ledPulse {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 3px currentColor); }
+    50% { opacity: 0.6; filter: drop-shadow(0 0 1px currentColor); }
+  }
+
+  /* Label Text */
+  .label-text {
+    fill: #00BFA5;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* Controls */
+  .exploded-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .control-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 9999px;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .control-btn:hover {
+    border-color: #00BFA5;
+    color: #00BFA5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 191, 165, 0.2);
+  }
+
+  .control-btn.active {
+    background: #00BFA5;
+    border-color: #00BFA5;
+    color: white;
+  }
+
+  /* Info Panel */
+  .exploded-info {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.75rem;
+  }
+
+  /* Hover effect on parts */
+  .part-body:hover,
+  .part-front-panel:hover,
+  .part-handle:hover {
+    filter: brightness(1.1);
+  }
+
+  /* Screen display animation */
+  .screen-display {
+    animation: screenGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes screenGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.1); }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .exploded-view-container {
+      padding: 1rem 0.5rem;
+    }
+
+    .control-btn {
+      padding: 0.625rem 1rem;
+      font-size: 0.8125rem;
+    }
+
+    .control-btn span {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Exploded View Toggle
+  const container = document.getElementById('explodedView');
+  const assembleBtn = document.getElementById('assembleBtn');
+  const explodeBtn = document.getElementById('explodeBtn');
+
+  let isExploded = true;
+
+  function setExplodedState(exploded) {
+    isExploded = exploded;
+    if (exploded) {
+      container.classList.add('exploded');
+      explodeBtn.classList.add('active');
+      assembleBtn.classList.remove('active');
+    } else {
+      container.classList.remove('exploded');
+      assembleBtn.classList.add('active');
+      explodeBtn.classList.remove('active');
+    }
+  }
+
+  // Click on canvas to toggle
+  container.querySelector('.exploded-canvas')?.addEventListener('click', () => {
+    setExplodedState(!isExploded);
+  });
+
+  // Button controls
+  assembleBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setExplodedState(false);
+  });
+
+  explodeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setExplodedState(true);
+  });
+
+  // Initialize in exploded state
+  setExplodedState(true);
+</script>

@@ -5,14 +5,20 @@ import Footer from '../components/Footer.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ScaleIn from '../components/ScaleIn.astro';
 import SlideIn from '../components/SlideIn.astro';
+import HeroGradient from '../components/HeroGradient.astro';
+import TiltCard from '../components/TiltCard.astro';
+import CallToAction from '../components/CallToAction.astro';
 ---
 
 <BaseLayout>
   <Header />
 
   <!-- Hero -->
-  <section class="pt-20 py-16 px-6 bg-brand-teal relative overflow-hidden">
-    <div class="max-w-7xl mx-auto">
+  <section class="pt-32 pb-24 px-6 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <!-- Hero Gradient Background -->
+    <HeroGradient />
+
+    <div class="max-w-7xl mx-auto relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <ScaleIn delay={0} from={0.9}>
           <div class="flex justify-center lg:justify-start">
@@ -22,13 +28,13 @@ import SlideIn from '../components/SlideIn.astro';
 
         <SlideIn direction="right">
           <div>
-            <p class="text-white text-xl mb-4"><strong>『企業のDX化』</strong></p>
+            <p class="text-brand-teal text-xl mb-4"><strong>『企業のDX化』</strong></p>
 
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6">
               会社概要
             </h1>
 
-            <p class="text-white text-lg mb-8" style="line-height: 2.4;">
+            <p class="text-slate-600 text-lg mb-8" style="line-height: 2.4;">
               IoTテクノロジーを活かしたサービス、製品を<br />
               <strong>"スピーディー"</strong><br />
               <strong>"品質重視"</strong><br />
@@ -39,13 +45,13 @@ import SlideIn from '../components/SlideIn.astro';
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/recruit" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 text-brand-teal text-base font-medium rounded-full transition-all shadow-xl">
+              <a href="/recruit" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-teal hover:bg-brand-teal-dark text-white text-base font-medium rounded-full transition-all shadow-xl shadow-brand-teal/25">
                 採用情報
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
-              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-base font-medium rounded-full transition-all border border-white/20">
+              <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 text-base font-medium rounded-full transition-all">
                 お問い合わせ
               </a>
             </div>
@@ -159,84 +165,64 @@ import SlideIn from '../components/SlideIn.astro';
 
       <div class="grid md:grid-cols-3 gap-8">
         <ScaleIn delay={0} from={0.9}>
-          <a href="/solutions" class="group block">
-            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-brand-teal/10 transition-all h-full">
-              <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                </svg>
+          <TiltCard>
+            <a href="/solutions" class="group block">
+              <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-brand-teal/10 transition-all h-full">
+                <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-slate-900">システムソリューション</h3>
+                <p class="text-slate-600 leading-relaxed">
+                  システム開発、インフラ構築、システム運用保守など、お客様のDX推進を支援します。
+                </p>
               </div>
-              <h3 class="text-xl font-semibold mb-3 text-slate-900">システムソリューション</h3>
-              <p class="text-slate-600 leading-relaxed">
-                システム開発、インフラ構築、システム運用保守など、お客様のDX推進を支援します。
-              </p>
-            </div>
-          </a>
+            </a>
+          </TiltCard>
         </ScaleIn>
 
         <ScaleIn delay={100} from={0.9}>
-          <a href="/products" class="group block">
-            <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-brand-teal/10 transition-all h-full">
-              <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                </svg>
+          <TiltCard>
+            <a href="/products" class="group block">
+              <div class="bg-gradient-to-b from-slate-50 to-white rounded-3xl p-8 border border-slate-200 hover:shadow-xl hover:shadow-brand-teal/10 transition-all h-full">
+                <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-slate-900">製品/サービス</h3>
+                <p class="text-slate-600 leading-relaxed">
+                  Popohu、Pitopa、Pitoshiyu など、自社開発製品・サービスをご提供します。
+                </p>
               </div>
-              <h3 class="text-xl font-semibold mb-3 text-slate-900">製品/サービス</h3>
-              <p class="text-slate-600 leading-relaxed">
-                Popohu、Pitopa、Pitoshiyu など、自社開発製品・サービスをご提供します。
-              </p>
-            </div>
-          </a>
+            </a>
+          </TiltCard>
         </ScaleIn>
 
         <ScaleIn delay={200} from={0.9}>
-          <a href="/ai" class="group block">
-            <div class="bg-gradient-to-b from-brand-teal/5 to-white rounded-3xl p-8 border-2 border-brand-teal/20 hover:shadow-xl hover:shadow-brand-teal/20 transition-all h-full">
-              <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
+          <TiltCard>
+            <a href="/ai" class="group block">
+              <div class="bg-gradient-to-b from-brand-teal/5 to-white rounded-3xl p-8 border-2 border-brand-teal/20 hover:shadow-xl hover:shadow-brand-teal/20 transition-all h-full">
+                <div class="w-14 h-14 bg-brand-teal/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg class="w-7 h-7 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-slate-900">AI ソリューション</h3>
+                <p class="text-slate-600 leading-relaxed">
+                  最新の AI 技術を活用したソリューションで、お客様のビジネスを変革します。
+                </p>
               </div>
-              <h3 class="text-xl font-semibold mb-3 text-slate-900">AI ソリューション</h3>
-              <p class="text-slate-600 leading-relaxed">
-                最新の AI 技術を活用したソリューションで、お客様のビジネスを変革します。
-              </p>
-            </div>
-          </a>
+            </a>
+          </TiltCard>
         </ScaleIn>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <FadeIn>
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          私たちと一緒に
-          <br>未来を創りましょう
-        </h2>
-        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-          革新的なテクノロジーで、お客様のビジネスを次のステージへ。
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/recruit" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
-            採用情報を見る
-          </a>
-          <a href="/contact" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
-            お問い合わせ
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </FadeIn>
-    </div>
-  </section>
+  <CallToAction />
 
   <Footer />
 </BaseLayout>

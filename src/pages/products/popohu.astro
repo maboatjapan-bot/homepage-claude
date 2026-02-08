@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import FadeIn from '../../components/FadeIn.astro';
 import ScaleIn from '../../components/ScaleIn.astro';
 import SlideIn from '../../components/SlideIn.astro';
+import ExplodedView from '../../components/ExplodedView.astro';
 ---
 
 <BaseLayout>
@@ -67,6 +68,41 @@ import SlideIn from '../../components/SlideIn.astro';
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Exploded View Section -->
+  <section class="py-16 px-6 bg-gradient-to-b from-slate-50 to-white">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-slate-900">製品構造</h2>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            ポポフの内部構造をインタラクティブに確認できます
+          </p>
+        </div>
+      </FadeIn>
+
+      <ScaleIn delay={100} from={0.95}>
+        <ExplodedView />
+      </ScaleIn>
+
+      <FadeIn delay={200}>
+        <div class="mt-8 grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+            <div class="text-2xl font-bold text-brand-teal mb-1">192Wh</div>
+            <div class="text-sm text-slate-600">バッテリー容量</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+            <div class="text-2xl font-bold text-brand-teal mb-1">6ポート</div>
+            <div class="text-sm text-slate-600">同時充電可能</div>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-slate-200 text-center">
+            <div class="text-2xl font-bold text-brand-teal mb-1">190W</div>
+            <div class="text-sm text-slate-600">最大出力</div>
+          </div>
+        </div>
+      </FadeIn>
     </div>
   </section>
 
