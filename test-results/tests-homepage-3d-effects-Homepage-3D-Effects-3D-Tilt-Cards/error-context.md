@@ -1,0 +1,180 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "SWIFTECHIE" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "SWIFTECHIE" [ref=e7]
+      - navigation [ref=e8]:
+        - link "AIソリューション" [ref=e9] [cursor=pointer]:
+          - /url: /ai
+        - link "製品" [ref=e10] [cursor=pointer]:
+          - /url: /products
+        - link "エンタープライズ" [ref=e11] [cursor=pointer]:
+          - /url: /solutions
+        - link "会社情報" [ref=e12] [cursor=pointer]:
+          - /url: /company
+        - link "お知らせ" [ref=e13] [cursor=pointer]:
+          - /url: /news
+      - generic [ref=e14]:
+        - button "検索" [ref=e15] [cursor=pointer]:
+          - img [ref=e16]
+        - generic:
+          - button:
+            - generic:
+              - img
+            - generic:
+              - generic: キーワード検索
+              - generic: 無料・サイト内全文検索
+          - button:
+            - generic:
+              - img
+            - generic:
+              - generic: AI検索
+              - generic: 意味を理解して検索
+        - link "お問い合わせ" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+  - generic [ref=e20]:
+    - generic [ref=e24]: AI で未来を構築する
+    - heading "技術で未来を つなぐ" [level=1] [ref=e26]:
+      - text: 技術で未来を
+      - text: つなぐ
+    - paragraph [ref=e28]:
+      - text: 最先端の AI 技術とプロフェッショナルなシステム開発で、
+      - text: ビジネスの可能性を広げます。
+    - generic [ref=e30]:
+      - link "ソリューションを見る" [ref=e31] [cursor=pointer]:
+        - /url: /solutions
+        - text: ソリューションを見る
+        - img [ref=e32]
+      - link "製品を見る" [ref=e34] [cursor=pointer]:
+        - /url: /products
+        - img [ref=e35]
+        - text: 製品を見る
+  - generic [ref=e43]:
+    - generic [ref=e46]: Core Technology
+    - heading "AI ソリューション" [level=2] [ref=e47]
+    - paragraph [ref=e48]: 当社の主力サービス。最先端の AI 技術で、お客様のビジネス課題を解決します。
+    - link "AI ソリューションを見る" [ref=e49] [cursor=pointer]:
+      - /url: /ai
+      - text: AI ソリューションを見る
+      - img [ref=e50]
+  - generic [ref=e60]:
+    - generic [ref=e62]:
+      - heading "製品・サービス" [level=2] [ref=e63]
+      - paragraph [ref=e64]: お客様のニーズに合わせた最適なソリューション
+    - generic [ref=e65]:
+      - link "コンシューマー製品 日常生活を豊かにするスマートデバイス。Popohu、Pitopa、Pitoshiyu。 詳しく見る" [ref=e69] [cursor=pointer]:
+        - /url: /products
+        - img [ref=e71]
+        - heading "コンシューマー製品" [level=3] [ref=e73]
+        - paragraph [ref=e74]: 日常生活を豊かにするスマートデバイス。Popohu、Pitopa、Pitoshiyu。
+        - generic [ref=e75]:
+          - text: 詳しく見る
+          - img [ref=e76]
+      - link "エンタープライズ システム開発、インテグレーション、インフラ構築・運用。 詳しく見る" [ref=e81] [cursor=pointer]:
+        - /url: /solutions
+        - img [ref=e83]
+        - heading "エンタープライズ" [level=3] [ref=e85]
+        - paragraph [ref=e86]: システム開発、インテグレーション、インフラ構築・運用。
+        - generic [ref=e87]:
+          - text: 詳しく見る
+          - img [ref=e88]
+  - generic [ref=e92]:
+    - generic [ref=e94]:
+      - generic [ref=e95]: 500+
+      - generic [ref=e96]: 導入企業数
+    - generic [ref=e98]:
+      - generic [ref=e99]: 98%
+      - generic [ref=e100]: 顧客満足度
+    - generic [ref=e102]:
+      - generic [ref=e103]: 15年
+      - generic [ref=e104]: 実績
+    - generic [ref=e106]:
+      - generic [ref=e107]: 24/7
+      - generic [ref=e108]: サポート体制
+  - generic [ref=e113]:
+    - heading "まずはご相談ください" [level=2] [ref=e114]
+    - paragraph [ref=e115]:
+      - text: お客様の課題を一緒に解決しましょう。
+      - text: 無料相談を実施しています。
+    - generic [ref=e116]:
+      - link "無料相談を予約" [ref=e117] [cursor=pointer]:
+        - /url: /contact
+      - link "資料をダウンロード" [ref=e118] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e119]
+        - text: 資料をダウンロード
+  - contentinfo [ref=e121]:
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - img "SWIFTECHIE" [ref=e126]
+          - paragraph [ref=e127]: 技術で未来をつなぐ
+        - generic [ref=e128]:
+          - heading "AIソリューション" [level=4] [ref=e129]
+          - list [ref=e130]:
+            - listitem [ref=e131]:
+              - link "AI 概要" [ref=e132] [cursor=pointer]:
+                - /url: /ai
+            - listitem [ref=e133]:
+              - link "AI サービス" [ref=e134] [cursor=pointer]:
+                - /url: /ai#services
+        - generic [ref=e135]:
+          - heading "製品" [level=4] [ref=e136]
+          - list [ref=e137]:
+            - listitem [ref=e138]:
+              - link "Popohu" [ref=e139] [cursor=pointer]:
+                - /url: /products/popohu-mini
+            - listitem [ref=e140]:
+              - link "Pitopa" [ref=e141] [cursor=pointer]:
+                - /url: /products/pitopa
+            - listitem [ref=e142]:
+              - link "Pitoshiyu" [ref=e143] [cursor=pointer]:
+                - /url: /products/pitoshiyu
+        - generic [ref=e144]:
+          - heading "エンタープライズ" [level=4] [ref=e145]
+          - list [ref=e146]:
+            - listitem [ref=e147]:
+              - link "システム開発" [ref=e148] [cursor=pointer]:
+                - /url: /solutions/system-development
+            - listitem [ref=e149]:
+              - link "システム運用保守" [ref=e150] [cursor=pointer]:
+                - /url: /solutions/system-operation
+            - listitem [ref=e151]:
+              - link "インフラ" [ref=e152] [cursor=pointer]:
+                - /url: /solutions/infrastructure
+        - generic [ref=e153]:
+          - heading "会社情報" [level=4] [ref=e154]
+          - list [ref=e155]:
+            - listitem [ref=e156]:
+              - link "会社概要" [ref=e157] [cursor=pointer]:
+                - /url: /company
+            - listitem [ref=e158]:
+              - link "採用情報" [ref=e159] [cursor=pointer]:
+                - /url: /recruit
+            - listitem [ref=e160]:
+              - link "プライバシーポリシー" [ref=e161] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e162]:
+              - link "お問い合わせ" [ref=e163] [cursor=pointer]:
+                - /url: /contact
+      - paragraph [ref=e165]: © 2026 Swiftechie Co., Ltd. All rights reserved.
+  - generic [ref=e168]:
+    - button "Menu" [ref=e169]:
+      - img [ref=e171]
+      - generic: Menu
+    - button "Inspect" [ref=e175]:
+      - img [ref=e177]
+      - generic: Inspect
+    - button "Audit" [ref=e179]:
+      - generic [ref=e180]:
+        - img [ref=e181]
+        - img [ref=e184]
+      - generic: Audit
+    - button "Settings" [ref=e187]:
+      - img [ref=e189]
+      - generic: Settings
+```

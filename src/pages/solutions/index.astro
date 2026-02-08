@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FadeIn from '../../components/FadeIn.astro';
 import ScaleIn from '../../components/ScaleIn.astro';
+import CallToAction from '../../components/CallToAction.astro';
 ---
 
 <BaseLayout>
@@ -262,33 +263,7 @@ import ScaleIn from '../../components/ScaleIn.astro';
   </section>
 
   <!-- CTA -->
-  <section class="py-32 px-6 bg-gradient-to-br from-brand-teal via-brand-teal to-brand-blue text-white relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <FadeIn>
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-          まずはご相談ください
-        </h2>
-        <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-          お客様の課題を一緒に解決しましょう。<br class="hidden sm:block" />
-          無料相談を実施しています。
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="inline-flex px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 text-lg font-semibold rounded-full transition-all shadow-2xl">
-            無料相談を予約
-          </a>
-          <a href="/products" class="inline-flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur text-white text-lg font-medium rounded-full transition-all border border-white/20">
-            製品を見る
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </FadeIn>
-    </div>
-  </section>
+  <CallToAction />
 
   <Footer />
 </BaseLayout>

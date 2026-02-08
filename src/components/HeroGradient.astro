@@ -1,0 +1,108 @@
+---
+// Modern Hero Background - Clean & Sharp Design
+// Geometric pattern with clear visibility
+---
+<div class="hero-gradient-container" aria-hidden="true">
+  <!-- Subtle gradient background -->
+  <div class="gradient-bg"></div>
+
+  <!-- Sharp geometric pattern -->
+  <svg class="geometric-pattern" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:rgb(13, 148, 136);stop-opacity:0.1" />
+        <stop offset="100%" style="stop-color:rgb(30, 64, 175);stop-opacity:0.05" />
+      </linearGradient>
+    </defs>
+    <!-- Large circle top-left -->
+    <circle cx="100" cy="100" r="150" fill="url(#grad1)" />
+    <!-- Large circle bottom-right -->
+    <circle cx="700" cy="500" r="120" fill="url(#grad1)" />
+    <!-- Decorative dots -->
+    <circle cx="200" cy="200" r="4" fill="rgba(13, 148, 136, 0.15)" />
+    <circle cx="600" cy="150" r="3" fill="rgba(30, 64, 175, 0.12)" />
+    <circle cx="150" cy="450" r="5" fill="rgba(13, 148, 136, 0.1)" />
+    <circle cx="650" cy="350" r="4" fill="rgba(30, 64, 175, 0.15)" />
+    <!-- Geometric lines -->
+    <line x1="0" y1="100" x2="200" y2="100" stroke="rgba(13, 148, 136, 0.08)" stroke-width="1" />
+    <line x1="600" y1="500" x2="800" y2="500" stroke="rgba(30, 64, 175, 0.08)" stroke-width="1" />
+  </svg>
+
+  <!-- Animated accent circles -->
+  <div class="accent-circle accent-1"></div>
+  <div class="accent-circle accent-2"></div>
+</div>
+
+<style>
+  .hero-gradient-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Subtle gradient background */
+  .gradient-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(30, 64, 175, 0.04) 0%, transparent 50%);
+  }
+
+  /* Geometric pattern */
+  .geometric-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    animation: patternFloat 20s ease-in-out infinite alternate;
+  }
+
+  /* Animated accent circles */
+  .accent-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid;
+    opacity: 0.15;
+    animation: circlePulse 4s ease-in-out infinite;
+  }
+
+  .accent-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    right: 15%;
+    border-color: rgba(13, 148, 136, 0.3);
+    animation-delay: 0s;
+  }
+
+  .accent-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 20%;
+    left: 10%;
+    border-color: rgba(30, 64, 175, 0.25);
+    animation-delay: -2s;
+  }
+
+  @keyframes patternFloat {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-20px, 10px);
+    }
+  }
+
+  @keyframes circlePulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.15;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.25;
+    }
+  }
+</style>

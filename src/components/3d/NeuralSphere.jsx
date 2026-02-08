@@ -200,7 +200,7 @@ export default function NeuralSphere({
       <NeuralConnections positions={positions} maxDistance={1.2} />
 
       {/* Outer particle ring */}
-      <OuterParticleRing count={300} radius={2.8} />
+      <OuterParticleRing count={200} radius={2.8} />
     </Scene3D>
   );
 }

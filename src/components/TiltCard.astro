@@ -1,0 +1,44 @@
+---
+// Pure CSS 3D Tilt Card - No JavaScript Required
+// Uses CSS :hover and transforms for better performance
+---
+
+<div class="tilt-card-wrapper">
+  <div class="tilt-card-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .tilt-card-wrapper {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  .tilt-card-content {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+    position: relative;
+  }
+
+  /* Hover effect - slight tilt */
+  .tilt-card-wrapper:hover .tilt-card-content {
+    transform: rotateX(5deg) rotateY(5deg) scale(1.02);
+  }
+
+  /* Glare effect on hover */
+  .tilt-card-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    border-radius: 1.5rem;
+  }
+
+  .tilt-card-wrapper:hover::after {
+    opacity: 1;
+  }
+</style>
