@@ -253,13 +253,52 @@ import CallToAction from '../components/CallToAction.astro';
 
               files.forEach((f, index) => {
                 const li = document.createElement('li');
-                li.className = 'flex items-center justify-between bg-slate-50 px-4 py-2 rounded-lg';
+                li.className = 'flex items-center justify-between bg-slate-50 px-4 py-2 rounded-lg group';
                 li.innerHTML = `
-                  <span class="text-sm text-slate-700">${f.name}</span>
-                  <span class="text-xs text-slate-500">(${Math.ceil(f.size / 1024)} KB)</span>
+                  <div class="flex items-center gap-3 flex-1 min-w-0">
+                    <svg class="w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span class="text-sm text-slate-700 truncate">${f.name}</span>
+                    <span class="text-xs text-slate-500 flex-shrink-0">(${Math.ceil(f.size / 1024)} KB)</span>
+                  </div>
+                  <button
+                    type="button"
+                    class="delete-file-btn text-slate-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50"
+                    data-index="${index}"
+                    aria-label="ファイルを削除"
+                    title="ファイルを削除"
+                  >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                    </svg>
+                  </button>
                 `;
                 fileList.appendChild(li);
               });
+
+              // Add delete button listeners
+              fileList.querySelectorAll('.delete-file-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                  const indexToRemove = parseInt(e.currentTarget.dataset.index || '0');
+                  removeFile(indexToRemove);
+                });
+              });
+            }
+
+            function removeFile(indexToRemove) {
+              const files = Array.from(attachmentsInput.files || []);
+              if (indexToRemove >= 0 && indexToRemove < files.length) {
+                // Create a new FileList without the removed file
+                const dataTransfer = new DataTransfer();
+                files.forEach((f, index) => {
+                  if (index !== indexToRemove) {
+                    dataTransfer.items.add(f);
+                  }
+                });
+                attachmentsInput.files = dataTransfer.files;
+                renderFileList();
+              }
             }
 
             function validateFiles() {
@@ -309,15 +348,40 @@ import CallToAction from '../components/CallToAction.astro';
             });
 
             dropzone.addEventListener('drop', (e) => {
-              const dt = e.dataTransfer;
-              const files = dt.files;
-              if (files.length) {
-                attachmentsInput.files = files;
-                renderFileList();
+              e.preventDefault();
+              e.stopPropagation();
+
+              const newFiles = Array.from(e.dataTransfer.files || []);
+              if (newFiles.length === 0) return;
+
+              // Merge with existing files
+              const currentFiles = Array.from(attachmentsInput.files || []);
+              const mergedFiles = [...currentFiles, ...newFiles];
+
+              if (mergedFiles.length > MAX_FILES) {
+                showError(`現在${currentFiles.length}個のファイルが選択されています。追加の${newFiles.length}個のファイルを含めると${mergedFiles.length}個になります。最大${MAX_FILES}個までです。`);
+                return;
               }
+
+              // Create new FileList with merged files
+              const dataTransfer = new DataTransfer();
+              mergedFiles.forEach(f => dataTransfer.items.add(f));
+              attachmentsInput.files = dataTransfer.files;
+              renderFileList();
             });
 
-            attachmentsInput.addEventListener('change', renderFileList);
+            attachmentsInput.addEventListener('change', (e) => {
+              const newFiles = Array.from(attachmentsInput.files || []);
+              if (newFiles.length > MAX_FILES) {
+                showError(`添付できるファイル数は最大${MAX_FILES}個までです。${newFiles.length}個選択されました。不要なファイルは削除ボタンで削除してください。`);
+                // Clear the input
+                const dataTransfer = new DataTransfer();
+                attachmentsInput.files = dataTransfer.files;
+                renderFileList();
+                return;
+              }
+              renderFileList();
+            });
 
             // Status messages
             function setStatus(msg, type) {

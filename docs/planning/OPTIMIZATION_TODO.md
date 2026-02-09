@@ -1,6 +1,36 @@
 # Swiftechie 官网 - 优化清单
 
 > 生成日期: 2026-01-30
+> 最后更新: 2026-02-09
+
+---
+
+## ⚠️ 待解决问题
+
+### 🚧 表单 CORS 问题（暂时搁置）
+**状态**: 待解决
+**优先级**: P0
+**问题描述**:
+- 表单提交时遇到 CORS 错误
+- UMS API 不允许从 Amplify 预览域名 (`*.amplifyapp.com`) 访问
+- 错误信息: `Access to fetch at 'https://ums.aws.swiftechie.com/api/operation/sendByEmail' from origin 'https://main.d3572wh1uqcd5u.amplifyapp.com' has been blocked by CORS policy`
+
+**临时解决方案**:
+1. 部署到生产环境 (`www.swiftechie.com`) 后测试 - UMS API 已允许该域名
+2. 联系 UMS API 管理员添加预览域名到 CORS 白名单
+
+**永久解决方案**:
+- [ ] 添加 Amplify Function 作为 API 代理
+- [ ] 或使用 CloudFront Functions 转发请求
+- [ ] 或配置 UMS API CORS 允许所有 Amplify 域名
+
+**参考文件**:
+- `src/pages/contact.astro` - 表单页面
+- `amplify.yaml` - Amplify 部署配置
+
+---
+
+## ✅ 已完成的优化
 
 ## ✅ 已完成的优化
 
