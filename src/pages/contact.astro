@@ -305,7 +305,7 @@ import CallToAction from '../components/CallToAction.astro';
               const files = Array.from(attachmentsInput.files || []);
               if (!files.length) return true;
               if (files.length > MAX_FILES) {
-                showError(`添付できるファイル数は最大${MAX_FILES}個までです。`);
+                setStatus(`最大${MAX_FILES}個のファイルまで添付できます。現在${files.length}個のファイルが選択されています。削除ボタンで${files.length - MAX_FILES}個のファイルを削除してください。`, 'is-error');
                 return false;
               }
               for (const f of files) {
@@ -319,6 +319,7 @@ import CallToAction from '../components/CallToAction.astro';
                   return false;
                 }
               }
+              resetStatus();
               return true;
             }
 
@@ -350,6 +351,7 @@ import CallToAction from '../components/CallToAction.astro';
             dropzone.addEventListener('drop', (e) => {
               e.preventDefault();
               e.stopPropagation();
+              dropzone.classList.remove('border-brand-teal', 'bg-brand-teal/10');
 
               const newFiles = Array.from(e.dataTransfer.files || []);
               if (newFiles.length === 0) return;
@@ -358,28 +360,32 @@ import CallToAction from '../components/CallToAction.astro';
               const currentFiles = Array.from(attachmentsInput.files || []);
               const mergedFiles = [...currentFiles, ...newFiles];
 
-              if (mergedFiles.length > MAX_FILES) {
-                showError(`現在${currentFiles.length}個のファイルが選択されています。追加の${newFiles.length}個のファイルを含めると${mergedFiles.length}個になります。最大${MAX_FILES}個までです。`);
-                return;
-              }
-
-              // Create new FileList with merged files
+              // Create new FileList with merged files (even if exceeds limit)
               const dataTransfer = new DataTransfer();
               mergedFiles.forEach(f => dataTransfer.items.add(f));
               attachmentsInput.files = dataTransfer.files;
+
+              // Show files and let user delete if needed
+              if (mergedFiles.length > MAX_FILES) {
+                setStatus(`${mergedFiles.length}個のファイルが選択されています。最大${MAX_FILES}個までです。削除ボタンで${mergedFiles.length - MAX_FILES}個のファイルを削除してください。`, 'is-error');
+              } else {
+                resetStatus();
+              }
               renderFileList();
             });
 
             attachmentsInput.addEventListener('change', (e) => {
               const newFiles = Array.from(attachmentsInput.files || []);
+
               if (newFiles.length > MAX_FILES) {
-                showError(`添付できるファイル数は最大${MAX_FILES}個までです。${newFiles.length}個選択されました。不要なファイルは削除ボタンで削除してください。`);
-                // Clear the input
-                const dataTransfer = new DataTransfer();
-                attachmentsInput.files = dataTransfer.files;
+                // Keep the files visible so users can delete them
+                // Just show a warning message
+                setStatus(`${newFiles.length}個のファイルが選択されています。最大${MAX_FILES}個までです。削除ボタンで${newFiles.length - MAX_FILES}個のファイルを削除してください。`, 'is-error');
+                // Still render the file list so users can see and delete files
                 renderFileList();
                 return;
               }
+              resetStatus();
               renderFileList();
             });
 
