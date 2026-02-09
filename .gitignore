@@ -26,6 +26,17 @@ npm-debug.log*
 
 # Testing
 coverage/
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Temporary investigation files
+screenshots/*.png
+screenshots/*.jpg
+tests/*-site-*.spec.ts
+tests/old-site-*.spec.ts
+tests/investigation-*.spec.ts
+tests/current-*.spec.ts
 
 # Temporary files
 *.tmp
