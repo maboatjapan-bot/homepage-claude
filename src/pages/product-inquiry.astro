@@ -290,34 +290,6 @@ import HeroGradient from '../components/HeroGradient.astro';
             const API_URL = 'https://ums.aws.swiftechie.com/api/operation/sendByEmail';
 
             // Product categories - all products send to support@, no products → info@
-            const PRODUCT_CATEGORIES = [
-              'ポポフ」ポータブル電源',
-              'ピッとパッ!」アルコール検知器',
-              'ピッとシュ!」検温消毒器',
-              'システム開発',
-              'AWS',
-              'Virtuozzo',
-              'With-AI',
-              'その他'
-            ];
-
-            // With AI and その他 are also product categories, send to support@
-            // If NO product selected, send to info@
-
-            const PRODUCT_CATEGORIES = [
-              'ポポフ」ポータブル電源',
-              'ピッとパッ!」アルコール検知器',
-              'ピッとシュ!」検温消毒器',
-              'システム開発',
-              'AWS',
-              'Virtuozzo',
-              'With-AI',
-              'その他'
-            ];
-
-            const MAX_FILES = 3;
-            const MAX_FILE_SIZE = 8 * 1024 * 1024;
-            const ALLOWED_EXT = ['jpg', 'jpeg', 'png', 'pdf'];
             const MIN_SECONDS_TO_SUBMIT = 3;
             const LAST_SEND_KEY = 'swiftechie_product_inquiry_last_send';
 
