@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FadeIn from '../components/FadeIn.astro';
+import ScaleIn from '../components/ScaleIn.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Hero -->
+  <section class="relative py-24 md:py-32 px-6 bg-slate-900 overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/wp-content/uploads/2025/09/RPA08.jpg" alt="AI×RPA" class="w-full h-full object-cover opacity-30" />
+    </div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <FadeIn>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          RPA（アールプロセス・オートメーション）
+        </h1>
+      </FadeIn>
+      <FadeIn delay={100}>
+        <p class="text-xl text-slate-300 mb-8">
+          AI×RPA業務効率化ソリューション
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Company Introduction -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <h2 class="text-3xl font-bold mb-8 text-slate-900">会社紹介</h2>
+        <div class="prose prose-lg max-w-none">
+          <p class="text-slate-700 leading-relaxed mb-4">
+            シーテック株式会社は、2017年に東京で設立された <span class="font-semibold text-brand-teal">SI・IoT・AIを中心とするテクノロジー企業</span> です。最新のIT技術を活用し、お客様のビジネス課題を解決するためのシステムインテグレーションや自動化ソリューションを幅広く提供しています。
+          </p>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            <span class="font-semibold">要件整理からPoC、本番導入、さらに運用・保守まで</span> 一気通貫でサポートする体制を整え、現場の声を反映した実践的なDX推進を実現。単なる導入に留まらず、利用定着や改善活動まで伴走します。
+          </p>
+          <p class="text-slate-700 leading-relaxed">
+            また、<span class="font-semibold text-brand-teal">RPA・AIによる業務自動化、ナレッジ活用、品質の安定化、スピード改善</span> など、多様な領域に対応。加えて、IoT技術や既存システムとの連携・個別開発を通じて、現場で「実際に使える」自動化を実装しています。
+          </p>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Market Background -->
+  <section class="py-20 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">市場背景と課題</h2>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <h3 class="text-xl font-bold mb-4 text-brand-teal">日本企業の現状</h3>
+            <ul class="space-y-2 text-slate-600">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-teal mt-1">•</span>
+                <span>人手不足による業務負荷増加</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-teal mt-1">•</span>
+                <span>DX推進の遅れ</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-teal mt-1">•</span>
+                <span>生産性向上の必要性</span>
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.95}>
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <h3 class="text-xl font-bold mb-4 text-brand-teal">AI×RPAへの注目</h3>
+            <p class="text-slate-600 leading-relaxed">
+              繰り返し作業を機械に任せ、人材を付加価値業務へシフト。短期間で効果が見える"現実解"の自動化。
+            </p>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.95}>
+          <div class="bg-white p-8 rounded-2xl shadow-sm">
+            <h3 class="text-xl font-bold mb-4 text-brand-teal">SWIFTECHIEの強み</h3>
+            <p class="text-slate-600 leading-relaxed">
+              現場プロセスに精通し、導入後の運用まで伴走。日本の監査・ガバナンス要件に合わせて設計します。
+            </p>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is RPA -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <FadeIn>
+        <h2 class="text-3xl font-bold mb-8 text-slate-900">ソリューション概要（RPAとは）</h2>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+        <div>
+          <p class="text-lg text-slate-700 leading-relaxed mb-6">
+            正式名称「Robotic Process Automation」。専用ソフトウェアがPC上の操作を模倣し、規則に従って業務フローを自動実行します。
+          </p>
+
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-bold text-brand-teal mb-2">特長</h4>
+              <ul class="space-y-1 text-slate-600">
+                <li>• 既存システム変更不要</li>
+                <li>• 24時間365日稼働可能</li>
+                <li>• ヒューマンエラー削減</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-brand-teal mb-2">適用領域</h4>
+              <ul class="space-y-1 text-slate-600">
+                <li>• 経理・財務業務</li>
+                <li>• 人事・総務業務</li>
+                <li>• 営業支援</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <ScaleIn delay={150} from={0.95}>
+          <img src="/wp-content/uploads/2025/09/RPA02.jpg" alt="RPA" class="w-full rounded-2xl shadow-lg" />
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- RPA Products -->
+  <section class="py-20 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <h2 class="text-3xl font-bold mb-4 text-slate-900">製品紹介（RPA 6.x）</h2>
+        <p class="text-lg text-slate-600 mb-12">業務自動化の3つのコア製品と特長</p>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/wp-content/uploads/2025/09/Creator.png" alt="Creator 操作画面" class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3 text-brand-teal">Creator（フロークリエイター）</h3>
+              <p class="text-slate-600">業務フローの設計・開発を行う開発ツール</p>
+            </div>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.95}>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/wp-content/uploads/2025/09/Bot.png" alt="Bot 操作画面" class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3 text-brand-teal">Bot（実行ロボット）</h3>
+              <p class="text-slate-600">作成したフローを実行するエージェント</p>
+            </div>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={300} from={0.95}>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+            <img src="/wp-content/uploads/2025/09/Commander.png" alt="Commander 操作画面" class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3 text-brand-teal">Commander（管理コンソール）</h3>
+              <p class="text-slate-600">複数のBotを一元管理する管理ツール</p>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Effects and Use Cases -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <h2 class="text-3xl font-bold mb-12 text-slate-900">導入効果・ユースケース</h2>
+      </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-slate-50 p-8 rounded-2xl">
+            <h3 class="text-xl font-bold text-brand-teal mb-4">効果</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">✓</span>
+                <span>業務時間の大幅短縮（平均70%削減）</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">✓</span>
+                <span>ヒューマンエラーの完全排除</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">✓</span>
+                <span>人材を付加価値業務へシフト</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">✓</span>
+                <span>24時間体制での業務処理が可能</span>
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.95}>
+          <div class="bg-slate-50 p-8 rounded-2xl">
+            <h3 class="text-xl font-bold text-brand-teal mb-4">活用シーン</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">•</span>
+                <span>請求書・帳票処理</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">•</span>
+                <span>マスタデータ登録・更新</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">•</span>
+                <span>レポート作成・メール送信</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-teal text-xl">•</span>
+                <span>システム間データ連携</span>
+              </li>
+            </ul>
+          </div>
+        </ScaleIn>
+      </div>
+
+      <!-- Case Studies -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+            <img src="/wp-content/uploads/2025/09/RPA06.jpg" alt="大手銀行：帳票処理の自動化" class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h4 class="font-bold text-lg mb-2 text-brand-teal">大手銀行：帳票処理の自動化</h4>
+              <p class="text-slate-600">年間数万時間を削減し、限られた人材を戦略業務へ。</p>
+            </div>
+          </div>
+        </ScaleIn>
+
+        <ScaleIn delay={150} from={0.95}>
+          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+            <img src="/wp-content/uploads/2025/09/RPA04.jpg" alt="製造業：受発注業務の自動化" class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h4 class="font-bold text-lg mb-2 text-brand-teal">製造業：受発注業務の自動化</h4>
+              <p class="text-slate-600">処理リードタイムを80%短縮、業務効率大幅向上。</p>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction />
+
+  <Footer />
+</BaseLayout>
