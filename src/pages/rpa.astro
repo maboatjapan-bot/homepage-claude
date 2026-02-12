@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ScaleIn from '../components/ScaleIn.astro';
-import CallToAction from '../components/CallToAction.astro';
 ---
 
 <BaseLayout>
@@ -13,7 +12,7 @@ import CallToAction from '../components/CallToAction.astro';
   <!-- Hero -->
   <section class="relative py-24 md:py-32 px-6 bg-slate-900 overflow-hidden">
     <div class="absolute inset-0">
-      <img src="/wp-content/uploads/2025/09/RPA08.jpg" alt="AI×RPA" class="w-full h-full object-cover opacity-30" />
+      <img src="/wp-content/uploads/2025/09/RPA08.jpg" alt="AI×RPA" class="w-full h-full object-cover opacity-40" />
     </div>
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <FadeIn>
@@ -22,157 +21,171 @@ import CallToAction from '../components/CallToAction.astro';
         </h1>
       </FadeIn>
       <FadeIn delay={100}>
-        <p class="text-xl text-slate-300 mb-8">
+        <p class="text-xl text-slate-300">
           AI×RPA業務効率化ソリューション
         </p>
       </FadeIn>
     </div>
   </section>
 
-  <!-- Company Introduction -->
-  <section class="py-20 px-6 bg-white">
+  <!-- 会社紹介 -->
+  <section class="py-16 px-6 bg-slate-900">
     <div class="max-w-4xl mx-auto">
       <FadeIn>
-        <h2 class="text-3xl font-bold mb-8 text-slate-900">会社紹介</h2>
-        <div class="prose prose-lg max-w-none">
-          <p class="text-slate-700 leading-relaxed mb-4">
-            シーテック株式会社は、2017年に東京で設立された <span class="font-semibold text-brand-teal">SI・IoT・AIを中心とするテクノロジー企業</span> です。最新のIT技術を活用し、お客様のビジネス課題を解決するためのシステムインテグレーションや自動化ソリューションを幅広く提供しています。
-          </p>
-          <p class="text-slate-700 leading-relaxed mb-4">
-            <span class="font-semibold">要件整理からPoC、本番導入、さらに運用・保守まで</span> 一気通貫でサポートする体制を整え、現場の声を反映した実践的なDX推進を実現。単なる導入に留まらず、利用定着や改善活動まで伴走します。
-          </p>
-          <p class="text-slate-700 leading-relaxed">
-            また、<span class="font-semibold text-brand-teal">RPA・AIによる業務自動化、ナレッジ活用、品質の安定化、スピード改善</span> など、多様な領域に対応。加えて、IoT技術や既存システムとの連携・個別開発を通じて、現場で「実際に使える」自動化を実装しています。
-          </p>
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-6 md:p-8">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="shrink-0 rounded-xl bg-white/5 border border-white/10 p-3 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
+              <img src="/wp-content/uploads/2024/10/logo_white-1.png" alt="SWIFTECHIE Logo" class="max-w-full max-h-full object-contain" />
+            </div>
+            <div>
+              <h3 class="font-bold text-xl md:text-2xl text-amber-400">シーテック株式会社</h3>
+              <p class="text-xs text-white/60">現場課題に寄り添い、AI・RPA・IoTから業務システム開発までを支援するDX推進パートナー</p>
+            </div>
+          </div>
+          <div class="space-y-3 text-white/85 text-base md:text-lg leading-7">
+            <p>シーテック株式会社は、2017年に東京で設立された <span class="text-white/70">SI・IoT・AIを中心とするテクノロジー企業</span> です。最新のIT技術を活用し、お客様のビジネス課題を解決するためのシステムインテグレーションや自動化ソリューションを幅広く提供しています。</p>
+            <p><span class="text-white/95 font-semibold">要件整理からPoC、本番導入、さらに運用・保守まで</span> 一気通貫でサポートする体制を整え、現場の声を反映した実践的なDX推進を実現。単なる導入に留まらず、利用定着や改善活動まで伴走します。</p>
+            <p>また、<span class="text-white/70">RPA・AIによる業務自動化、ナレッジ活用、品質の安定化、スピード改善</span> など、多様な領域に対応。加えて、IoT技術や既存システムとの連携・個別開発を通じて、現場で「実際に使える」自動化を実装しています。</p>
+            <p>当社は、現場のニーズを理解し、経営層から現場担当者までを巻き込みながらプロジェクトを推進することで、<span class="text-white/70">お客様に寄り添うDXパートナー</span> として信頼をいただいています。これからも、テクノロジーと人をつなぎ、持続的な成長と働き方の革新に貢献してまいります。</p>
+          </div>
         </div>
       </FadeIn>
     </div>
   </section>
 
-  <!-- Market Background -->
-  <section class="py-20 px-6 bg-slate-50">
+  <!-- 市場背景と課題 -->
+  <section class="py-16 px-6 bg-slate-800">
     <div class="max-w-6xl mx-auto">
       <FadeIn>
-        <h2 class="text-3xl font-bold mb-12 text-center text-slate-900">市場背景と課題</h2>
+        <div class="text-amber-400/80 text-xs tracking-widest uppercase mb-2">Market</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">市場背景と課題</h2>
       </FadeIn>
-
-      <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="grid md:grid-cols-3 gap-6 text-sm">
         <ScaleIn delay={0} from={0.95}>
-          <div class="bg-white p-8 rounded-2xl shadow-sm">
-            <h3 class="text-xl font-bold mb-4 text-brand-teal">日本企業の現状</h3>
-            <ul class="space-y-2 text-slate-600">
-              <li class="flex items-start gap-2">
-                <span class="text-brand-teal mt-1">•</span>
-                <span>人手不足による業務負荷増加</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-brand-teal mt-1">•</span>
-                <span>DX推進の遅れ</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-brand-teal mt-1">•</span>
-                <span>生産性向上の必要性</span>
-              </li>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition">
+            <p class="font-semibold mb-3 text-white">日本企業の現状</p>
+            <ul class="list-disc pl-5 space-y-1 text-white/80">
+              <li>少子高齢化による<strong>人手不足</strong></li>
+              <li><strong>DX推進</strong>の必要性と現場定着の難しさ</li>
+              <li>定型業務が多く、効率化余地が大きい</li>
             </ul>
           </div>
         </ScaleIn>
-
         <ScaleIn delay={150} from={0.95}>
-          <div class="bg-white p-8 rounded-2xl shadow-sm">
-            <h3 class="text-xl font-bold mb-4 text-brand-teal">AI×RPAへの注目</h3>
-            <p class="text-slate-600 leading-relaxed">
-              繰り返し作業を機械に任せ、人材を付加価値業務へシフト。短期間で効果が見える"現実解"の自動化。
-            </p>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition">
+            <p class="font-semibold mb-3 text-white">AI×RPAへの注目</p>
+            <p class="text-white/80">繰り返し作業を機械に任せ、人材を付加価値業務へシフト。短期間で効果が見える"現実解"の自動化。</p>
           </div>
         </ScaleIn>
-
         <ScaleIn delay={300} from={0.95}>
-          <div class="bg-white p-8 rounded-2xl shadow-sm">
-            <h3 class="text-xl font-bold mb-4 text-brand-teal">SWIFTECHIEの強み</h3>
-            <p class="text-slate-600 leading-relaxed">
-              現場プロセスに精通し、導入後の運用まで伴走。日本の監査・ガバナンス要件に合わせて設計します。
-            </p>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition">
+            <p class="font-semibold mb-3 text-white">SWIFTECHIEの強み</p>
+            <p class="text-white/80">現場プロセスに精通し、導入後の運用まで伴走。日本の監査・ガバナンス要件に合わせて設計します。</p>
           </div>
         </ScaleIn>
       </div>
     </div>
   </section>
 
-  <!-- What is RPA -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto">
+  <!-- ソリューション概要 -->
+  <section class="py-16 px-6 bg-slate-900">
+    <div class="max-w-6xl mx-auto">
       <FadeIn>
-        <h2 class="text-3xl font-bold mb-8 text-slate-900">ソリューション概要（RPAとは）</h2>
+        <div class="text-amber-400/80 text-xs tracking-widest uppercase mb-2">Solution</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">ソリューション概要（RPAとは）</h2>
       </FadeIn>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
-        <div>
-          <p class="text-lg text-slate-700 leading-relaxed mb-6">
-            正式名称「Robotic Process Automation」。専用ソフトウェアがPC上の操作を模倣し、規則に従って業務フローを自動実行します。
-          </p>
-
-          <div class="space-y-4">
-            <div>
-              <h4 class="font-bold text-brand-teal mb-2">特長</h4>
-              <ul class="space-y-1 text-slate-600">
-                <li>• 既存システム変更不要</li>
-                <li>• 24時間365日稼働可能</li>
-                <li>• ヒューマンエラー削減</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="font-bold text-brand-teal mb-2">適用領域</h4>
-              <ul class="space-y-1 text-slate-600">
-                <li>• 経理・財務業務</li>
-                <li>• 人事・総務業務</li>
-                <li>• 営業支援</li>
-              </ul>
+      <div class="grid md:grid-cols-2 gap-10">
+        <ScaleIn delay={0} from={0.95}>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-6">
+            <p class="text-white/85 mb-5">正式名称「Robotic Process Automation」。専用ソフトウェアがPC上の操作を模倣し、規則に従って業務フローを自動実行します。</p>
+            <div class="grid grid-cols-1 gap-4 text-sm">
+              <div class="p-4 rounded bg-slate-800 border border-white/10">
+                <p class="font-semibold mb-3 text-amber-400">特長</p>
+                <ul class="space-y-2 text-white/80 leading-relaxed">
+                  <li>汎用性：非侵入型で既存システム横断</li>
+                  <li>精度・管理：正確性と監査性</li>
+                  <li>迅速適用：短期構築＆柔軟な変更</li>
+                </ul>
+              </div>
+              <div class="p-4 rounded bg-slate-800 border border-white/10">
+                <p class="font-semibold mb-3 text-amber-400">適用領域</p>
+                <ul class="space-y-2 text-white/80 leading-relaxed">
+                  <li>日常的な繰り返し作業</li>
+                  <li>規則・ロジックが明確</li>
+                  <li>クロスシステムのデータ統合</li>
+                  <li>データ収集・検索・集計</li>
+                </ul>
+              </div>
             </div>
           </div>
+        </ScaleIn>
+        <ScaleIn delay={150} from={0.95}>
+          <div class="rounded-xl overflow-hidden border border-white/10">
+            <div class="aspect-[16/9]">
+              <img src="/wp-content/uploads/2025/09/RPA02.jpg" alt="RPA" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- 製品紹介 -->
+  <section class="py-16 px-6 bg-slate-800">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <div class="text-center mb-6">
+          <div class="text-amber-400/80 text-xs tracking-widest uppercase">Products</div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">製品紹介（RPA 6.x）</h2>
+          <p class="text-white/70 text-sm mt-3">業務自動化の3つのコア製品と特長</p>
         </div>
-
-        <ScaleIn delay={150} from={0.95}>
-          <img src="/wp-content/uploads/2025/09/RPA02.jpg" alt="RPA" class="w-full rounded-2xl shadow-lg" />
-        </ScaleIn>
-      </div>
-    </div>
-  </section>
-
-  <!-- RPA Products -->
-  <section class="py-20 px-6 bg-slate-50">
-    <div class="max-w-6xl mx-auto">
-      <FadeIn>
-        <h2 class="text-3xl font-bold mb-4 text-slate-900">製品紹介（RPA 6.x）</h2>
-        <p class="text-lg text-slate-600 mb-12">業務自動化の3つのコア製品と特長</p>
       </FadeIn>
-
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-6 text-sm">
         <ScaleIn delay={0} from={0.95}>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/wp-content/uploads/2025/09/Creator.png" alt="Creator 操作画面" class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-3 text-brand-teal">Creator（フロークリエイター）</h3>
-              <p class="text-slate-600">業務フローの設計・開発を行う開発ツール</p>
+          <div class="rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition flex flex-col h-full">
+            <div class="aspect-[16/9] bg-slate-900 p-2">
+              <img src="/wp-content/uploads/2025/09/Creator.png" alt="Creator 操作画面" class="w-full h-full object-contain rounded" />
+            </div>
+            <div class="p-6 flex flex-col gap-3 flex-grow">
+              <p class="font-semibold text-amber-400">Creator（フロークリエイター）</p>
+              <span class="inline-flex text-[10px] px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 whitespace-nowrap">ローコード</span>
+              <ul class="list-disc pl-5 space-y-1 text-white/80">
+                <li>フローチャート＆ローコードで直感的に設計</li>
+                <li>ドラッグ＆ドロップで可視化と効率化</li>
+                <li>ビジュアル/コードをワンクリック切替</li>
+              </ul>
             </div>
           </div>
         </ScaleIn>
-
         <ScaleIn delay={150} from={0.95}>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/wp-content/uploads/2025/09/Bot.png" alt="Bot 操作画面" class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-3 text-brand-teal">Bot（実行ロボット）</h3>
-              <p class="text-slate-600">作成したフローを実行するエージェント</p>
+          <div class="rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition flex flex-col h-full">
+            <div class="aspect-[16/9] bg-slate-900 p-2">
+              <img src="/wp-content/uploads/2025/09/Bot.png" alt="Bot 操作画面" class="w-full h-full object-contain rounded" />
+            </div>
+            <div class="p-6 flex flex-col gap-3 flex-grow">
+              <p class="font-semibold text-amber-400">Bot（実行ロボット）</p>
+              <span class="inline-flex text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 whitespace-nowrap">自動実行</span>
+              <ul class="list-disc pl-5 space-y-1 text-white/80">
+                <li>自動/手動トリガーでプロセス実行</li>
+                <li>1台PCで複数実行・ロック画面でも稼働</li>
+                <li>待機中はライセンス消費なしの実行時課金</li>
+              </ul>
             </div>
           </div>
         </ScaleIn>
-
         <ScaleIn delay={300} from={0.95}>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-            <img src="/wp-content/uploads/2025/09/Commander.png" alt="Commander 操作画面" class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-3 text-brand-teal">Commander（管理コンソール）</h3>
-              <p class="text-slate-600">複数のBotを一元管理する管理ツール</p>
+          <div class="rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition flex flex-col h-full">
+            <div class="aspect-[16/9] bg-slate-900 p-2">
+              <img src="/wp-content/uploads/2025/09/Commander.png" alt="Commander 操作画面" class="w-full h-full object-contain rounded" />
+            </div>
+            <div class="p-6 flex flex-col gap-3 flex-grow">
+              <p class="font-semibold text-amber-400">Commander（管理コンソール）</p>
+              <span class="inline-flex text-[10px] px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 whitespace-nowrap">管理</span>
+              <ul class="list-disc pl-5 space-y-1 text-white/80">
+                <li>ロボットを一元管理・大量配布</li>
+                <li>証跡・権限管理・暗号化でガバナンス対応</li>
+                <li>新ダッシュボードで稼働状況を可視化</li>
+              </ul>
             </div>
           </div>
         </ScaleIn>
@@ -180,81 +193,74 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- Effects and Use Cases -->
-  <section class="py-20 px-6 bg-white">
+  <!-- 導入効果・ユースケース -->
+  <section class="py-16 px-6 bg-slate-900">
     <div class="max-w-6xl mx-auto">
       <FadeIn>
-        <h2 class="text-3xl font-bold mb-12 text-slate-900">導入効果・ユースケース</h2>
+        <div class="mb-6">
+          <div class="text-amber-400/80 text-xs tracking-widest uppercase">Impact & Cases</div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">導入効果・ユースケース</h2>
+        </div>
       </FadeIn>
-
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
         <ScaleIn delay={0} from={0.95}>
-          <div class="bg-slate-50 p-8 rounded-2xl">
-            <h3 class="text-xl font-bold text-brand-teal mb-4">効果</h3>
-            <ul class="space-y-3 text-slate-700">
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">✓</span>
-                <span>業務時間の大幅短縮（平均70%削減）</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">✓</span>
-                <span>ヒューマンエラーの完全排除</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">✓</span>
-                <span>人材を付加価値業務へシフト</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">✓</span>
-                <span>24時間体制での業務処理が可能</span>
-              </li>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-6">
+            <p class="font-semibold text-amber-400 mb-3">効果</p>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li class="flex gap-2">コスト削減：運用・人的コストの最適化</li>
+              <li class="flex gap-2">品質向上：人的ミス削減と正確性の確保</li>
+              <li class="flex gap-2">スピードUP：処理と意思決定の高速化</li>
+              <li class="flex gap-2">付加価値業務へシフト：創造的・戦略的業務に集中</li>
             </ul>
           </div>
         </ScaleIn>
-
         <ScaleIn delay={150} from={0.95}>
-          <div class="bg-slate-50 p-8 rounded-2xl">
-            <h3 class="text-xl font-bold text-brand-teal mb-4">活用シーン</h3>
-            <ul class="space-y-3 text-slate-700">
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">•</span>
-                <span>請求書・帳票処理</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">•</span>
-                <span>マスタデータ登録・更新</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">•</span>
-                <span>レポート作成・メール送信</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-brand-teal text-xl">•</span>
-                <span>システム間データ連携</span>
-              </li>
+          <div class="rounded-xl bg-white/5 border border-white/10 p-6">
+            <p class="font-semibold text-amber-400 mb-3">活用シーン</p>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li>バックオフィス（経理・人事・総務）</li>
+              <li>カスタマーサポート（問合せ対応、FAQ 更新）</li>
+              <li>営業・マケ（リード管理、データ入力、レポート作成）</li>
+              <li>製造・物流（在庫管理、受発注の正確性向上）</li>
+              <li>金融・保険（書類審査や契約確認の高速化）</li>
             </ul>
           </div>
         </ScaleIn>
       </div>
-
-      <!-- Case Studies -->
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-3 gap-6 text-sm">
         <ScaleIn delay={0} from={0.95}>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-            <img src="/wp-content/uploads/2025/09/RPA06.jpg" alt="大手銀行：帳票処理の自動化" class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h4 class="font-bold text-lg mb-2 text-brand-teal">大手銀行：帳票処理の自動化</h4>
-              <p class="text-slate-600">年間数万時間を削減し、限られた人材を戦略業務へ。</p>
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-slate-800">
+            <div class="relative">
+              <img src="/wp-content/uploads/2025/09/RPA06.jpg" alt="" class="w-full h-40 object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-white hover:text-amber-400 transition cursor-pointer">大手銀行：帳票処理の自動化</p>
+              <p class="text-white/70 mt-1">年間数万時間を削減し、限られた人材を戦略業務へ。</p>
             </div>
           </div>
         </ScaleIn>
-
         <ScaleIn delay={150} from={0.95}>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-            <img src="/wp-content/uploads/2025/09/RPA04.jpg" alt="製造業：受発注業務の自動化" class="w-full h-48 object-cover" />
-            <div class="p-6">
-              <h4 class="font-bold text-lg mb-2 text-brand-teal">製造業：受発注業務の自動化</h4>
-              <p class="text-slate-600">処理リードタイムを80%短縮、業務効率大幅向上。</p>
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-slate-800">
+            <div class="relative">
+              <img src="/wp-content/uploads/2025/09/RPA04.jpg" alt="" class="w-full h-40 object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-white hover:text-amber-400 transition cursor-pointer">製造業：受発注業務の自動化</p>
+              <p class="text-white/70 mt-1">ヒューマンエラーを大幅に低減し、品質と納期を安定化。</p>
+            </div>
+          </div>
+        </ScaleIn>
+        <ScaleIn delay={300} from={0.95}>
+          <div class="rounded-xl overflow-hidden border border-white/10 bg-slate-800">
+            <div class="relative">
+              <img src="/wp-content/uploads/2025/09/RPA05.jpg" alt="" class="w-full h-40 object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-4">
+              <p class="font-semibold text-white hover:text-amber-400 transition cursor-pointer">通信：自動応答の導入</p>
+              <p class="text-white/70 mt-1">対応スピード＆正確性を改善し、顧客満足度を向上。</p>
             </div>
           </div>
         </ScaleIn>
@@ -262,8 +268,115 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- CTA -->
-  <CallToAction />
+  <!-- 導入プロセス -->
+  <section class="py-16 px-6 bg-slate-800">
+    <div class="max-w-6xl mx-auto">
+      <FadeIn>
+        <div class="mb-6">
+          <div class="text-amber-400/80 text-xs tracking-widest uppercase">Process</div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">導入プロセス</h2>
+        </div>
+      </FadeIn>
+      <ol class="grid md:grid-cols-5 gap-4 text-sm">
+        <ScaleIn delay={0} from={0.95}>
+          <li class="rounded-xl bg-white/5 border border-white/10 p-4 relative">
+            <span class="absolute -top-2 left-2 text-[10px] px-2 py-0.5 rounded bg-amber-400 text-slate-900 font-bold">STEP 1</span>
+            <span class="font-semibold text-amber-400 block mt-3">ヒアリング・課題分析</span>
+            <span class="text-white/70">現状把握と自動化候補の特定</span>
+          </li>
+        </ScaleIn>
+        <ScaleIn delay={75} from={0.95}>
+          <li class="rounded-xl bg-white/5 border border-white/10 p-4 relative">
+            <span class="absolute -top-2 left-2 text-[10px] px-2 py-0.5 rounded bg-amber-400 text-slate-900 font-bold">STEP 2</span>
+            <span class="font-semibold text-amber-400 block mt-3">PoC（概念実証）</span>
+            <span class="text-white/70">小規模で効果検証・方針合意</span>
+          </li>
+        </ScaleIn>
+        <ScaleIn delay={150} from={0.95}>
+          <li class="rounded-xl bg-white/5 border border-white/10 p-4 relative">
+            <span class="absolute -top-2 left-2 text-[10px] px-2 py-0.5 rounded bg-amber-400 text-slate-900 font-bold">STEP 3</span>
+            <span class="font-semibold text-amber-400 block mt-3">本格導入</span>
+            <span class="text-white/70">対象業務を拡大し定着化</span>
+          </li>
+        </ScaleIn>
+        <ScaleIn delay={225} from={0.95}>
+          <li class="rounded-xl bg-white/5 border border-white/10 p-4 relative">
+            <span class="absolute -top-2 left-2 text-[10px] px-2 py-0.5 rounded bg-amber-400 text-slate-900 font-bold">STEP 4</span>
+            <span class="font-semibold text-amber-400 block mt-3">運用・保守</span>
+            <span class="text-white/70">安定稼働を支える体制整備</span>
+          </li>
+        </ScaleIn>
+        <ScaleIn delay={300} from={0.95}>
+          <li class="rounded-xl bg-white/5 border border-white/10 p-4 relative">
+            <span class="absolute -top-2 left-2 text-[10px] px-2 py-0.5 rounded bg-amber-400 text-slate-900 font-bold">STEP 5</span>
+            <span class="font-semibold text-amber-400 block mt-3">継続改善</span>
+            <span class="text-white/70">AI併用で更なる効率化</span>
+          </li>
+        </ScaleIn>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 px-6 bg-slate-900">
+    <div class="max-w-3xl mx-auto">
+      <FadeIn>
+        <div class="mb-6">
+          <div class="text-amber-400/80 text-xs tracking-widest uppercase">FAQ</div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">よくあるご質問</h2>
+        </div>
+      </FadeIn>
+      <FadeIn delay={100}>
+        <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden divide-y divide-white/10">
+          <details class="group">
+            <summary class="cursor-pointer list-none p-4 flex items-center justify-between hover:bg-white/5 transition">
+              <span>PoC の期間は？</span>
+              <svg class="w-5 h-5 text-white/60 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-white/70">通常 4〜8 週間。対象プロセスや連携範囲によって前後します。</div>
+          </details>
+          <details class="group">
+            <summary class="cursor-pointer list-none p-4 flex items-center justify-between hover:bg-white/5 transition">
+              <span>運用・保守は貴社側で可能ですか？</span>
+              <svg class="w-5 h-5 text-white/60 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-white/70">ドキュメント・トレーニングを提供し、社内運用に移管できます。マネージドサービスの選択も可能です。</div>
+          </details>
+          <details class="group">
+            <summary class="cursor-pointer list-none p-4 flex items-center justify-between hover:bg-white/5 transition">
+              <span>セキュリティ・ガバナンス対応は？</span>
+              <svg class="w-5 h-5 text-white/60 group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-4 pb-4 text-white/70">証跡・権限管理・暗号化・監査ログに対応。日本の監査要件に合わせた設計を行います。</div>
+          </details>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- お問い合わせ CTA -->
+  <section class="py-16 px-6 bg-slate-900">
+    <div class="max-w-3xl mx-auto">
+      <FadeIn>
+        <div class="rounded-xl bg-white/5 border border-white/10 p-8 text-center">
+          <div class="mb-4">
+            <div class="text-amber-400/80 text-xs tracking-widest uppercase">Contact</div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">お問い合わせ</h2>
+          </div>
+          <p class="text-white/80 mb-8">まずはお気軽にご相談ください。PoCやパイロット導入からのスタートも可能です。</p>
+          <a href="/contact" class="inline-block px-8 py-3 rounded-full bg-amber-400 text-slate-900 font-semibold hover:bg-amber-300 transition">
+            お問合せ・導入相談
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
 
   <Footer />
 </BaseLayout>
