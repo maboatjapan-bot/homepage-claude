@@ -299,8 +299,19 @@ import HeroGradient from '../components/HeroGradient.astro';
               'Virtuozzo'
             ];
 
-            // Categories that map to info@ (contact-others)
-            const OTHER_CATEGORIES = ['With-AI', 'その他'];
+            // With AI and その他 are also product categories, send to support@
+            // If NO product selected, send to info@
+
+            const PRODUCT_CATEGORIES = [
+              'ポポフ」ポータブル電源',
+              'ピッとパッ!」アルコール検知器',
+              'ピッとシュ!」検温消毒器',
+              'システム開発',
+              'AWS',
+              'Virtuozzo',
+              'With-AI',
+              'その他'
+            ];
 
             const MAX_FILES = 3;
             const MAX_FILE_SIZE = 8 * 1024 * 1024;
@@ -491,18 +502,13 @@ import HeroGradient from '../components/HeroGradient.astro';
             }
 
             function determineEmailGroup(products) {
-              // Check if any product category is selected
-              const hasProductCategory = products.some(p => PRODUCT_CATEGORIES.includes(p));
-              // Check if any "other" category is selected
-              const hasOtherCategory = products.some(p => OTHER_CATEGORIES.includes(p));
-
-              if (hasProductCategory) {
+              // If any product option is selected, send to support@
+              // Products include: ポポフ, AWS, etc. AND With AI, その他
+              if (products.length > 0) {
                 return 'contact-pro'; // support@swiftechie.com
-              } else if (hasOtherCategory) {
-                return 'contact-others'; // info@swiftechie.com
               } else {
-                // Default to others if nothing selected or unclear
-                return 'contact-others';
+                // No product selected, send to info@
+                return 'contact-others'; // info@swiftechie.com
               }
             }
 
