@@ -30,26 +30,43 @@ import ScaleIn from '../components/ScaleIn.astro';
 
   <!-- 会社紹介 -->
   <section class="py-16 px-6 bg-slate-900">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <FadeIn>
-        <div class="rounded-2xl bg-white/5 border border-white/10 p-6 md:p-8">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="shrink-0 rounded-xl bg-white/5 border border-white/10 p-3 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
-              <img src="/wp-content/uploads/2024/10/logo_white-1.png" alt="SWIFTECHIE Logo" class="max-w-full max-h-full object-contain" />
-            </div>
-            <div>
-              <h3 class="font-bold text-xl md:text-2xl text-amber-400">シーテック株式会社</h3>
-              <p class="text-xs text-white/60">現場課題に寄り添い、AI・RPA・IoTから業務システム開発までを支援するDX推進パートナー</p>
-            </div>
-          </div>
-          <div class="space-y-3 text-white/85 text-base md:text-lg leading-7">
-            <p>シーテック株式会社は、2017年に東京で設立された <span class="text-white/70">SI・IoT・AIを中心とするテクノロジー企業</span> です。最新のIT技術を活用し、お客様のビジネス課題を解決するためのシステムインテグレーションや自動化ソリューションを幅広く提供しています。</p>
-            <p><span class="text-white/95 font-semibold">要件整理からPoC、本番導入、さらに運用・保守まで</span> 一気通貫でサポートする体制を整え、現場の声を反映した実践的なDX推進を実現。単なる導入に留まらず、利用定着や改善活動まで伴走します。</p>
-            <p>また、<span class="text-white/70">RPA・AIによる業務自動化、ナレッジ活用、品質の安定化、スピード改善</span> など、多様な領域に対応。加えて、IoT技術や既存システムとの連携・個別開発を通じて、現場で「実際に使える」自動化を実装しています。</p>
-            <p>当社は、現場のニーズを理解し、経営層から現場担当者までを巻き込みながらプロジェクトを推進することで、<span class="text-white/70">お客様に寄り添うDXパートナー</span> として信頼をいただいています。これからも、テクノロジーと人をつなぎ、持続的な成長と働き方の革新に貢献してまいります。</p>
-          </div>
+        <div class="mb-6">
+          <div class="text-amber-400/80 text-xs tracking-widest uppercase">About</div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white">会社紹介</h2>
         </div>
       </FadeIn>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- 会社イメージ画像 -->
+        <ScaleIn delay={0} from={0.95}>
+          <div class="rounded-2xl overflow-hidden border border-white/10">
+            <img src="/wp-content/uploads/2024/10/logo_white-1.png" alt="SWIFTECHIE イメージ" class="w-full h-full object-cover" />
+          </div>
+        </ScaleIn>
+
+        <!-- SWIFTECHIE 会社紹介 -->
+        <ScaleIn delay={150} from={0.95}>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="shrink-0 rounded-xl bg-white/5 border border-white/10 p-3 w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
+                <img src="/wp-content/uploads/2024/10/logo_white-1.png" alt="SWIFTECHIE Logo" class="max-w-full max-h-full object-contain" />
+              </div>
+              <div>
+                <h3 class="font-bold text-xl md:text-2xl text-amber-400">シーテック株式会社</h3>
+                <p class="text-xs text-white/60">現場課題に寄り添い、AI・RPA・IoTから業務システム開発までを支援するDX推進パートナー</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-white/85 text-base md:text-lg leading-7">
+              <p>シーテック株式会社は、2017年に東京で設立された <span class="text-white/70">SI・IoT・AIを中心とするテクノロジー企業</span> です。最新のIT技術を活用し、お客様のビジネス課題を解決するためのシステムインテグレーションや自動化ソリューションを幅広く提供しています。</p>
+              <p><span class="text-white/95 font-semibold">要件整理からPoC、本番導入、さらに運用・保守まで</span> 一気通貫でサポートする体制を整え、現場の声を反映した実践的なDX推進を実現。単なる導入に留まらず、利用定着や改善活動まで伴走します。</p>
+              <p>また、<span class="text-white/70">RPA・AIによる業務自動化、ナレッジ活用、品質の安定化、スピード改善</span> など、多様な領域に対応。加えて、IoT技術や既存システムとの連携・個別開発を通じて、現場で「実際に使える」自動化を実装しています。</p>
+              <p>当社は、現場のニーズを理解し、経営層から現場担当者までを巻き込みながらプロジェクトを推進することで、<span class="text-white/70">お客様に寄り添うDXパートナー</span> として信頼をいただいています。これからも、テクノロジーと人をつなぎ、持続的な成長と働き方の革新に貢献してまいります。</p>
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
     </div>
   </section>
 
