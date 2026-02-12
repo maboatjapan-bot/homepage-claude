@@ -289,14 +289,16 @@ import HeroGradient from '../components/HeroGradient.astro';
             // UMS API Configuration
             const API_URL = 'https://ums.aws.swiftechie.com/api/operation/sendByEmail';
 
-            // Product categories that map to support@ (contact-pro)
+            // Product categories - all products send to support@, no products → info@
             const PRODUCT_CATEGORIES = [
               'ポポフ」ポータブル電源',
               'ピッとパッ!」アルコール検知器',
               'ピッとシュ!」検温消毒器',
               'システム開発',
               'AWS',
-              'Virtuozzo'
+              'Virtuozzo',
+              'With-AI',
+              'その他'
             ];
 
             // With AI and その他 are also product categories, send to support@
