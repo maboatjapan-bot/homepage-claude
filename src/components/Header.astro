@@ -103,13 +103,72 @@ import SearchMenu from './SearchMenu.astro';
 </header>
 
 <script>
-  // Mobile search trigger only (desktop handled by SearchMenu component)
+  // Mobile search trigger - opens Google AI search (same as desktop)
   const searchTriggerMobile = document.getElementById('search-trigger-mobile');
 
-  searchTriggerMobile?.addEventListener('click', () => {
-    if (window.openSearch) {
-      window.openSearch();
+  // Google AI Widget initialization for mobile
+  let googleScriptLoaded = false;
+  let googleScriptLoading = false;
+  let widgetCreated = false;
+  let googleAiContainer: HTMLElement | null = null;
+
+  async function initGoogleWidget() {
+    if (widgetCreated) return;
+
+    try {
+      if (!googleScriptLoaded && !googleScriptLoading) {
+        googleScriptLoading = true;
+        await new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cloud.google.com/ai/gen-app-builder/client?hl=ja';
+          script.async = true;
+          script.onload = () => {
+            googleScriptLoaded = true;
+            googleScriptLoading = false;
+            resolve(undefined);
+          };
+          script.onerror = () => {
+            googleScriptLoading = false;
+            reject(new Error('Failed to load Google Widget'));
+          };
+          document.head.appendChild(script);
+        });
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      googleAiContainer = document.getElementById('google-ai-widget-container');
+      if (!googleAiContainer) {
+        googleAiContainer = document.createElement('div');
+        googleAiContainer.id = 'google-ai-widget-container';
+        googleAiContainer.className = 'google-ai-widget';
+        document.body.appendChild(googleAiContainer);
+      } else if (googleAiContainer.parentElement !== document.body) {
+        document.body.appendChild(googleAiContainer);
+      }
+
+      googleAiContainer.innerHTML = '';
+
+      const widget = document.createElement('gen-search-widget');
+      widget.setAttribute('configId', 'bdff1d11-8603-47e8-851d-747312e6e3f5');
+      widget.setAttribute('placeholder', '何でもお尋ねください...');
+      widget.setAttribute('anchorsTarget', '_blank');
+      widget.setAttribute('alwaysOpened', '');
+
+      googleAiContainer.appendChild(widget);
+      widgetCreated = true;
+
+      setTimeout(() => {
+        const input = widget?.querySelector('input[type="text"], input[type="search"]');
+        input?.focus();
+      }, 1000);
+    } catch (error) {
+      console.error('Failed to initialize Google Widget:', error);
     }
+  }
+
+  searchTriggerMobile?.addEventListener('click', () => {
+    initGoogleWidget();
   });
 
   // Mobile menu
