@@ -1,0 +1,62 @@
+---
+/**
+ * SEO Component - Open Graph & Twitter Cards
+ *
+ * Usage:
+ * <SEO
+ *   title="ページタイトル"
+ *   description="ページ説明"
+ *   image="/og-image.jpg"
+ *   type="website"
+ *   path="/products/popohu-mini"
+ * />
+ */
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'product';
+  path?: string;
+  noindex?: boolean;
+  canonical?: string;
+}
+
+const {
+  title = 'Swiftechie - 技術で未来をつなぐ',
+  description = '株式会社シーテック（Swiftechie）- 技術で未来をつなぐ。最先端の AI 技術とプロフェッショナルなシステム開発で、ビジネスの可能性を広げます。',
+  image = '/wp-content/uploads/2025/07/og-image.jpg',
+  type = 'website',
+  path = '',
+  noindex = false,
+  canonical
+} = Astro.props;
+
+const siteUrl = 'https://www.swiftechie.com';
+const fullUrl = canonical || `${siteUrl}${path}`;
+const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const pageTitle = title === 'Swiftechie - 技術で未来をつなぐ' ? title : `${title} | Swiftechie`;
+---
+
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="canonical" href={fullUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullUrl} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="Swiftechie" />
+<meta property="og:locale" content="ja_JP" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={fullUrl} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />

@@ -1,11 +1,11 @@
 ---
 import '../styles/global.css';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import SEO from '../components/SEO.astro';
 ---
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="株式会社シーテック（Swiftechie）- 技術で未来をつなぐ。最先端の AI 技術とプロフェッショナルなシステム開発で、ビジネスの可能性を広げます。" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
@@ -18,6 +18,9 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
     <!-- Google Analytics 4 -->
     <GoogleAnalytics />
+
+    <!-- SEO Meta Tags -->
+    <SEO />
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -80,8 +83,6 @@ import GoogleAnalytics from '../components/GoogleAnalytics.astro';
       ]
     }
     </script>
-
-    <title>Swiftechie - 技術で未来をつなぐ</title>
   </head>
   <body class="bg-white text-slate-900 antialiased">
     <slot />

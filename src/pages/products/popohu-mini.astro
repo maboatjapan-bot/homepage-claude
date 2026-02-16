@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import SEO from '../../components/SEO.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import FadeIn from '../../components/FadeIn.astro';
 import ScaleIn from '../../components/ScaleIn.astro';
 import SlideIn from '../../components/SlideIn.astro';
@@ -9,6 +11,24 @@ import SlideIn from '../../components/SlideIn.astro';
 
 <BaseLayout>
   <Header />
+
+  <!-- SEO -->
+  <SEO
+    title="ポポフmini - コンセント不要のポータブル電源"
+    description="ポポフminiは、電源工事不要でどこでもスマート給電を実現するポータブル電源。会議室、カフェ、自宅デスクまで、コンセントが届かない場所でも電源を確保できます。"
+    image="/wp-content/uploads/2025/07/new_top_banner.jpg"
+    type="product"
+    path="/products/popohu-mini"
+  />
+
+  <!-- Breadcrumb -->
+  <Breadcrumb
+    items={[
+      { name: 'ホーム', url: '/' },
+      { name: '製品', url: '/products' },
+      { name: 'ポポフmini', url: '/products/popohu-mini' }
+    ]}
+  />
 
   <!-- Hero Section -->
   <section class="pt-20 pb-16 px-6 bg-white">

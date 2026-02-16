@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ScaleIn from '../components/ScaleIn.astro';
 import HeroGradient from '../components/HeroGradient.astro';
@@ -11,6 +13,20 @@ import CallToAction from '../components/CallToAction.astro';
 <BaseLayout>
   <Header />
 
+  <!-- SEO -->
+  <SEO
+    title="お問い合わせ"
+    description="株式会社シーテックへのお問い合わせ。製品・サービスに関するご相談や、システム開発、AIソリューションなどお気軽にお問い合わせください。電話：0120-284-612"
+    path="/contact"
+  />
+
+  <!-- Breadcrumb -->
+  <Breadcrumb
+    items={[
+      { name: 'ホーム', url: '/' },
+      { name: 'お問い合わせ', url: '/contact' }
+    ]}
+  />
 
   <!-- Hero -->
   <section class="pt-32 pb-24 px-6 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">

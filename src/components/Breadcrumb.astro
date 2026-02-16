@@ -1,0 +1,57 @@
+---
+/**
+ * Breadcrumb Navigation Component
+ *
+ * Usage:
+ * <Breadcrumb
+ *   items={[
+ *     { name: 'ホーム', url: '/' },
+ *     { name: '製品', url: '/products' },
+ *     { name: 'ポポフmini', url: '/products/popohu-mini' }
+ *   ]}
+ * />
+ */
+
+import StructuredData from './StructuredData.astro';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<!-- Breadcrumb Navigation with Schema.org -->
+<nav aria-label="パンくずリスト" class="py-4 px-6 bg-slate-50 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto">
+    <ol class="flex items-center gap-2 text-sm flex-wrap">
+      {items.map((item, index) => (
+        <li class="flex items-center gap-2">
+          {index > 0 && (
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          )}
+          {index === items.length - 1 ? (
+            <span class="text-slate-900 font-medium">{item.name}</span>
+          ) : (
+            <a
+              href={item.url}
+              class="text-slate-600 hover:text-brand-teal transition-colors"
+            >
+              {item.name}
+            </a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+
+<!-- Breadcrumb Schema.org -->
+<StructuredData type="Breadcrumb" data={{ items }} />
