@@ -98,6 +98,43 @@ npm run preview
 npm run build:search
 ```
 
+---
+
+## 快速开始 / Quick Start (中文)
+
+### 环境要求 / Requirements
+- Node.js 18+ 或 20+
+
+### 本地部署步骤 / Local Setup
+
+```bash
+# 1. 克隆项目
+git clone <repository-url>
+cd homepage-claude
+
+# 2. 安装依赖
+npm install
+
+# 3. 启动开发服务器
+npm run dev
+```
+
+访问 http://localhost:4321 查看网站
+
+### 环境变量（可选）/.env (Optional)
+
+```bash
+# 复制示例文件
+cp .env.example .env
+
+# 编辑 .env，配置 Google Analytics（可选）
+# PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+不配置环境变量也能正常运行开发服务器。
+
+---
+
 ## デプロイ / Deployment
 
 - **本番環境**: https://www.swiftechie.com
