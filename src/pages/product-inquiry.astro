@@ -648,27 +648,33 @@ import HeroGradient from '../components/HeroGradient.astro';
       <FadeIn>
         <div class="text-center mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-            お電話でのお問い合わせ
+            お問い合わせ先
           </h2>
         </div>
       </FadeIn>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <ScaleIn delay={0} from={0.95}>
           <div class="text-center">
             <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502l1.21-.502A11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
             </div>
             <h3 class="text-lg font-semibold text-slate-900 mb-2">電話番号</h3>
-            <p class="text-slate-600">03-6222-8452</p>
-            <p class="text-sm text-slate-500 mt-1">受付時間: 平日 9:00-18:00</p>
+            <p class="text-slate-600">0120-284-612</p>
+            <p class="text-sm text-slate-500 mt-1">受付時間 AM10:00〜12:00 PM1:00〜5:00</p>
+            <p class="text-xs text-slate-400">（土日祝・夏期休暇・年末年始を除く）</p>
           </div>
         </ScaleIn>
 
         <ScaleIn delay={100} from={0.95}>
-          <div class="text-center">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=東京都中央区新川1-14-5金盃第3ビル7F"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-center hover:opacity-80 transition-opacity"
+          >
             <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
@@ -678,20 +684,8 @@ import HeroGradient from '../components/HeroGradient.astro';
             <h3 class="text-lg font-semibold text-slate-900 mb-2">住所</h3>
             <p class="text-slate-600">〒104-0033</p>
             <p class="text-slate-600">東京都中央区新川1-14-5<br/>金盃第3ビル7F</p>
-          </div>
-        </ScaleIn>
-
-        <ScaleIn delay={200} from={0.95}>
-          <div class="text-center">
-            <div class="w-16 h-16 bg-brand-teal/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-slate-900 mb-2">メール</h3>
-            <p class="text-slate-600">info@swiftechie.com</p>
-            <p class="text-sm text-slate-500 mt-1">24時間受付中</p>
-          </div>
+            <p class="text-xs text-slate-400 mt-1">クリックで地図を開く</p>
+          </a>
         </ScaleIn>
       </div>
     </div>
