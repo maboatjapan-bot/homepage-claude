@@ -5,8 +5,11 @@ Swiftechie（株式会社シーテック）の公式ウェブサイト - Astro 5
 ## 技術スタック / Tech Stack
 
 - **Astro 5.16** - 静的サイトジェネレーター
-- **Tailwind CSS** - ユーティリティファーストCSS
+- **React 19** - インタラクティブコンポーネント
+- **Three.js 0.182** - 3D グラフィックス（React Three Fiber）
+- **Tailwind CSS v3** - ユーティリティファーストCSS
 - **TypeScript** - 型安全な開発
+- **Swiper 12** - スライダー/カルーセル
 - **Pagefind** - 検索機能
 - **AWS Amplify** - ホスティング & デプロイ
 
@@ -47,6 +50,10 @@ homepage-claude/
 │   ├── components/           # Astro コンポーネント
 │   │   ├── Header.astro
 │   │   ├── Footer.astro
+│   │   ├── 3d/               # Three.js コンポーネント（React）
+│   │   │   ├── NeuralSphere.jsx
+│   │   │   ├── HeroParticles.jsx
+│   │   │   └── ...
 │   │   ├── FadeIn.astro
 │   │   ├── ScaleIn.astro
 │   │   └── ...
@@ -76,10 +83,12 @@ homepage-claude/
 │   │   └── news/             # ニュース一覧・詳細
 │   │
 │   └── styles/               # グローバルスタイル
+│       └── global.css
 │
 ├── CLAUDE.md                 # Claude Code プロジェクトガイド
+├── astro.config.mjs          # Astro 設定
 ├── package.json
-└── tsconfig.json
+└── README.md
 ```
 
 ## 開発コマンド / Development Commands
@@ -168,4 +177,4 @@ cp .env.example .env
 
 ## ライセンス / License
 
-Copyright © 2025 Swiftechie (株式会社シーテック)
+Copyright © 2026 Swiftechie (株式会社シーテック)
