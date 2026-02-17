@@ -38,6 +38,28 @@ tests/old-site-*.spec.ts
 tests/investigation-*.spec.ts
 tests/current-*.spec.ts
 
+# Root level test files (should not be committed)
+*.spec.ts
+check-*.js
+check-*.cjs
+compare-*.spec.ts
+fetch-*.spec.ts
+get-*.cjs
+get-*.spec.ts
+manual-check.js
+tests/manual-check.js
+
+# Root level test images (should not be committed)
+*-site-*.png
+*-pitopa.png
+*-pitoshiyu.png
+*-popohu*.png
+amp-*.png
+
+# Deployment packages
+*.tar.gz
+swiftechie-site.tar.gz
+
 # Temporary files
 *.tmp
 .cache/
